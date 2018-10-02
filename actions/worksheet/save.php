@@ -22,10 +22,15 @@ $worksheet->owner_guid = elgg_get_logged_in_user_guid();
 $blog_guid = $worksheet->save();
 
 if ($blog_guid) {
-   system_message("Küsitlus salvestati.");
-   forward($worksheet->getURL());
+  system_message("Küsitlus salvestati.");
+
+  //forward to same page but also display code of created worksheet
+  $url = elgg_generate_url('add:object:worksheet', [
+    'wcode' => $worksheet->wcode
+  ]);
+  forward($url);
 }
 else {
-   register_error("Küsitlust ei saanud teha.");
-   forward(REFERER);
+  register_error("Küsitlust ei saanud teha.");
+  forward(REFERER);
 }

@@ -13,7 +13,7 @@
     ],
     'routes' => [
       'add:object:worksheet' => [
-        'path' => 'kysitlused/uus',
+        'path' => 'kysitlused/uus/{wcode?}',
         'resource' => 'worksheet/add'
       ],
       'view:object:worksheet' => [
