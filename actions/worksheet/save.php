@@ -5,6 +5,23 @@ $start_date = get_input('start_date');
 $start_time = get_input('start_time');
 $time_limit = get_input('time_limit');
 
+//validate date&time - can't be in the past
+$format = 'd-m-Y H:i';
+$tallinn = timezone_open('Europe/Tallinn');
+
+$date1 = date_create_from_format($format, $start_date.' '.$start_time, $tallinn);
+$date2 = date_create("now", $tallinn);
+
+$u1 = date_timestamp_get($date1);
+$u2 = date_timestamp_get($date2);
+
+if ($u1 < $u2)
+{
+  //date is in the past so don't create worksheet
+  register_error("Aeg on minevikus.");
+  forward(REFERER);
+}
+
 //set up new object
 $worksheet = new ElggObject();
 
