@@ -21,6 +21,10 @@
         'path' => 'kysitlused/alusta',
         'resource' => 'begin'
       ],
+      'admin' => [
+        'path' => 'admin',
+        'resource' => 'admin'
+      ],
       'add:object:worksheet' => [
         'path' => 'kysitlused/uus/{wcode?}',
         'resource' => 'worksheet/add'
