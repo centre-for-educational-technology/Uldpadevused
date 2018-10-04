@@ -33,11 +33,35 @@ $worksheet->wdate = $start_date;
 $worksheet->wtime = $start_time;
 $worksheet->limit = $time_limit;
 
-$worksheet->wcode = mt_rand(100000, 999999);
 $worksheet->state = "Algamas"; //"Algamas", "Alanud", "Lõppenud"
 $worksheet->subtype = 'worksheet';
 $worksheet->access_id = ACCESS_PUBLIC;
 $worksheet->owner_guid = elgg_get_logged_in_user_guid();
+
+//generate random unique code. rarely creates 7 or more digit codes.
+$min = 100000;
+$max = 999999;
+$try = 0;
+do {
+  $wcode = mt_rand($min, $max);
+  $sheets = elgg_get_entities(array(
+    'metadata_names' => array('wcode'),
+    'metadata_values' => array($wcode)
+  ));
+
+  if ($try > 2)
+  {
+    $try = 0;
+    $min *= 10;
+    $max = $max * 10 + 9;
+  }
+  else
+  {
+    $try += 1;
+  }
+} while (count($sheets) > 0);
+
+$worksheet->wcode = $wcode;
 
 $blog_guid = $worksheet->save();
 
