@@ -17,4 +17,6 @@ if (count($sheets) == 0) return;
 
 $sheet = $sheets[0];
 
-echo $sheet->wcode;
+echo $sheet->wcode.'<br>';
+echo $sheet->wdate.' '.$sheet->wtime.'<br>';
+echo $sheet->wtend.'<br>';
