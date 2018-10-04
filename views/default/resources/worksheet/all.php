@@ -15,6 +15,11 @@ $body = '<table style="width:100%;"><tr>';
 $body .= "<th>#</th>";
 $body .= "<th>Kood</th>";
 $body .= "<th>Kuupäev</th>";
+
+//for testing purposes
+$body .= "<th>Kell</th>";
+$body .= "<th>Lõpp</th>";
+
 $body .= "<th>Vastanute arv</th>";
 $body .= "<th>Küsimustiku nimi</th>";
 $body .= "<th>Staatus</th>";
@@ -30,6 +35,11 @@ for ($i = 0; $i < $n; $i += 1)
   $body .= "<th>".strval($i + 1)."</th>";
   $body .= "<th>".$sheet->wcode."</th>";
   $body .= "<th>".$sheet->wdate."</th>";
+
+  //for testing purposes
+  $body .= "<th>".$sheet->wtime."</th>";
+  $body .= "<th>".$sheet->wtend."</th>";
+
   $body .= "<th>"."gnome"."</th>";
   $body .= "<th>".$sheet->title."</th>";
   $body .= "<th>".$sheet->state."</th>";
