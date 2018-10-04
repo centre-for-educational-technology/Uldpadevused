@@ -20,5 +20,9 @@
         'path' => 'kysitlused/{wcode}',
         'resource' => 'worksheet/view'
       ],
+      'collection:object:worksheet:all' => [
+        'path' => 'kysitlused',
+        'resource' => 'worksheet/all'
+      ]
     ],
   ];
