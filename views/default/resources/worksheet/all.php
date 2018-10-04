@@ -8,6 +8,7 @@ $pagetitle = "Üldpädevused";
 $sheets = elgg_get_entities(array(
   'type' => 'object',
   'subtype' => 'worksheet',
+  'limit' => 0
 ));
 
 $body = '<table style="width:100%;"><tr>';
