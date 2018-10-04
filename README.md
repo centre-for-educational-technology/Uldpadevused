@@ -1,1 +1,1 @@
-# Uldpadevused
+# Üldpädevused
