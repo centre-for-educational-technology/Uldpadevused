@@ -6,14 +6,18 @@ $regex_date = '(^(((0[1-9]|1[0-9]|2[0-8])[-](0[1-9]|1[012]))|((29|30|31)[-](0[13
 //validates time in hh:mm format.
 $regex_time = '^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$';
 
+$sheet1 = 'Lugemise metakognitsioon lastele';
+$sheet2 = 'Lugmot-laused 4klass';
+$sheet3 = 'Kuidas õppida enne sekkumist';
+
 echo elgg_view_field([
   '#type' => 'select',
   'name' => 'sheet_type',
   'required' => true,
   'options_values' => array(
-    'type01' => 'Lugemise metakognitsioon lastele',
-    'type02' => 'Lugmot-laused 4klass',
-    'type03' => 'Kuidas õppida enne sekkumist'
+    $sheet1 => $sheet1,
+    $sheet2 => $sheet2,
+    $sheet3 => $sheet3,
   ),
 ]);
 

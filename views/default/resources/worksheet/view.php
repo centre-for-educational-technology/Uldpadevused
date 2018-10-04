@@ -5,8 +5,13 @@
 $wcode = elgg_extract('wcode', $vars);
 
 $sheets = elgg_get_entities(array(
-  'wcode' => $wcode
+  'metadata_names' => array('wcode'),
+  'metadata_values' => array($wcode)
 ));
+
+echo print_r(sizeof($sheets), true);
+
+echo '<br>';
 
 if (count($sheets) == 0) return;
 

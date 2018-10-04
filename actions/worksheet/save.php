@@ -1,4 +1,7 @@
 <?php
+
+gatekeeper();
+
 //get data from form
 $sheet_type = get_input('sheet_type');
 $start_date = get_input('start_date');

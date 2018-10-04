@@ -9,9 +9,18 @@
       ],
     ],
     'actions' => [
-      'worksheet/save' => []
+      'worksheet/save' => [],
+      'begin' => []
     ],
     'routes' => [
+      'login' => [
+        'path' => 'logi-sisse',
+        'resource' => 'login'
+      ],
+      'begin' => [
+        'path' => 'kysitlused/alusta',
+        'resource' => 'begin'
+      ],
       'add:object:worksheet' => [
         'path' => 'kysitlused/uus/{wcode?}',
         'resource' => 'worksheet/add'
@@ -20,5 +29,9 @@
         'path' => 'kysitlused/{wcode}',
         'resource' => 'worksheet/view'
       ],
+      'collection:object:worksheet:all' => [
+        'path' => 'kysitlused',
+        'resource' => 'worksheet/all'
+      ]
     ],
   ];
