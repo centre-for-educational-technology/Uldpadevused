@@ -1,4 +1,7 @@
 <?php
+
+gatekeeper();
+
 $titlebar = "Üldpädevused";
 $pagetitle = "Üldpädevused";
 
