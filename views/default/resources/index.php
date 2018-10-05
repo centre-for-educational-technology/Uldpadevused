@@ -3,8 +3,7 @@
 $title = "Küsimustikud - Üldpädevused";
 $content = elgg_view_title($title);
 
-$href1 = elgg_generate_url('begin');
-$href2 = elgg_generate_url('login');
+$href1 = elgg_generate_url('uldpadevused:begin');
 
 $content .= '<a href="'.$href1.'" class="elgg-button elgg-button-action">Alusta küsimustiku täitmist</a>';
 
