@@ -22,7 +22,7 @@
         'resource' => 'begin'
       ],
       'uldpadevused:admin' => [
-        'path' => 'admin',
+        'path' => 'administratsioon',
         'resource' => 'admin'
       ],
       'add:object:worksheet' => [
