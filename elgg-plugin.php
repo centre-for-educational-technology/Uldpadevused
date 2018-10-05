@@ -13,15 +13,15 @@
       'begin' => []
     ],
     'routes' => [
-      'login' => [
+      'uldpadevused:login' => [
         'path' => 'logi-sisse',
         'resource' => 'login'
       ],
-      'begin' => [
+      'uldpadevused:begin' => [
         'path' => 'kysitlused/alusta',
         'resource' => 'begin'
       ],
-      'admin' => [
+      'uldpadevused:admin' => [
         'path' => 'admin',
         'resource' => 'admin'
       ],
