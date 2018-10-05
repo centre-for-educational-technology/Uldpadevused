@@ -2,6 +2,11 @@
 
 const ERROR = "hello there old chum";
 
+
+const worksheet1 = 'Lugemise metakognitsioon lastele';
+const worksheet2 = 'Lugmot-laused 4klass';
+const worksheet3 = 'Kuidas õppida enne sekkumist';
+
 function uldpadevused_init() {
   //visiteeri http://localhost:8888/cron/minute et esile kutsuda
   
