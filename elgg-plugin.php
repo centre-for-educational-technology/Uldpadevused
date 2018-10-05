@@ -10,7 +10,9 @@
     ],
     'actions' => [
       'worksheet/save' => [],
-      'begin' => []
+      'begin' => [
+        'access' => 'public'
+      ]
     ],
     'routes' => [
       'uldpadevused:login' => [
