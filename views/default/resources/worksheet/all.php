@@ -40,7 +40,7 @@ for ($i = 0; $i < $n; $i += 1)
   $body .= "<th>".$sheet->wtime."</th>";
   $body .= "<th>".$sheet->wtend."</th>";
 
-  $body .= "<th>"."gnome"."</th>";
+  $body .= "<th>".$sheet->replies."</th>";
   $body .= "<th>".$sheet->title."</th>";
   $body .= "<th>".$sheet->state."</th>";
   $body .= "<th>"."gnome"."</th>";

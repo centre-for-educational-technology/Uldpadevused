@@ -12,6 +12,15 @@
       'worksheet/save' => [],
       'begin' => [
         'access' => 'public'
+      ],
+      'sheets/worksheet1' => [
+        'access' => 'public'
+      ],
+      'sheets/worksheet2' => [
+        'access' => 'public'
+      ],
+      'sheets/worksheet3' => [
+        'access' => 'public'
       ]
     ],
     'routes' => [
