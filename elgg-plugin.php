@@ -21,6 +21,12 @@
       ],
       'sheets/worksheet3' => [
         'access' => 'public'
+      ],
+      'sheets/ws1-bussid' => [
+        'access' => 'public'
+      ],
+      'sheets/ws1-emakeel' => [
+        'access' => 'public'
       ]
     ],
     'routes' => [
@@ -41,7 +47,7 @@
         'resource' => 'worksheet/add'
       ],
       'view:object:worksheet' => [
-        'path' => 'kysitlused/{wcode}',
+        'path' => 'kysitlused/{wcode}/{page?}',
         'resource' => 'worksheet/view'
       ],
       'collection:object:worksheet:all' => [

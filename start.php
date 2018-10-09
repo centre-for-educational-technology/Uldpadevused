@@ -1,11 +1,21 @@
 <?php
 
-const ERROR = "hello there old chum";
+const worksheets = [
+  [
+    'name' => 'Lugemise metakognitsioon lastele',
+    'pages' => [1 => 'ws1-bussid', 2 => 'ws1-emakeel']
+  ],
+  [
+    'name' => 'Lugmot-laused 4klass',
+    'pages' => []
+  ],
+  [
+    'name' => 'Kuidas õppida enne sekkumist',
+    'pages' => []
+  ]
+];
 
-const worksheet1 = 'Lugemise metakognitsioon lastele';
-const worksheet2 = 'Lugmot-laused 4klass';
-const worksheet3 = 'Kuidas õppida enne sekkumist';
-
+//fetches a worksheet object that matches the wcode
 function get_sheet_from_wcode($wcode)
 {
   $sheets = elgg_get_entities(array(
@@ -19,12 +29,57 @@ function get_sheet_from_wcode($wcode)
   }
 }
 
+//adds 1 reply to sheet
 function increase_sheet_replies($sheet)
 {
   $replies = $sheet->replies;
   $replies = strval(intval($replies) + 1);
   $sheet->replies = $replies;
   $sheet->save();
+}
+
+//generate hidden fields for form page
+function form_view_hidden_fields($wcode, $page)
+{
+  echo elgg_view_field([
+    '#type' => 'hidden',
+    'name' => 'wcode',
+    'value' => $wcode
+  ]);
+  echo elgg_view_field([
+    '#type' => 'hidden',
+    'name' => 'page',
+    'value' => $page
+  ]);
+}
+
+//generate buttons for form page
+function form_view_buttons($wcode, $page, $maxp)
+{
+  if ($page > 1)
+  {
+    $href1 = elgg_generate_url('view:object:worksheet', [
+      'wcode' => $wcode,
+      'page' => $page - 1
+    ]);
+    echo '<a href="'.$href1.'" class="elgg-button elgg-button-action">Eelmine küsimus</a>';
+  }
+  if ($page < $maxp)
+  {
+    $submit = elgg_view_field(array(
+    '#type' => 'submit',
+    '#class' => 'elgg-foot',
+    'value' => 'Järgmine küsimus'
+    ));
+  }
+  else {
+    $submit = elgg_view_field(array(
+      '#type' => 'submit',
+      '#class' => 'elgg-foot',
+      'value' => 'Saada ära',
+    ));
+  }
+  elgg_set_form_footer($submit);
 }
 
 function uldpadevused_init() {

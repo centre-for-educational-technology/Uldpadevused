@@ -1,36 +1,31 @@
 <?php
 
-//hetkel väga lihtne kood lihtsalt et näha et asi toimib
-
-//find the right worksheet
+//find the right worksheet object
 $wcode = elgg_extract('wcode', $vars);
-
 $sheet = get_sheet_from_wcode($wcode);
-
 if (!$sheet || $sheet->state != 'Alanud')
 {
   register_error("Sellise koodiga avatud küsistlust ei leitud.");
   forward(REFERER);
 }
 
-$title = "Küsimustikud - Üldpädevused";
-$content = elgg_view_title($title);
-
-//show the correct worksheet form
+//find correct page of form
 $stype = $sheet->title;
-if ($stype == worksheet1)
+$key = array_search($stype, array_column(worksheets, 'name'));
+$page = elgg_extract('page', $vars);
+$maxp = count(worksheets[$key]['pages']);
+if (!$page || $page < 1)
 {
-  $form = "sheets/worksheet1";
+  $page = 1;
 }
-else if ($stype == worksheet2)
+else if ($page > $maxp)
 {
-  $form = "sheets/worksheet2";
+  $page = $maxp;
 }
-else if ($stype == worksheet3)
-{
-  $form = "sheets/worksheet3";
-}
-$content .= elgg_view_form($form, array(), array('wcode' => $sheet->wcode));
+$form = 'sheets/'.worksheets[$key]['pages'][$page];
+
+$content = elgg_view_title($stype);
+$content .= elgg_view_form($form, array(), array('wcode' => $wcode, 'page' => $page, 'maxp' => $maxp));
 
 $body = elgg_view_layout('no_sidebar', array(
   'content' => $content
