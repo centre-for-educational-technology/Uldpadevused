@@ -2,10 +2,30 @@
 
 const ERROR = "hello there old chum";
 
-
 const worksheet1 = 'Lugemise metakognitsioon lastele';
 const worksheet2 = 'Lugmot-laused 4klass';
 const worksheet3 = 'Kuidas õppida enne sekkumist';
+
+function get_sheet_from_wcode($wcode)
+{
+  $sheets = elgg_get_entities(array(
+    'metadata_names' => array('wcode'),
+    'metadata_values' => array($wcode)
+  ));
+  if (count($sheets) > 0)
+  {
+    $sheet = $sheets[0];
+    return $sheet;
+  }
+}
+
+function increase_sheet_replies($sheet)
+{
+  $replies = $sheet->replies;
+  $replies = strval(intval($replies) + 1);
+  $sheet->replies = $replies;
+  $sheet->save();
+}
 
 function uldpadevused_init() {
   //visiteeri http://localhost:8888/cron/minute et esile kutsuda

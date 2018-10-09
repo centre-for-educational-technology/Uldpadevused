@@ -1,14 +1,8 @@
 <?php
 
 $wcode = get_input('wcode');
-$sheets = elgg_get_entities(array(
-  'metadata_names' => array('wcode'),
-  'metadata_values' => array($wcode)
-));
-$sheet = $sheets[0];
+$sheet = get_sheet_from_wcode($wcode);
+if (!$sheet) return;
 
 //increase number of replies by 1
-$replies = $sheet->replies;
-$replies = strval(intval($replies) + 1);
-$sheet->replies = $replies;
-$sheet->save();
+increase_sheet_replies($sheet);

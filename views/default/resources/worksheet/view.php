@@ -4,16 +4,14 @@
 
 //find the right worksheet
 $wcode = elgg_extract('wcode', $vars);
-$sheets = elgg_get_entities(array(
-  'metadata_names' => array('wcode'),
-  'metadata_values' => array($wcode),
-));
-if (count($sheets) == 0 || $sheets[0]->state != 'Alanud')
+
+$sheet = get_sheet_from_wcode($wcode);
+
+if (!$sheet || $sheet->state != 'Alanud')
 {
   register_error("Sellise koodiga avatud küsistlust ei leitud.");
   forward(REFERER);
 }
-$sheet = $sheets[0];
 
 $title = "Küsimustikud - Üldpädevused";
 $content = elgg_view_title($title);
