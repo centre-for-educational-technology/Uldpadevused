@@ -1,22 +1,33 @@
 <?php
 
-//hetkel väga lihtne kood lihtsalt et näha et asi toimib
-
+//find the right worksheet object
 $wcode = elgg_extract('wcode', $vars);
+$sheet = get_sheet_from_wcode($wcode);
+if (!$sheet || $sheet->state != 'Alanud')
+{
+  register_error("Sellise koodiga avatud küsistlust ei leitud.");
+  forward(REFERER);
+}
 
-$sheets = elgg_get_entities(array(
-  'metadata_names' => array('wcode'),
-  'metadata_values' => array($wcode)
+//find correct page of form
+$stype = $sheet->title;
+$key = array_search($stype, array_column(worksheets, 'name'));
+$page = elgg_extract('page', $vars);
+$maxp = count(worksheets[$key]['pages']);
+if (!$page || $page < 1)
+{
+  $page = 1;
+}
+else if ($page > $maxp)
+{
+  $page = $maxp;
+}
+$form = worksheets[$key]['folder'].'/'.worksheets[$key]['pages'][$page];
+
+$content = elgg_view_title($stype);
+$content .= elgg_view_form($form, array(), array('wcode' => $wcode, 'page' => $page, 'maxp' => $maxp));
+
+$body = elgg_view_layout('no_sidebar', array(
+  'content' => $content
 ));
-
-echo print_r(sizeof($sheets), true);
-
-echo '<br>';
-
-if (count($sheets) == 0) return;
-
-$sheet = $sheets[0];
-
-echo $sheet->wcode.'<br>';
-echo $sheet->wdate.' '.$sheet->wtime.'<br>';
-echo $sheet->wtend.'<br>';
+echo elgg_view_page($title, $body);
