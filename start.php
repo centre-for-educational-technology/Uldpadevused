@@ -3,7 +3,12 @@
 const worksheets = [
   [
     'name' => 'Lugemise metakognitsioon lastele',
-    'pages' => [1 => 'ws1-bussid', 2 => 'ws1-emakeel']
+    'folder' => 'lumela',
+    'pages' => [
+      1 => 'lumela1', 2 => 'lumela2', 3 => 'lumela3',
+      4 => 'lumela4', 5 => 'lumela5', 6 => 'lumela6',
+      7 => 'lumela7'
+    ]
   ],
   [
     'name' => 'Lugmot-laused 4klass',
@@ -27,6 +32,22 @@ function get_sheet_from_wcode($wcode)
     $sheet = $sheets[0];
     return $sheet;
   }
+}
+
+//forwards to next page of given worksheet
+function forward_next_url($wcode, $page)
+{
+  $url = elgg_generate_url('view:object:worksheet', [
+    'wcode' => $wcode,
+    'page' => $page + 1
+  ]);
+  forward($url);
+}
+
+function forward_home()
+{
+  $url = elgg_generate_url('index');
+  forward($url);
 }
 
 //adds 1 reply to sheet
@@ -80,6 +101,26 @@ function form_view_buttons($wcode, $page, $maxp)
     ));
   }
   elgg_set_form_footer($submit);
+}
+
+function form_view_radios($labels, $id)
+{
+  for ($i = 0; $i < count($labels); $i += 1)
+  {
+    $ipp = $i + 1;
+    echo elgg_view_field([
+      '#label' => $labels[$i],
+      'name' => 'q'.$ipp,
+      'value' => $_SESSION['w1p'.$id.'q'.$ipp],
+      'options' => [
+        'Jah' => 1,
+        'Ei' => 0
+      ],
+      '#type' => 'radio',
+      'align' => 'horizontal',
+      'required' => true
+    ]);
+  }
 }
 
 function uldpadevused_init() {

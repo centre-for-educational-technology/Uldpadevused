@@ -13,21 +13,19 @@
       'begin' => [
         'access' => 'public'
       ],
-      'sheets/worksheet1' => [
-        'access' => 'public'
-      ],
-      'sheets/worksheet2' => [
-        'access' => 'public'
-      ],
-      'sheets/worksheet3' => [
-        'access' => 'public'
-      ],
       'sheets/ws1-bussid' => [
         'access' => 'public'
       ],
       'sheets/ws1-emakeel' => [
         'access' => 'public'
-      ]
+      ],
+      'lumela/lumela1' => ['access' => 'public'],
+      'lumela/lumela2' => ['access' => 'public'],
+      'lumela/lumela3' => ['access' => 'public'],
+      'lumela/lumela4' => ['access' => 'public'],
+      'lumela/lumela5' => ['access' => 'public'],
+      'lumela/lumela6' => ['access' => 'public'],
+      'lumela/lumela7' => ['access' => 'public'],
     ],
     'routes' => [
       'uldpadevused:login' => [

@@ -22,7 +22,7 @@ else if ($page > $maxp)
 {
   $page = $maxp;
 }
-$form = 'sheets/'.worksheets[$key]['pages'][$page];
+$form = worksheets[$key]['folder'].'/'.worksheets[$key]['pages'][$page];
 
 $content = elgg_view_title($stype);
 $content .= elgg_view_form($form, array(), array('wcode' => $wcode, 'page' => $page, 'maxp' => $maxp));
