@@ -43,7 +43,13 @@ for ($i = 0; $i < $n; $i += 1)
   $body .= "<th>".$sheet->replies."</th>";
   $body .= "<th>".$sheet->title."</th>";
   $body .= "<th>".$sheet->state."</th>";
-  $body .= "<th>"."gnome"."</th>";
+
+  $url = elgg_generate_url(
+    'download:object:worksheet',
+    array('wcode' => $sheet->wcode)
+  );
+  $download = '<a href="'.$url.'">.csv</a>';
+  $body .= "<th>".$download."</th>";
 
   $body .= "</tr>";
 }

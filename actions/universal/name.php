@@ -5,11 +5,8 @@ $wcode = get_input('wcode');
 $page = get_input('page');
 
 //save data to session
-for ($i = 1; $i < 7; $i += 1)
-{
-  $value = get_input('q'.$i);
-  $_SESSION[$wcode.'p6q'.$i] = $value;
-}
+$_SESSION[$wcode.'name'] = get_input('name');
+$_SESSION[$wcode.'grade'] = get_input('grade');
 
 //go to the next question
 forward_next_url($wcode, $page);

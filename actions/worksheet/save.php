@@ -3,7 +3,7 @@
 gatekeeper();
 
 //get data from form
-$sheet_type = get_input('sheet_type');
+$sheet_type = worksheets[get_input('sheet_type')]['name'];
 $start_date = get_input('start_date');
 $start_time = get_input('start_time');
 $time_limit = get_input('time_limit');
@@ -68,8 +68,12 @@ do {
     $try += 1;
   }
 } while (count($sheets) > 0);
-
 $worksheet->wcode = $wcode;
+
+//set table names for csv text
+$key = array_search($sheet_type, array_column(worksheets, 'name'));
+$csv = worksheets[$key]['csvstart'];
+$worksheet->csv = $csv;
 
 $blog_guid = $worksheet->save();
 

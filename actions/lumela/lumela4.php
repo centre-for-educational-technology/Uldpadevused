@@ -8,7 +8,7 @@ $page = get_input('page');
 for ($i = 1; $i < 7; $i += 1)
 {
   $value = get_input('q'.$i);
-  $_SESSION['w1p4q'.$i] = $value;
+  $_SESSION[$wcode.'p4q'.$i] = $value;
 }
 
 //go to the next question
