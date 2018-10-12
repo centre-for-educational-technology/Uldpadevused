@@ -19,6 +19,7 @@
       'sheets/ws1-emakeel' => [
         'access' => 'public'
       ],
+      'universal/name' => ['access' => 'public'],
       'lumela/lumela1' => ['access' => 'public'],
       'lumela/lumela2' => ['access' => 'public'],
       'lumela/lumela3' => ['access' => 'public'],
@@ -40,17 +41,21 @@
         'path' => 'administratsioon',
         'resource' => 'admin'
       ],
+      'collection:object:worksheet:all' => [
+        'path' => 'kysitlused',
+        'resource' => 'worksheet/all'
+      ],
       'add:object:worksheet' => [
         'path' => 'kysitlused/uus/{wcode?}',
         'resource' => 'worksheet/add'
+      ],
+      'download:object:worksheet' => [
+        'path' => 'kysitlused/{wcode}/download',
+        'resource' => 'worksheet/download'
       ],
       'view:object:worksheet' => [
         'path' => 'kysitlused/{wcode}/{page?}',
         'resource' => 'worksheet/view'
       ],
-      'collection:object:worksheet:all' => [
-        'path' => 'kysitlused',
-        'resource' => 'worksheet/all'
-      ]
     ],
   ];

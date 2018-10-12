@@ -19,7 +19,7 @@ $labels = [
 ];
 
 echo elgg_view_title($title);
-form_view_radios($labels, $page);
+form_view_radios($labels, $wcode, $page);
 
 //make appropriate buttons in the end
 form_view_buttons($wcode, $page, $maxp);

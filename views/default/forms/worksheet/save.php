@@ -6,15 +6,16 @@ $regex_date = '(^(((0[1-9]|1[0-9]|2[0-8])[-](0[1-9]|1[012]))|((29|30|31)[-](0[13
 //validates time in hh:mm format.
 $regex_time = '^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$';
 
+$l = count(worksheets);
+for ($i = 0; $i < $l; $i += 1)
+{
+  $optval[$i] = worksheets[$i]['name'];
+}
 echo elgg_view_field([
   '#type' => 'select',
   'name' => 'sheet_type',
   'required' => true,
-  'options_values' => array(
-    worksheet1 => worksheet1,
-    worksheet2 => worksheet2,
-    worksheet3 => worksheet3,
-  ),
+  'options_values' => $optval
 ]);
 
 echo elgg_view_field([

@@ -13,16 +13,16 @@ if (!$sheet || $sheet->state != 'Alanud')
 $stype = $sheet->title;
 $key = array_search($stype, array_column(worksheets, 'name'));
 $page = elgg_extract('page', $vars);
-$maxp = count(worksheets[$key]['pages']);
-if (!$page || $page < 1)
+$maxp = count(worksheets[$key]['pages']) - 1;
+if (!$page || $page < 0)
 {
-  $page = 1;
+  $page = 0;
 }
 else if ($page > $maxp)
 {
   $page = $maxp;
 }
-$form = worksheets[$key]['folder'].'/'.worksheets[$key]['pages'][$page];
+$form = worksheets[$key]['pages'][$page];
 
 $content = elgg_view_title($stype);
 $content .= elgg_view_form($form, array(), array('wcode' => $wcode, 'page' => $page, 'maxp' => $maxp));

@@ -3,20 +3,31 @@
 const worksheets = [
   [
     'name' => 'Lugemise metakognitsioon lastele',
-    'folder' => 'lumela',
     'pages' => [
-      1 => 'lumela1', 2 => 'lumela2', 3 => 'lumela3',
-      4 => 'lumela4', 5 => 'lumela5', 6 => 'lumela6',
-      7 => 'lumela7'
-    ]
+      'universal/name',
+      'lumela/lumela1', 'lumela/lumela2', 'lumela/lumela3',
+      'lumela/lumela4', 'lumela/lumela5', 'lumela/lumela6',
+      'lumela/lumela7'
+    ],
+    'csvstart' => '"Nimi","Klass",'.
+      '"1.1","1.2","1.3","1.4","1.5","1.6",'.
+      '"2.1","2.2","2.3","2.4","2.5","2.6",'.
+      '"3.1","3.2","3.3","3.4","3.5","3.6",'.
+      '"4.1","4.2","4.3","4.4","4.5","4.6",'.
+      '"5.1","5.2","5.3","5.4","5.5","5.6",'.
+      '"6.1","6.2","6.3","6.4","6.5","6.6",'.
+      '"7.1","7.2","7.3","7.4","7.5","7.6"'.
+      "\n"
   ],
   [
     'name' => 'Lugmot-laused 4klass',
-    'pages' => []
+    'pages' => [],
+    'csvstart' => ''
   ],
   [
     'name' => 'Kuidas õppida enne sekkumist',
-    'pages' => []
+    'pages' => [],
+    'csvstart' => ''
   ]
 ];
 
@@ -50,15 +61,6 @@ function forward_home()
   forward($url);
 }
 
-//adds 1 reply to sheet
-function increase_sheet_replies($sheet)
-{
-  $replies = $sheet->replies;
-  $replies = strval(intval($replies) + 1);
-  $sheet->replies = $replies;
-  $sheet->save();
-}
-
 //generate hidden fields for form page
 function form_view_hidden_fields($wcode, $page)
 {
@@ -77,7 +79,7 @@ function form_view_hidden_fields($wcode, $page)
 //generate buttons for form page
 function form_view_buttons($wcode, $page, $maxp)
 {
-  if ($page > 1)
+  if ($page > 0)
   {
     $href1 = elgg_generate_url('view:object:worksheet', [
       'wcode' => $wcode,
@@ -103,7 +105,7 @@ function form_view_buttons($wcode, $page, $maxp)
   elgg_set_form_footer($submit);
 }
 
-function form_view_radios($labels, $id)
+function form_view_radios($labels, $wcode, $id)
 {
   for ($i = 0; $i < count($labels); $i += 1)
   {
@@ -111,10 +113,10 @@ function form_view_radios($labels, $id)
     echo elgg_view_field([
       '#label' => $labels[$i],
       'name' => 'q'.$ipp,
-      'value' => $_SESSION['w1p'.$id.'q'.$ipp],
+      'value' => $_SESSION[$wcode.'p'.$id.'q'.$ipp],
       'options' => [
-        'Jah' => 1,
-        'Ei' => 0
+        'Jah' => 'jah',
+        'Ei' => 'ei'
       ],
       '#type' => 'radio',
       'align' => 'horizontal',
