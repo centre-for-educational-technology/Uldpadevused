@@ -11,7 +11,9 @@ for ($i = 1; $i < 7; $i += 1)
 }
 
 //retrieve data from session and write it to a new line.
-$csvline = '"'.$_SESSION[$wcode.'name'].'","'.$_SESSION[$wcode.'grade'].'",';
+$csvline = '"'.$_SESSION[$wcode.'name'].'","'.
+  $_SESSION[$wcode.'gender'].'","'.
+  $_SESSION[$wcode.'age'].'",';
 for ($i = 1; $i <= 7; $i += 1)
 {
   $part = $wcode.'p'.$i.'q';

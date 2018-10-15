@@ -19,10 +19,25 @@ echo elgg_view_field([
   'required' => true
 ]);
 echo elgg_view_field([
-  '#label' => 'Klass',
-  '#type' => 'text',
-  'name' => 'grade',
-  'value' => $_SESSION[$wcode.'grade'],
+  '#label' => 'Sugu',
+  '#type' => 'select',
+  'options_values' => array(
+    'Mees' => 'male',
+    'Naine' => 'female'
+  ),
+  'name' => 'gender',
+  'value' => $_SESSION[$wcode.'gender'],
+  'required' => true
+]);
+echo elgg_view_field([
+  '#label' => 'Vanus',
+  '#type' => 'dropdown',
+  'options_values' => array(
+    '7' => '7', '8' => '8', '9' => '9', '10' => '10',
+    '11' => '11', '12' => '12', '13' => '13', '14' => '14'
+  ),
+  'name' => 'age',
+  'value' => $_SESSION[$wcode.'age'],
   'required' => true
 ]);
 
