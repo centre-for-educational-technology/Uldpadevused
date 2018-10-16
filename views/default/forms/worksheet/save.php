@@ -45,6 +45,20 @@ echo elgg_view_field([
   'pattern' => $regex_time,
 ]);
 
+echo elgg_view_field([
+  '#type' => 'text',
+  'name' => 'school',
+  'required' => true,
+  '#label' => 'Kool',
+]);
+
+echo elgg_view_field([
+  '#type' => 'text',
+  'name' => 'grade',
+  'required' => true,
+  '#label' => 'Klass',
+]);
+
 $submit = elgg_view_field(array(
   '#type' => 'submit',
   '#class' => 'elgg-foot',

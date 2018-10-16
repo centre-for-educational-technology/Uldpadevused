@@ -7,6 +7,8 @@ $sheet_type = worksheets[get_input('sheet_type')]['name'];
 $start_date = get_input('start_date');
 $start_time = get_input('start_time');
 $time_limit = get_input('time_limit');
+$school = get_input('school');
+$grade = get_input('grade');
 
 //validate date&time - can't be in the past
 $format = 'd-m-Y H:i';
@@ -40,6 +42,8 @@ $worksheet->wdate = $start_date;
 $worksheet->wtime = $start_time;
 $worksheet->limit = $time_limit;
 $worksheet->wtend = $end_time;
+$worksheet->grade = $grade;
+$worksheet->school = $school;
 
 $worksheet->state = "Algamas"; //"Algamas", "Alanud", "Lõppenud"
 $worksheet->subtype = 'worksheet';
