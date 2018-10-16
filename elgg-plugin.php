@@ -27,6 +27,12 @@
       'lumela/lumela5' => ['access' => 'public'],
       'lumela/lumela6' => ['access' => 'public'],
       'lumela/lumela7' => ['access' => 'public'],
+      'lugmot/sobiv1' => ['access' => 'public'],
+      'lugmot/sobiv2' => ['access' => 'public'],
+      'lugmot/sobiv3' => ['access' => 'public'],
+      'lugmot/sobiv4' => ['access' => 'public'],
+      'lugmot/sobiv5' => ['access' => 'public'],
+      'lugmot/sobiv6' => ['access' => 'public'],
     ],
     'routes' => [
       'uldpadevused:login' => [

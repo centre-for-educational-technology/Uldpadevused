@@ -11,5 +11,14 @@ for ($i = 1; $i < 7; $i += 1)
   $_SESSION[$wcode.'p6q'.$i] = $value;
 }
 
+//check if time is up
+$timeup = is_time_up($wcode);
+if ($timeup)
+{
+  form_lumela_save($wcode);
+  system_message("Aeg sai läbi! Sinu vastused on salvestatud.");
+  forward_home();
+}
+
 //go to the next question
 forward_next_url($wcode, $page);

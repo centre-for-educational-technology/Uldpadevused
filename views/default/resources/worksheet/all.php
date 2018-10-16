@@ -18,7 +18,7 @@ $body .= "<th>Kuupäev</th>";
 
 //for testing purposes
 $body .= "<th>Kell</th>";
-$body .= "<th>Lõpp</th>";
+$body .= "<th>Kestus (s)</th>";
 
 $body .= "<th>Vastanute arv</th>";
 $body .= "<th>Küsimustiku nimi</th>";
@@ -38,7 +38,7 @@ for ($i = 0; $i < $n; $i += 1)
 
   //for testing purposes
   $body .= "<th>".$sheet->wtime."</th>";
-  $body .= "<th>".$sheet->wtend."</th>";
+  $body .= "<th>".$sheet->limit."</th>";
 
   $body .= "<th>".$sheet->replies."</th>";
   $body .= "<th>".$sheet->title."</th>";
