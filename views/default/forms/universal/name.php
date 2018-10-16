@@ -22,8 +22,8 @@ echo elgg_view_field([
   '#label' => 'Sugu',
   '#type' => 'select',
   'options_values' => array(
-    'Mees' => 'male',
-    'Naine' => 'female'
+    'mees' => 'Mees',
+    'naine' => 'Naine'
   ),
   'name' => 'gender',
   'value' => $_SESSION[$wcode.'gender'],
