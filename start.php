@@ -3,11 +3,11 @@
 const worksheets = [
   [
     'name' => 'Lugemise metakognitsioon lastele',
+    'folder' => 'lumela',
     'pages' => [
-      'universal/name',
-      'lumela/lumela1', 'lumela/lumela2', 'lumela/lumela3',
-      'lumela/lumela4', 'lumela/lumela5', 'lumela/lumela6',
-      'lumela/lumela7'
+      1 => 'lumela1', 2 => 'lumela2', 3 => 'lumela3',
+      4 => 'lumela4', 5 => 'lumela5', 6 => 'lumela6',
+      7 => 'lumela7'
     ],
     'csvstart' => '"Nimi","Sugu","Vanus",'.
       '"1.1","1.2","1.3","1.4","1.5","1.6",'.
@@ -21,8 +21,13 @@ const worksheets = [
   ],
   [
     'name' => 'Lugmot-laused 4klass',
-    'pages' => [],
-    'csvstart' => ''
+    'folder' => 'lugmot',
+    'pages' => [
+      1 => 'sobiv1', 2 => 'sobiv2', 3 => 'sobiv3',
+      4 => 'sobiv4', 5 => 'sobiv5', 6 => 'sobiv6'
+    ],
+    'csvstart' => '"Nimi","Sugu","Vanus",'.
+      "\n"
   ],
   [
     'name' => 'Kuidas õppida enne sekkumist',
@@ -79,7 +84,7 @@ function form_view_hidden_fields($wcode, $page)
 //generate buttons for form page
 function form_view_buttons($wcode, $page, $maxp)
 {
-  if ($page > 0)
+  if ($page > 1)
   {
     $href1 = elgg_generate_url('view:object:worksheet', [
       'wcode' => $wcode,
@@ -103,6 +108,55 @@ function form_view_buttons($wcode, $page, $maxp)
     ));
   }
   elgg_set_form_footer($submit);
+}
+
+function is_time_up($wcode) {
+  $sheet = get_sheet_from_wcode($wcode);
+  $limit = $sheet->limit;
+  //check if the time is up
+  $start = $_SESSION[$wcode.'start'];
+  $tallinn = timezone_open('Europe/Tallinn');
+  $now = date_create("now", $tallinn);
+  $unix = date_timestamp_get($now);
+
+  return $unix - $start >= $limit;
+}
+
+function form_lumela_save($wcode) {
+  //retrieve data from session and write it to a new line.
+  $csvline = '"'.$_SESSION[$wcode.'name'].'","'.
+  $_SESSION[$wcode.'gender'].'","'.
+  $_SESSION[$wcode.'age'].'",';
+  for ($i = 1; $i <= 7; $i += 1)
+  {
+    $part = $wcode.'p'.$i.'q';
+    for ($k = 1; $k <= 6; $k += 1)
+    {
+      $value = $_SESSION[$part.$k];
+      /*if (!$value)
+      {
+        register_error($i.'.'.$k.' on vastamata!');
+        forward(REFERER);
+      }*/
+      $csvline .= '"'.$value.'"';
+      if ($k < 6) $csvline .= ',';
+    }
+    if ($i < 7) $csvline .= ',';
+  }
+  $csvline .= "\n";
+
+  //add made csv line to sheet csv
+  $sheet = get_sheet_from_wcode($wcode);
+  $csv = $sheet->csv;
+  $csv .= $csvline;
+  $sheet->csv = $csv;
+
+  //increase sheet replies
+  $replies = $sheet->replies;
+  $replies = strval(intval($replies) + 1);
+  $sheet->replies = $replies;
+
+  $sheet->save();
 }
 
 function form_view_radios($labels, $wcode, $id)

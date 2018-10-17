@@ -5,11 +5,8 @@ $wcode = get_input('wcode');
 $page = get_input('page');
 
 //save data to session
-for ($i = 1; $i < 7; $i += 1)
-{
-  $value = get_input('q'.$i);
-  $_SESSION[$wcode.'p6q'.$i] = $value;
-}
+$value = get_input('q');
+$_SESSION[$wcode.'p'.$page] = $value;
 
 //check if time is up
 $timeup = is_time_up($wcode);

@@ -33,6 +33,7 @@ $time = explode(":",$time_limit);
 $minutes = intval($time[0])*60 + intval($time[1]);
 $date3->modify('+'.$minutes.' Minute');
 $end_time = $date3->format($format);
+$limit = strval($minutes * 60);
 
 //set up new object
 $worksheet = new ElggObject();
@@ -40,7 +41,7 @@ $worksheet = new ElggObject();
 $worksheet->title = $sheet_type;
 $worksheet->wdate = $start_date;
 $worksheet->wtime = $start_time;
-$worksheet->limit = $time_limit;
+$worksheet->limit = $limit;
 $worksheet->wtend = $end_time;
 $worksheet->grade = $grade;
 $worksheet->school = $school;
