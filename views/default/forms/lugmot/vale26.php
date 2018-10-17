@@ -4,7 +4,7 @@ $wcode = elgg_extract('wcode', $vars);
 $page = elgg_extract('page', $vars);
 $maxp = elgg_extract('maxp', $vars);
 
-$title = 'Vali sulle sobiv vastus!';
-$label = 'Ma loen hästi.';
+$title = 'Õige või vale?';
+$label = 'Et valmistada maitsvat küpsisetorti, tuleb enne osta küpsiseid, hapukoort ja kartuleid.';
 
 create_lugmot_form($wcode, $page, $maxp, $title, $label);

@@ -24,9 +24,23 @@ const worksheets = [
     'folder' => 'lugmot',
     'pages' => [
       1 => 'sobiv1', 2 => 'sobiv2', 3 => 'sobiv3',
-      4 => 'sobiv4', 5 => 'sobiv5', 6 => 'sobiv6'
+      4 => 'sobiv4', 5 => 'sobiv5', 6 => 'sobiv6',
+      7 => 'vale1', 8 => 'vale2', 9 => 'vale3', 10 => 'vale4',
+      11 => 'vale5', 12 => 'vale6', 13 => 'vale7', 14 => 'vale8',
+      15 => 'vale9', 16 => 'vale10', 17 => 'vale11', 18 => 'vale12',
+      19 => 'vale13', 20 => 'vale14', 21 => 'vale15', 22 => 'vale16',
+      23 => 'vale17', 24 => 'vale18', 25 => 'vale19', 26 => 'vale20',
+      27 => 'vale21', 28 => 'vale22', 29 => 'vale23', 30 => 'vale24',
+      31 => 'vale25', 32 => 'vale26', 33 => 'vale27', 34 => 'vale28',
+      35 => 'vale29', 36 => 'vale30'
     ],
     'csvstart' => '"Nimi","Sugu","Vanus",'.
+    '"1.1","1.2","1.3","1.4","1.5","1.6",'.
+    '"2.1","2.2","2.3","2.4","2.5","2.6",'.
+    '"2.7","2.8","2.9","2.10","2.11","2.12",'.
+    '"2.13","2.14","2.15","2.16","2.17","2.18",'.
+    '"2.19","2.20","2.21","2.22","2.23","2.24",'.
+    '"2.25","2.26","2.27","2.28","2.29","2.30",'.
       "\n"
   ],
   [
@@ -35,6 +49,30 @@ const worksheets = [
     'csvstart' => ''
   ]
 ];
+
+function create_lugmot_form($wcode, $page, $maxp, $title, $label)
+{
+  session_start();
+  //make hidden fields
+  form_view_hidden_fields($wcode, $page);
+
+  echo elgg_view_title($title);
+  echo elgg_view_field([
+    '#label' => $label,
+    'name' => 'q',
+    'value' => $_SESSION[$wcode.'p'.$page],
+    'options' => [
+      'Jah' => 'jah',
+      'Ei' => 'ei'
+    ],
+    '#type' => 'radio',
+    'align' => 'horizontal',
+    'required' => true
+  ]);
+
+  //make appropriate buttons in the end
+  form_view_buttons($wcode, $page, $maxp);
+}
 
 //fetches a worksheet object that matches the wcode
 function get_sheet_from_wcode($wcode)
@@ -144,8 +182,30 @@ function form_lumela_save($wcode) {
     if ($i < 7) $csvline .= ',';
   }
   $csvline .= "\n";
+  
+  //add made csv line to sheet csv
+  add_csv_to_sheet($wcode, $csvline);
+}
+
+function form_lugmot_save($wcode) {
+  //retrieve data from session and write it to a new line.
+  $csvline = '"'.$_SESSION[$wcode.'name'].'","'.
+  $_SESSION[$wcode.'gender'].'","'.
+  $_SESSION[$wcode.'age'].'",';
+  for ($i = 1; $i <= 6; $i += 1)
+  {
+    $value = $_SESSION[$wcode.'p'.$i];
+    $csvline .= '"'.$value.'"';
+    if ($i < 6) $csvline .= ',';
+  }
+  $csvline .= "\n";
 
   //add made csv line to sheet csv
+  add_csv_to_sheet($wcode, $csvline);
+}
+
+function add_csv_to_sheet($wcode, $csvline)
+{
   $sheet = get_sheet_from_wcode($wcode);
   $csv = $sheet->csv;
   $csv .= $csvline;

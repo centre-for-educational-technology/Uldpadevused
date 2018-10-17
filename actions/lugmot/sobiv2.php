@@ -12,7 +12,7 @@ $_SESSION[$wcode.'p'.$page] = $value;
 $timeup = is_time_up($wcode);
 if ($timeup)
 {
-  form_lumela_save($wcode);
+  form_lugmot_save($wcode);
   system_message("Aeg sai läbi! Sinu vastused on salvestatud.");
   forward_home();
 }
