@@ -9,6 +9,13 @@ if (!$sheet)
   forward(REFERER);
 }
 
+$time = $_SESSION[$wcode.'start'];
+if (!$time)
+{
+  register_error("Alusta küsitlust õigelt lehelt.");
+  forward(elgg_generate_url('uldpadevused:begin'));
+}
+
 //find correct page of form
 $stype = $sheet->title;
 $key = array_search($stype, array_column(worksheets, 'name'));
