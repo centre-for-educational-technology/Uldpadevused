@@ -9,12 +9,21 @@ $maxp = elgg_extract('maxp', $vars);
 form_view_hidden_fields($wcode, $page);
 
 $title = 'Vali sulle sobiv vastus!';
-$labels = [
-  'Lugemine on minu jaoks raske.'
-];
+$label = 'Lugemine on minu jaoks raske.';
 
 echo elgg_view_title($title);
-form_view_radios($labels, $wcode, $page);
+echo elgg_view_field([
+  '#label' => $label,
+  'name' => 'q',
+  'value' => $_SESSION[$wcode.'p'.$page],
+  'options' => [
+    'Jah' => 'jah',
+    'Ei' => 'ei'
+  ],
+  '#type' => 'radio',
+  'align' => 'horizontal',
+  'required' => true
+]);
 
 //make appropriate buttons in the end
 form_view_buttons($wcode, $page, $maxp);
