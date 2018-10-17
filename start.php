@@ -52,7 +52,29 @@ const worksheets = [
 
 function create_lugmot_form($wcode, $page, $maxp, $title, $label)
 {
-  session_start();
+  //make hidden fields
+  form_view_hidden_fields($wcode, $page);
+
+  echo elgg_view_title($title);
+  echo elgg_view_field([
+    '#label' => $label,
+    'name' => 'q',
+    'value' => $_SESSION[$wcode.'p'.$page],
+    'options' => [
+      'Õige' => 'õige',
+      'Vale' => 'vale'
+    ],
+    '#type' => 'radio',
+    'align' => 'horizontal',
+    'required' => true
+  ]);
+
+  //make appropriate buttons in the end
+  form_view_buttons($wcode, $page, $maxp);
+}
+
+function create_lugmot_form2($wcode, $page, $maxp, $title, $label)
+{
   //make hidden fields
   form_view_hidden_fields($wcode, $page);
 
@@ -128,7 +150,7 @@ function form_view_buttons($wcode, $page, $maxp)
       'wcode' => $wcode,
       'page' => $page - 1
     ]);
-    echo '<a href="'.$href1.'" class="elgg-button elgg-button-action">Eelmine küsimus</a>';
+    echo '<a href="'.$href1.'" class="elgg-button elgg-button-action" style="display:inline-block; float:left">Eelmine küsimus</a>';
   }
   if ($page < $maxp)
   {
@@ -192,11 +214,11 @@ function form_lugmot_save($wcode) {
   $csvline = '"'.$_SESSION[$wcode.'name'].'","'.
   $_SESSION[$wcode.'gender'].'","'.
   $_SESSION[$wcode.'age'].'",';
-  for ($i = 1; $i <= 6; $i += 1)
+  for ($i = 1; $i <= 36; $i += 1)
   {
     $value = $_SESSION[$wcode.'p'.$i];
     $csvline .= '"'.$value.'"';
-    if ($i < 6) $csvline .= ',';
+    if ($i < 36) $csvline .= ',';
   }
   $csvline .= "\n";
 

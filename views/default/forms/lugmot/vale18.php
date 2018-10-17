@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 //extract data to put in hidden fields
 $wcode = elgg_extract('wcode', $vars);
 $page = elgg_extract('page', $vars);
