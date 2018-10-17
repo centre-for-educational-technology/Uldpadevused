@@ -6,7 +6,7 @@ $wcode = elgg_extract('wcode', $vars);
 $page = elgg_extract('page', $vars);
 $maxp = elgg_extract('maxp', $vars);
 
-$title = 'Vali sulle sobiv vastus!';
-$label = 'Mulle meeldib kodus lugeda.';
+$title = 'Õige või vale?';
+$label = 'Selleks et sokid jalga panna, tuleb enne kingad jalga panna.';
 
-create_lugmot_form2($wcode, $page, $maxp, $title, $label);
+create_lugmot_form($wcode, $page, $maxp, $title, $label);
