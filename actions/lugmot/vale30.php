@@ -8,14 +8,7 @@ $page = get_input('page');
 $value = get_input('q');
 $_SESSION[$wcode.'p'.$page] = $value;
 
-//check if time is up
-$timeup = is_time_up($wcode);
-if ($timeup)
-{
-  form_lugmot_save($wcode);
-  system_message("Aeg sai läbi! Sinu vastused on salvestatud.");
-  forward_home();
-}
-
-//go to the next question
-forward_next_url($wcode, $page);
+//save
+form_lugmot_save($wcode);
+system_message("Sinu vastused on salvestatud.");
+forward_home();
