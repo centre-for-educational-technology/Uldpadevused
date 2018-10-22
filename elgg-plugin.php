@@ -8,62 +8,6 @@
         'searchable' => true,
       ],
     ],
-    'actions' => [
-      'worksheet/save' => [],
-      'begin' => [
-        'access' => 'public'
-      ],
-      'sheets/ws1-bussid' => [
-        'access' => 'public'
-      ],
-      'sheets/ws1-emakeel' => [
-        'access' => 'public'
-      ],
-      'universal/name' => ['access' => 'public'],
-      'lumela/lumela1' => ['access' => 'public'],
-      'lumela/lumela2' => ['access' => 'public'],
-      'lumela/lumela3' => ['access' => 'public'],
-      'lumela/lumela4' => ['access' => 'public'],
-      'lumela/lumela5' => ['access' => 'public'],
-      'lumela/lumela6' => ['access' => 'public'],
-      'lumela/lumela7' => ['access' => 'public'],
-      'lugmot/sobiv1' => ['access' => 'public'],
-      'lugmot/sobiv2' => ['access' => 'public'],
-      'lugmot/sobiv3' => ['access' => 'public'],
-      'lugmot/sobiv4' => ['access' => 'public'],
-      'lugmot/sobiv5' => ['access' => 'public'],
-      'lugmot/sobiv6' => ['access' => 'public'],
-      'lugmot/vale1' => ['access' => 'public'],
-      'lugmot/vale2' => ['access' => 'public'],
-      'lugmot/vale3' => ['access' => 'public'],
-      'lugmot/vale4' => ['access' => 'public'],
-      'lugmot/vale5' => ['access' => 'public'],
-      'lugmot/vale6' => ['access' => 'public'],
-      'lugmot/vale7' => ['access' => 'public'],
-      'lugmot/vale8' => ['access' => 'public'],
-      'lugmot/vale9' => ['access' => 'public'],
-      'lugmot/vale10' => ['access' => 'public'],
-      'lugmot/vale11' => ['access' => 'public'],
-      'lugmot/vale12' => ['access' => 'public'],
-      'lugmot/vale13' => ['access' => 'public'],
-      'lugmot/vale14' => ['access' => 'public'],
-      'lugmot/vale15' => ['access' => 'public'],
-      'lugmot/vale16' => ['access' => 'public'],
-      'lugmot/vale17' => ['access' => 'public'],
-      'lugmot/vale18' => ['access' => 'public'],
-      'lugmot/vale19' => ['access' => 'public'],
-      'lugmot/vale20' => ['access' => 'public'],
-      'lugmot/vale21' => ['access' => 'public'],
-      'lugmot/vale22' => ['access' => 'public'],
-      'lugmot/vale23' => ['access' => 'public'],
-      'lugmot/vale24' => ['access' => 'public'],
-      'lugmot/vale25' => ['access' => 'public'],
-      'lugmot/vale26' => ['access' => 'public'],
-      'lugmot/vale27' => ['access' => 'public'],
-      'lugmot/vale28' => ['access' => 'public'],
-      'lugmot/vale29' => ['access' => 'public'],
-      'lugmot/vale30' => ['access' => 'public'],
-    ],
     'routes' => [
       'uldpadevused:login' => [
         'path' => 'logi-sisse',
@@ -92,6 +36,190 @@
       'view:object:worksheet' => [
         'path' => 'kysitlused/{wcode}/{page?}',
         'resource' => 'worksheet/view'
+      ],
+    ],
+    'actions' => [
+      'worksheet/save' => [],
+      'begin' => [
+        'access' => 'public'
+      ],
+      'sheets/ws1-bussid' => [
+        'access' => 'public'
+      ],
+      'sheets/ws1-emakeel' => [
+        'access' => 'public'
+      ],
+      'lumela/lumela1' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lumela/general.php'
+      ],
+      'lumela/lumela2' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lumela/general.php'
+      ],
+      'lumela/lumela3' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lumela/general.php'
+      ],
+      'lumela/lumela4' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lumela/general.php'
+      ],
+      'lumela/lumela5' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lumela/general.php'
+      ],
+      'lumela/lumela6' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lumela/general.php'
+      ],
+      'lumela/lumela7' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lumela/final.php'
+      ],
+      'lugmot/sobiv1' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/sobiv2' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/sobiv3' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/sobiv4' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/sobiv5' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/sobiv6' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/vale1' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/vale2' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/vale3' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/vale4' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/vale5' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/vale6' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/vale7' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/vale8' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/vale9' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/vale10' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/vale11' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/vale12' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/vale13' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/vale14' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/vale15' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/vale16' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/vale17' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/vale18' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/vale19' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/vale20' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/vale21' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/vale22' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/vale23' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/vale24' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/vale25' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/vale26' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/vale27' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/vale28' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/vale29' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/general.php'
+      ],
+      'lugmot/vale30' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/lugmot/final.php'
       ],
     ],
   ];
