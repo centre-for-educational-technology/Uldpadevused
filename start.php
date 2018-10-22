@@ -144,30 +144,17 @@ function form_view_hidden_fields($wcode, $page)
 //generate buttons for form page
 function form_view_buttons($wcode, $page, $maxp)
 {
+  $value = $page < $maxp ? "Järgmine küsimus" : "Saada ära";
+  echo '<button value="'.'" type="submit" class="elgg-button elgg-button-submit" style="display:inline-block; float:left">'.$value."</button>";
+  
   if ($page > 1)
   {
     $href1 = elgg_generate_url('view:object:worksheet', [
       'wcode' => $wcode,
       'page' => $page - 1
     ]);
-    echo '<a href="'.$href1.'" class="elgg-button elgg-button-action" style="display:inline-block; float:left">Eelmine küsimus</a>';
+    echo '<a href="'.$href1.'" class="elgg-button elgg-button-action">Eelmine küsimus</a>';
   }
-  if ($page < $maxp)
-  {
-    $submit = elgg_view_field(array(
-    '#type' => 'submit',
-    '#class' => 'elgg-foot',
-    'value' => 'Järgmine küsimus'
-    ));
-  }
-  else {
-    $submit = elgg_view_field(array(
-      '#type' => 'submit',
-      '#class' => 'elgg-foot',
-      'value' => 'Saada ära',
-    ));
-  }
-  elgg_set_form_footer($submit);
 }
 
 function is_time_up($wcode) {
