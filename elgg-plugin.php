@@ -221,5 +221,13 @@
         'access' => 'public',
         'filename' => __DIR__ . '/actions/lugmot/final.php'
       ],
+      'upased/mata' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/upased/upa1.php'
+      ],
+      'upased/emakeel' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/upased/upa2.php'
+      ]
     ],
   ];
