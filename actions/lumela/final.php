@@ -2,12 +2,13 @@
 session_start();
 
 $wcode = get_input('wcode');
+$page = get_input('page');
 
 //save data
 for ($i = 1; $i < 7; $i += 1)
 {
   $value = get_input('q'.$i);
-  $_SESSION[$wcode.'p7q'.$i] = $value;
+  $_SESSION[$wcode.'p'.$page.'q'.$i] = $value;
 }
 
 //save

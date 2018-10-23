@@ -40,13 +40,19 @@ const worksheets = [
     '"2.7","2.8","2.9","2.10","2.11","2.12",'.
     '"2.13","2.14","2.15","2.16","2.17","2.18",'.
     '"2.19","2.20","2.21","2.22","2.23","2.24",'.
-    '"2.25","2.26","2.27","2.28","2.29","2.30",'.
+    '"2.25","2.26","2.27","2.28","2.29","2.30"'.
       "\n"
   ],
   [
     'name' => 'Kuidas õppida enne sekkumist',
-    'pages' => [],
-    'csvstart' => ''
+    'folder' => 'upased',
+    'pages' => [
+      1 => 'mata', 2 => 'emakeel'
+    ],
+    'csvstart' => '"Nimi","Sugu","vanus",'.
+    '"1.1","1.2","1.3","1.4","2.1","2.2",'.
+    '"2.3","2.4","2.5","2.6"'.
+    "\n"
   ]
 ];
 
@@ -213,6 +219,28 @@ function form_lugmot_save($wcode) {
   add_csv_to_sheet($wcode, $csvline);
 }
 
+function form_upased_save($wcode) {
+  //retrieve data from session and write it to a new line.
+  $csvline = '"'.$_SESSION[$wcode.'name'].'","'.
+  $_SESSION[$wcode.'gender'].'","'.
+  $_SESSION[$wcode.'age'].'",';
+  for ($i = 1; $i <= 4; $i += 1)
+  {
+    $value = $_SESSION[$wcode.'p1q'.$i];
+    $csvline .= '"'.$value.'",';
+  }
+  for ($i = 1; $i <= 6; $i += 1)
+  {
+    $value = $_SESSION[$wcode.'p2q'.$i];
+    $csvline .= '"'.$value.'"';
+    if ($i < 6) $csvline .= ',';
+  }
+  $csvline .= "\n";
+
+  //add made csv line to sheet csv
+  add_csv_to_sheet($wcode, $csvline);
+}
+
 function add_csv_to_sheet($wcode, $csvline)
 {
   $sheet = get_sheet_from_wcode($wcode);
@@ -246,6 +274,23 @@ function form_view_radios($labels, $wcode, $id)
       'required' => true
     ]);
   }
+}
+
+function form_view_radio($label, $wcode, $page, $question)
+{
+  echo elgg_view_field([
+    '#label' => $label,
+    'name' => 'q'.$question,
+    'value' => $_SESSION[$wcode.'p'.$page.'q'.$question],
+    'options' => [
+      'Jah' => 'jah',
+      'Ei' => 'ei',
+      'Ei tea' => 'ei tea'
+    ],
+    '#type' => 'radio',
+    'align' => 'horizontal',
+    'required' => true
+  ]);
 }
 
 function uldpadevused_init() {
