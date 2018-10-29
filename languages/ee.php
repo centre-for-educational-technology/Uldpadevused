@@ -31,5 +31,8 @@ return [
   'polls:forms:school' => 'Kool',
   'polls:forms:grade' => 'Klass',
   'polls:forms:begin' => 'Alusta vastamist',
-  'polls:forms:create' => 'Genereeri kood'
+  'polls:forms:create' => 'Genereeri kood',
+  'polls:buttons:previous' => 'Eelmine küsimus',
+  'polls:buttons:next' => 'Järgmine küsimus',
+  'polls:buttons:submit' => 'Saada ära'
 ];
