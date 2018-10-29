@@ -10,31 +10,31 @@
     ],
     'routes' => [
       'uldpadevused:login' => [
-        'path' => 'logi-sisse',
+        'path' => 'polls/login',
         'resource' => 'login'
       ],
       'uldpadevused:begin' => [
-        'path' => 'kysitlused/alusta',
+        'path' => 'polls/start',
         'resource' => 'begin'
       ],
       'uldpadevused:admin' => [
-        'path' => 'administratsioon',
+        'path' => 'polls/admin',
         'resource' => 'admin'
       ],
       'collection:object:worksheet:all' => [
-        'path' => 'kysitlused',
+        'path' => 'polls',
         'resource' => 'worksheet/all'
       ],
       'add:object:worksheet' => [
-        'path' => 'kysitlused/uus/{wcode?}',
+        'path' => 'polls/new/{wcode?}',
         'resource' => 'worksheet/add'
       ],
       'download:object:worksheet' => [
-        'path' => 'kysitlused/{wcode}/download',
+        'path' => 'polls/{wcode}/download',
         'resource' => 'worksheet/download'
       ],
       'view:object:worksheet' => [
-        'path' => 'kysitlused/{wcode}/{page?}',
+        'path' => 'polls/{wcode}/{page?}',
         'resource' => 'worksheet/view'
       ],
     ],
