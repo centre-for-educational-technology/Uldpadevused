@@ -5,7 +5,7 @@ return [
   'polls:main:start' => 'Alusta küsimustiku täitmist',
   'polls:add:title' => 'Loo uus küsimustik',
   'polls:add:code' => 'Sinu kood',
-  'polls:all:title' => 'Üldpädevused',
+  'polls:all:title' => 'Kõik küsitlused',
   'polls:all:code' => 'Kood',
   'polls:all:date' => 'Kuupäev',
   'polls:all:time' => 'Kell',
@@ -31,5 +31,8 @@ return [
   'polls:forms:school' => 'Kool',
   'polls:forms:grade' => 'Klass',
   'polls:forms:begin' => 'Alusta vastamist',
-  'polls:forms:create' => 'Genereeri kood'
+  'polls:forms:create' => 'Genereeri kood',
+  'polls:buttons:previous' => 'Eelmine küsimus',
+  'polls:buttons:next' => 'Järgmine küsimus',
+  'polls:buttons:submit' => 'Saada ära'
 ];
