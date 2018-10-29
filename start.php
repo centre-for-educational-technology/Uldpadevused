@@ -79,6 +79,11 @@ function create_lugmot_form($wcode, $page, $maxp, $title, $label)
   form_view_buttons($wcode, $page, $maxp);
 }
 
+function ee_echo($key)
+{
+  return elgg_echo($key, [], 'ee');
+}
+
 function create_lugmot_form2($wcode, $page, $maxp, $title, $label)
 {
   //make hidden fields

@@ -23,7 +23,7 @@ $u2 = date_timestamp_get($date2);
 if ($u1 < $u2)
 {
   //date is in the past so don't create worksheet
-  register_error("Aeg on minevikus.");
+  register_error(ee_echo('polls:error:pasttime'));
   forward(REFERER);
 }
 
@@ -83,7 +83,7 @@ $worksheet->csv = $csv;
 $blog_guid = $worksheet->save();
 
 if ($blog_guid) {
-  system_message("Küsitlus salvestati.");
+  system_message(ee_echo('polls:success:saved'));
 
   //forward to same page but also display code of created worksheet
   $url = elgg_generate_url('add:object:worksheet', [
@@ -92,6 +92,6 @@ if ($blog_guid) {
   forward($url);
 }
 else {
-  register_error("Küsitlust ei saanud teha.");
+  register_error(ee_echo('polls:error:fail'));
   forward(REFERER);
 }
