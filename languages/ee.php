@@ -5,7 +5,7 @@ return [
   'polls:main:start' => 'Alusta küsimustiku täitmist',
   'polls:add:title' => 'Loo uus küsimustik',
   'polls:add:code' => 'Sinu kood',
-  'polls:all:title' => 'Üldpädevused',
+  'polls:all:title' => 'Kõik küsitlused',
   'polls:all:code' => 'Kood',
   'polls:all:date' => 'Kuupäev',
   'polls:all:time' => 'Kell',
