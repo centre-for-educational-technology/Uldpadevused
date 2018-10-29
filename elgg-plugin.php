@@ -43,12 +43,6 @@
       'begin' => [
         'access' => 'public'
       ],
-      'sheets/ws1-bussid' => [
-        'access' => 'public'
-      ],
-      'sheets/ws1-emakeel' => [
-        'access' => 'public'
-      ],
       'lumela/lumela1' => [
         'access' => 'public',
         'filename' => __DIR__ . '/actions/lumela/general.php'
