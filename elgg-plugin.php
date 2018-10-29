@@ -43,33 +43,8 @@
       'begin' => [
         'access' => 'public'
       ],
-      'lumela/lumela1' => [
-        'access' => 'public',
-        'filename' => __DIR__ . '/actions/lumela/general.php'
-      ],
-      'lumela/lumela2' => [
-        'access' => 'public',
-        'filename' => __DIR__ . '/actions/lumela/general.php'
-      ],
-      'lumela/lumela3' => [
-        'access' => 'public',
-        'filename' => __DIR__ . '/actions/lumela/general.php'
-      ],
-      'lumela/lumela4' => [
-        'access' => 'public',
-        'filename' => __DIR__ . '/actions/lumela/general.php'
-      ],
-      'lumela/lumela5' => [
-        'access' => 'public',
-        'filename' => __DIR__ . '/actions/lumela/general.php'
-      ],
-      'lumela/lumela6' => [
-        'access' => 'public',
-        'filename' => __DIR__ . '/actions/lumela/general.php'
-      ],
-      'lumela/lumela7' => [
-        'access' => 'public',
-        'filename' => __DIR__ . '/actions/lumela/final.php'
+      'sheets/metacognition' => [
+        'access' => 'public'
       ],
       'lugmot/sobiv1' => [
         'access' => 'public',

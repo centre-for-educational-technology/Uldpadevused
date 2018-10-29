@@ -20,7 +20,7 @@ if (!$time)
 $stype = $sheet->title;
 $key = array_search($stype, array_column(worksheets, 'name'));
 $page = elgg_extract('page', $vars);
-$maxp = count(worksheets[$key]['pages']);
+$maxp = worksheets[$key]['pages'];
 if (!$page || $page < 1)
 {
   $page = 1;
@@ -29,7 +29,7 @@ else if ($page > $maxp)
 {
   $page = $maxp;
 }
-$form = worksheets[$key]['folder'].'/'.worksheets[$key]['pages'][$page];
+$form = worksheets[$key]['file'];
 
 //display form
 $content = elgg_view_title($stype);

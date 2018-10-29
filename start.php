@@ -3,12 +3,8 @@
 const worksheets = [
   [
     'name' => 'Lugemise metakognitsioon lastele',
-    'folder' => 'lumela',
-    'pages' => [
-      1 => 'lumela1', 2 => 'lumela2', 3 => 'lumela3',
-      4 => 'lumela4', 5 => 'lumela5', 6 => 'lumela6',
-      7 => 'lumela7'
-    ],
+    'file' => 'sheets/metacognition',
+    'pages' => 7,
     'csvstart' => '"Nimi","Sugu","Vanus",'.
       '"1.1","1.2","1.3","1.4","1.5","1.6",'.
       '"2.1","2.2","2.3","2.4","2.5","2.6",'.
@@ -155,7 +151,7 @@ function form_view_hidden_fields($wcode, $page)
 //generate buttons for form page
 function form_view_buttons($wcode, $page, $maxp)
 {
-  $value = ee_echo('polls:buttons:' . $page < $maxp ? 'next' : 'submit');
+  $value = $page < $maxp ? ee_echo('polls:buttons:next') : ee_echo('polls:buttons:submit');
   echo '<button value="'.'" type="submit" class="elgg-button elgg-button-submit" style="display:inline-block; float:left">'.$value."</button>";
   
   if ($page > 1)
