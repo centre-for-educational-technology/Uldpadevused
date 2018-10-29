@@ -5,14 +5,14 @@ $wcode = elgg_extract('wcode', $vars);
 $sheet = get_sheet_from_wcode($wcode);
 if (!$sheet)
 {
-  register_error("Sellise koodiga küsistlust ei leitud.");
+  register_error(ee_echo('polls:error:notfound'));
   forward(REFERER);
 }
 
 $time = $_SESSION[$wcode.'start'];
 if (!$time)
 {
-  register_error("Alusta küsitlust õigelt lehelt.");
+  register_error(ee_echo('polls:error:wrongstart'));
   forward(elgg_generate_url('uldpadevused:begin'));
 }
 

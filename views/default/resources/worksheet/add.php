@@ -2,7 +2,7 @@
 
 gatekeeper();
 
-$title = "Alusta uus küsimustik";
+$title = ee_echo('polls:add:title');
 $content = elgg_view_title($title);
 $content .= elgg_view_form("worksheet/save");
 
@@ -10,7 +10,7 @@ $content .= elgg_view_form("worksheet/save");
 $wcode = elgg_extract('wcode', $vars);
 if ($wcode)
 {
-  $content .= elgg_view_title('Sinu kood: '.$wcode);
+  $content .= elgg_view_title(ee_echo('polls:add:code').': '.$wcode);
 }
 
 $body = elgg_view_layout('no_sidebar', array(

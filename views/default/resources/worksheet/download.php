@@ -7,7 +7,7 @@ $wcode = elgg_extract('wcode', $vars);
 $sheet = get_sheet_from_wcode($wcode);
 if (!$sheet)
 {
-  register_error("Sellist küsitlust ei leitud.");
+  register_error(ee_echo('polls:error:notfound'));
   forward(REFERER);
 }
 $csv = $sheet->csv;

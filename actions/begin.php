@@ -13,12 +13,12 @@ $_SESSION[$wcode.'age'] = get_input('age');
 $sheet = get_sheet_from_wcode($wcode);
 if (!$sheet)
 {
-  register_error("Sellise koodiga küsistlust ei leitud.");
+  register_error(ee_echo('polls:error:notfound'));
   forward(REFERER);
 }
 else if ($sheet->state != 'Alanud')
 {
-  register_error("See küsitlus pole veel alanud!");
+  register_error(ee_echo('polls:error:notstarted'));
   forward(REFERER);
 }
 

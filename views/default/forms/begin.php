@@ -4,26 +4,26 @@ echo elgg_view_field([
   'name' => 'wcode',
   'required' => true,
   'placeholder' => '123456',
-  '#label' => 'Liitumiskood'
+  '#label' => ee_echo('polls:forms:code')
 ]);
 echo elgg_view_field([
-  '#label' => 'Ees- ja perekonnanimi',
+  '#label' => ee_echo('polls:forms:name'),
   '#type' => 'text',
   'name' => 'name',
   'required' => true
 ]);
 echo elgg_view_field([
-  '#label' => 'Sugu',
+  '#label' => ee_echo('polls:forms:gender'),
   '#type' => 'select',
   'options_values' => array(
-    'mees' => 'Mees',
-    'naine' => 'Naine'
+    ee_echo('polls:forms:gender:male') => ee_echo('polls:forms:gender:male'),
+    ee_echo('polls:forms:gender:female') => ee_echo('polls:forms:gender:female')
   ),
   'name' => 'gender',
   'required' => true
 ]);
 echo elgg_view_field([
-  '#label' => 'Vanus',
+  '#label' => ee_echo('polls:forms:age'),
   '#type' => 'dropdown',
   'options_values' => array(
     '7' => '7', '8' => '8', '9' => '9', '10' => '10', '11' => '11',
@@ -36,6 +36,6 @@ echo elgg_view_field([
 $submit = elgg_view_field(array(
   '#type' => 'submit',
   '#class' => 'elgg-foot',
-  'value' => 'Alusta vastamist',
+  'value' => ee_echo('polls:forms:begin'),
 ));
 elgg_set_form_footer($submit);

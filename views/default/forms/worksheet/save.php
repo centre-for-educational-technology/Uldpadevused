@@ -24,7 +24,7 @@ echo elgg_view_field([
   'required' => true,
   'placeholder' => 'pp-kk-aaaa',
   'pattern' => $regex_date,
-  '#label' => 'Algusaeg',
+  '#label' => ee_echo('polls:forms:starttime'),
 ]);
 
 echo elgg_view_field([
@@ -33,14 +33,14 @@ echo elgg_view_field([
   'required' => true,
   'placeholder' => 'hh:mm',
   'pattern' => $regex_time,
-  '#label' => 'Algusaeg',
+  '#label' => ee_echo('polls:forms:starttime'),
 ]);
 
 echo elgg_view_field([
   '#type' => 'text',
   'name' => 'time_limit',
   'required' => true,
-  '#label' => 'Ajalimiit',
+  '#label' => ee_echo('polls:forms:timelimit'),
   'placeholder' => 'hh:mm',
   'pattern' => $regex_time,
 ]);
@@ -49,19 +49,19 @@ echo elgg_view_field([
   '#type' => 'text',
   'name' => 'school',
   'required' => true,
-  '#label' => 'Kool',
+  '#label' => ee_echo('polls:forms:school'),
 ]);
 
 echo elgg_view_field([
   '#type' => 'text',
   'name' => 'grade',
   'required' => true,
-  '#label' => 'Klass',
+  '#label' => ee_echo('polls:forms:grade'),
 ]);
 
 $submit = elgg_view_field(array(
   '#type' => 'submit',
   '#class' => 'elgg-foot',
-  'value' => 'Genereeri kood',
+  'value' => ee_echo('polls:forms:create'),
 ));
 elgg_set_form_footer($submit);

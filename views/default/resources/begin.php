@@ -1,6 +1,6 @@
 <?php
 
-$title = "Küsimustikud - Üldpädevused";
+$title = ee_echo('polls:main:title');;
 $content = elgg_view_title($title);
 $content .= elgg_view_form("begin");
 

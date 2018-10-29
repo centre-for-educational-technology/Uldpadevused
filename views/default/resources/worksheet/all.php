@@ -2,8 +2,7 @@
 
 gatekeeper();
 
-$titlebar = "Üldpädevused";
-$pagetitle = "Üldpädevused";
+$title = ee_echo('polls:all:title');
 
 $sheets = elgg_get_entities(array(
   'type' => 'object',
@@ -13,17 +12,17 @@ $sheets = elgg_get_entities(array(
 
 $body = '<table style="width:100%;"><tr>';
 $body .= "<th>#</th>";
-$body .= "<th>Kood</th>";
-$body .= "<th>Kuupäev</th>";
+$body .= "<th>".ee_echo('polls:all:code')."</th>";
+$body .= "<th>".ee_echo('polls:all:date')."</th>";
 
 //for testing purposes
-$body .= "<th>Kell</th>";
-$body .= "<th>Kestus (s)</th>";
+$body .= "<th>".ee_echo('polls:all:time')."</th>";
+$body .= "<th>".ee_echo('polls:all:duration')."</th>";
 
-$body .= "<th>Vastanute arv</th>";
-$body .= "<th>Küsimustiku nimi</th>";
-$body .= "<th>Staatus</th>";
-$body .= "<th>Lae alla</th>";
+$body .= "<th>".ee_echo('polls:all:replycount')."</th>";
+$body .= "<th>".ee_echo('polls:all:pollname')."</th>";
+$body .= "<th>".ee_echo('polls:all:status')."</th>";
+$body .= "<th>".ee_echo('polls:all:download')."</th>";
 $body .= "</tr>";
 $n = count($sheets);
 for ($i = 0; $i < $n; $i += 1)
@@ -55,6 +54,6 @@ for ($i = 0; $i < $n; $i += 1)
 }
 $body .= "</table>";
 
-$body = elgg_view_title($pagetitle) . elgg_view_layout('one_column', array('content' => $body));
+$body = elgg_view_title($title) . elgg_view_layout('one_column', array('content' => $body));
 
-echo elgg_view_page($titlebar, $body);
+echo elgg_view_page($title, $body);
