@@ -9,17 +9,9 @@
       ],
     ],
     'routes' => [
-      'uldpadevused:login' => [
-        'path' => 'polls/login',
-        'resource' => 'login'
-      ],
       'uldpadevused:begin' => [
         'path' => 'polls/start',
         'resource' => 'begin'
-      ],
-      'uldpadevused:admin' => [
-        'path' => 'polls/admin',
-        'resource' => 'admin'
       ],
       'collection:object:worksheet:all' => [
         'path' => 'polls',
