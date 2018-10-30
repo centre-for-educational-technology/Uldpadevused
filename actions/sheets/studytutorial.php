@@ -5,22 +5,27 @@ $wcode = get_input('wcode');
 $page = get_input('page');
 $maxp = get_input('maxp');
 
+$n = $page == 1 ? 4 : 6;
+
 //save data to session
-$value = get_input('q');
-$_SESSION[$wcode.'p'.$page] = $value;
+for ($i = 1; $i <= $n; $i++)
+{
+  $value = get_input('q'.$i);
+  $_SESSION[$wcode.'p'.$page.'q'.$i] = $value;
+}
 
 //check if time is up
 $timeup = is_time_up($wcode);
 if ($timeup)
 {
-  form_lugmot_save($wcode);
+  form_upased_save($wcode);
   system_message("Aeg sai läbi! Sinu vastused on salvestatud.");
   forward_home();
 }
 else if ($page == $maxp)
 {
-  form_lugmot_save($wcode);
-  system_message("Su vastused on edukalt salvestatud!");
+  form_upased_save($wcode);
+  system_message("Sinu vastused on edukalt salvestatud!");
   forward_home();
 }
 

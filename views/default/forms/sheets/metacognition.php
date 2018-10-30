@@ -6,7 +6,7 @@ $wcode = elgg_extract('wcode', $vars);
 $page = elgg_extract('page', $vars);
 $maxp = elgg_extract('maxp', $vars);
 //make hidden fields
-form_view_hidden_fields($wcode, 1);
+form_view_hidden_fields($wcode, $page, $maxp);
 
 $all = [
   1 => [

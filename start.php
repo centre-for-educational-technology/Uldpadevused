@@ -17,19 +17,8 @@ const worksheets = [
   ],
   [
     'name' => 'Lugmot-laused 4klass',
-    'folder' => 'lugmot',
-    'pages' => [
-      1 => 'sobiv1', 2 => 'sobiv2', 3 => 'sobiv3',
-      4 => 'sobiv4', 5 => 'sobiv5', 6 => 'sobiv6',
-      7 => 'vale1', 8 => 'vale2', 9 => 'vale3', 10 => 'vale4',
-      11 => 'vale5', 12 => 'vale6', 13 => 'vale7', 14 => 'vale8',
-      15 => 'vale9', 16 => 'vale10', 17 => 'vale11', 18 => 'vale12',
-      19 => 'vale13', 20 => 'vale14', 21 => 'vale15', 22 => 'vale16',
-      23 => 'vale17', 24 => 'vale18', 25 => 'vale19', 26 => 'vale20',
-      27 => 'vale21', 28 => 'vale22', 29 => 'vale23', 30 => 'vale24',
-      31 => 'vale25', 32 => 'vale26', 33 => 'vale27', 34 => 'vale28',
-      35 => 'vale29', 36 => 'vale30'
-    ],
+    'file' => 'sheets/metacognition4',
+    'pages' => 36,
     'csvstart' => '"Nimi","Sugu","Vanus",'.
     '"1.1","1.2","1.3","1.4","1.5","1.6",'.
     '"2.1","2.2","2.3","2.4","2.5","2.6",'.
@@ -41,10 +30,8 @@ const worksheets = [
   ],
   [
     'name' => 'Kuidas õppida enne sekkumist',
-    'folder' => 'upased',
-    'pages' => [
-      1 => 'mata', 2 => 'emakeel'
-    ],
+    'file' => 'sheets/studytutorial',
+    'pages' => 2,
     'csvstart' => '"Nimi","Sugu","vanus",'.
     '"1.1","1.2","1.3","1.4","2.1","2.2",'.
     '"2.3","2.4","2.5","2.6"'.
@@ -55,7 +42,7 @@ const worksheets = [
 function create_lugmot_form($wcode, $page, $maxp, $title, $label)
 {
   //make hidden fields
-  form_view_hidden_fields($wcode, $page);
+  form_view_hidden_fields($wcode, $page, $maxp);
 
   echo elgg_view_title($title);
   echo elgg_view_field([
@@ -83,7 +70,7 @@ function ee_echo($key)
 function create_lugmot_form2($wcode, $page, $maxp, $title, $label)
 {
   //make hidden fields
-  form_view_hidden_fields($wcode, $page);
+  form_view_hidden_fields($wcode, $page, $maxp);
 
   echo elgg_view_title($title);
   echo elgg_view_field([
@@ -134,7 +121,7 @@ function forward_home()
 }
 
 //generate hidden fields for form page
-function form_view_hidden_fields($wcode, $page)
+function form_view_hidden_fields($wcode, $page, $maxp)
 {
   echo elgg_view_field([
     '#type' => 'hidden',
@@ -145,6 +132,11 @@ function form_view_hidden_fields($wcode, $page)
     '#type' => 'hidden',
     'name' => 'page',
     'value' => $page
+  ]);
+  echo elgg_view_field([
+    '#type' => 'hidden',
+    'name' => 'maxp',
+    'value' => $maxp
   ]);
 }
 
