@@ -14,13 +14,13 @@ $timeup = is_time_up($wcode);
 if ($timeup)
 {
   form_lugmot_save($wcode);
-  system_message("Aeg sai läbi! Sinu vastused on salvestatud.");
+  system_message(ee_echo('polls:success:timeup'));
   forward_home();
 }
 else if ($page == $maxp)
 {
   form_lugmot_save($wcode);
-  system_message("Su vastused on edukalt salvestatud!");
+  system_message(ee_echo('polls:success:received'));
   forward_home();
 }
 
