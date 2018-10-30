@@ -20,6 +20,8 @@ return [
   'polls:error:pasttime' => 'Aeg on minevikus.',
   'polls:error:fail' => 'Küsitlust ei saanud teha.',
   'polls:success:saved' => 'Küsitlus salvestati.',
+  'polls:success:received' => 'Sinu vastused on edukalt salvestatud!',
+  'polls:success:timeup' => 'Aeg sai läbi! Sinu vastused on salvestatud.',
   'polls:forms:code' => 'Liitumiskood',
   'polls:forms:name' => 'Ees- ja perekonnanimi',
   'polls:forms:gender' => 'Sugu',
