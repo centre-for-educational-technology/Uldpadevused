@@ -44,5 +44,8 @@
       'sheets/studytutorial' => [
         'access' => 'public'
       ],
+      'sheets/motivation' => [
+        'access' => 'public'
+      ]
     ],
   ];
