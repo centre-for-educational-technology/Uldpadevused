@@ -346,7 +346,7 @@ function form_view_3emoticons($labels, $wcode, $page)
 
 function uldpadevused_init() {
   //visiteeri http://localhost:8888/cron/minute et esile kutsuda
-  
+
   elgg_register_plugin_hook_handler('cron', 'minute', function() {
     $notstarted = elgg_get_entities(array(
       'type' => 'object',
