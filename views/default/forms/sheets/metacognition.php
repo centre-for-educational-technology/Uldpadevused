@@ -1,5 +1,6 @@
 <?php
 session_start();
+elgg_require_js('uldpadevused/metacognition');
 
 //extract data to put in hidden fields
 $wcode = elgg_extract('wcode', $vars);

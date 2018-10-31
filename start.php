@@ -32,9 +32,17 @@ const worksheets = [
     'name' => 'Kuidas õppida enne sekkumist',
     'file' => 'sheets/studytutorial',
     'pages' => 2,
-    'csvstart' => '"Nimi","Sugu","vanus",'.
+    'csvstart' => '"Nimi","Sugu","Vanus",'.
     '"1.1","1.2","1.3","1.4","2.1","2.2",'.
     '"2.3","2.4","2.5","2.6"'.
+    "\n"
+  ],
+  [
+    'name' => 'Lugemismotivatsioon',
+    'file' => 'sheets/motivation',
+    'pages' => 3,
+    'csvstart' => '"Nimi","Sugu","Vanus",'.
+    '"1","2","3","4","5","6","7","8","9"'.
     "\n"
   ]
 ];
@@ -234,6 +242,33 @@ function form_upased_save($wcode) {
   add_csv_to_sheet($wcode, $csvline);
 }
 
+function form_motivation_save($wcode) {
+  //retrieve data from session and write it to a new line.
+  $csvline = '"'.$_SESSION[$wcode.'name'].'","'.
+  $_SESSION[$wcode.'gender'].'","'.
+  $_SESSION[$wcode.'age'].'",';
+  for ($i = 1; $i <= 3; $i += 1)
+  {
+    $part = $wcode.'p'.$i.'q';
+    for ($k = 1; $k <= 3; $k += 1)
+    {
+      $value = $_SESSION[$part.$k];
+      /*if (!$value)
+      {
+        register_error($i.'.'.$k.' on vastamata!');
+        forward(REFERER);
+      }*/
+      $csvline .= '"'.$value.'"';
+      if ($k < 3) $csvline .= ',';
+    }
+    if ($i < 3) $csvline .= ',';
+  }
+  $csvline .= "\n";
+  
+  //add made csv line to sheet csv
+  add_csv_to_sheet($wcode, $csvline);
+}
+
 function add_csv_to_sheet($wcode, $csvline)
 {
   $sheet = get_sheet_from_wcode($wcode);
@@ -286,9 +321,32 @@ function form_view_radio($label, $wcode, $page, $question)
   ]);
 }
 
+function form_view_3emoticons($labels, $wcode, $page)
+{
+  for ($i = 0; $i < 3; $i = $ipp)
+  {
+    $ipp = $i + 1;
+    echo elgg_view_field([
+      '#label' => $labels[$i],
+      'name' => 'q'.$ipp,
+      'value' => $_SESSION[$wcode.'p'.$page.'q'.$ipp],
+      'options' => [
+        'Ei ole üldse nõus' => 1,
+        '2' => 2,
+        '3' => 3,
+        '4' => 4,
+        'Olen täiesti nõus' => 5
+      ],
+      '#type' => 'radio',
+      'align' => 'horizontal',
+      'required' => true
+    ]);
+  }
+}
+
 function uldpadevused_init() {
   //visiteeri http://localhost:8888/cron/minute et esile kutsuda
-  
+
   elgg_register_plugin_hook_handler('cron', 'minute', function() {
     $notstarted = elgg_get_entities(array(
       'type' => 'object',
