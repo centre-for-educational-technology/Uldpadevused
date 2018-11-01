@@ -5,17 +5,20 @@ gatekeeper();
 //get data from form
 $sheet_type = worksheets[get_input('sheet_type')]['name'];
 $start_date = get_input('start_date');
-$start_time = get_input('start_time');
-$time_limit = get_input('time_limit');
 $school = get_input('school');
 $grade = get_input('grade');
 
-//validate date&time - can't be in the past
-$format = 'd-m-Y H:i';
+//save school and grade to remember it later - user convenience
+$user = elgg_get_logged_in_user_entity();
+$user->school = $school;
+$user->grade = $grade;
+
+//validate date - can't be in the past
+$format = 'd-m-Y';
 $tallinn = timezone_open('Europe/Tallinn');
 
-$date1 = date_create_from_format($format, $start_date.' '.$start_time, $tallinn);
-$date2 = date_create("now", $tallinn);
+$date1 = date_create_from_format($format, $start_date, $tallinn);
+$date2 = date_create("today", $tallinn);
 
 $u1 = date_timestamp_get($date1);
 $u2 = date_timestamp_get($date2);
@@ -29,18 +32,24 @@ if ($u1 < $u2)
 
 //calculate end time to make checking for ended questionnaires easier
 $date3 = clone $date1;
-$time = explode(":",$time_limit);
-$minutes = intval($time[0])*60 + intval($time[1]);
-$date3->modify('+'.$minutes.' Minute');
+$date3->modify('+1 Day');
 $end_time = $date3->format($format);
-$limit = strval($minutes * 60);
+
+//small time limit if its the reading task
+if ($sheet_type == worksheets[1]['name'])
+{
+  $limit = 60;
+}
+else
+{
+  $limit = 86400; //seconds in a day
+}
 
 //set up new object
 $worksheet = new ElggObject();
 
 $worksheet->title = $sheet_type;
 $worksheet->wdate = $start_date;
-$worksheet->wtime = $start_time;
 $worksheet->limit = $limit;
 $worksheet->wtend = $end_time;
 $worksheet->grade = $grade;
