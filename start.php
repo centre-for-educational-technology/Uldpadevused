@@ -18,14 +18,13 @@ const worksheets = [
   [
     'name' => 'Lugmot-laused 4klass',
     'file' => 'sheets/metacognition4',
-    'pages' => 36,
+    'pages' => 30,
     'csvstart' => '"Nimi","Sugu","Vanus",'.
     '"1.1","1.2","1.3","1.4","1.5","1.6",'.
-    '"2.1","2.2","2.3","2.4","2.5","2.6",'.
-    '"2.7","2.8","2.9","2.10","2.11","2.12",'.
-    '"2.13","2.14","2.15","2.16","2.17","2.18",'.
-    '"2.19","2.20","2.21","2.22","2.23","2.24",'.
-    '"2.25","2.26","2.27","2.28","2.29","2.30"'.
+    '"1.7","1.8","1.9","1.10","1.11","1.12",'.
+    '"1.13","1.14","1.15","1.16","1.17","1.18",'.
+    '"1.19","1.20","1.21","1.22","1.23","1.24",'.
+    '"1.25","1.26","1.27","1.28","1.29","1.30"'.
       "\n"
   ],
   [
@@ -47,55 +46,9 @@ const worksheets = [
   ]
 ];
 
-function create_lugmot_form($wcode, $page, $maxp, $title, $label)
-{
-  //make hidden fields
-  form_view_hidden_fields($wcode, $page, $maxp);
-
-  echo elgg_view_title($title);
-  echo elgg_view_field([
-    '#label' => $label,
-    'name' => 'q',
-    'value' => $_SESSION[$wcode.'p'.$page],
-    'options' => [
-      'Õige' => 'õige',
-      'Vale' => 'vale'
-    ],
-    '#type' => 'radio',
-    'align' => 'horizontal',
-    'required' => true
-  ]);
-
-  //make appropriate buttons in the end
-  form_view_buttons($wcode, $page, $maxp);
-}
-
 function ee_echo($key)
 {
   return elgg_echo($key, [], 'ee');
-}
-
-function create_lugmot_form2($wcode, $page, $maxp, $title, $label)
-{
-  //make hidden fields
-  form_view_hidden_fields($wcode, $page, $maxp);
-
-  echo elgg_view_title($title);
-  echo elgg_view_field([
-    '#label' => $label,
-    'name' => 'q',
-    'value' => $_SESSION[$wcode.'p'.$page],
-    'options' => [
-      'Jah' => 'jah',
-      'Ei' => 'ei'
-    ],
-    '#type' => 'radio',
-    'align' => 'horizontal',
-    'required' => true
-  ]);
-
-  //make appropriate buttons in the end
-  form_view_buttons($wcode, $page, $maxp);
 }
 
 //fetches a worksheet object that matches the wcode
