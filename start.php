@@ -176,7 +176,7 @@ function is_time_up($wcode) {
   return $unix - $start >= $limit;
 }
 
-function form_lumela_save($wcode) {
+function form_metacognition_save($wcode) {
   //retrieve data from session and write it to a new line.
   $csvline = '"'.$_SESSION[$wcode.'name'].'","'.
   $_SESSION[$wcode.'gender'].'","'.
@@ -203,7 +203,7 @@ function form_lumela_save($wcode) {
   add_csv_to_sheet($wcode, $csvline);
 }
 
-function form_lugmot_save($wcode) {
+function form_metacognition4_save($wcode) {
   //retrieve data from session and write it to a new line.
   $csvline = '"'.$_SESSION[$wcode.'name'].'","'.
   $_SESSION[$wcode.'gender'].'","'.
@@ -220,7 +220,7 @@ function form_lugmot_save($wcode) {
   add_csv_to_sheet($wcode, $csvline);
 }
 
-function form_upased_save($wcode) {
+function form_studytutorial_save($wcode) {
   //retrieve data from session and write it to a new line.
   $csvline = '"'.$_SESSION[$wcode.'name'].'","'.
   $_SESSION[$wcode.'gender'].'","'.
@@ -356,7 +356,7 @@ function uldpadevused_init() {
       'metadata_values' => array('Algamas')
     ));
 
-    $format = 'd-m-Y H:i';
+    $format = 'd-m-Y';
     $tallinn = timezone_open('Europe/Tallinn');
     $now = date_create("now", $tallinn);
     $u2 = date_timestamp_get($now);
@@ -366,11 +366,11 @@ function uldpadevused_init() {
     {
       $start_date = $sheet->wdate;
       $start_time = $sheet->wtime;
-      $date = date_create_from_format($format, $start_date.' '.$start_time, $tallinn);
+      $date = date_create_from_format($format, $start_date, $tallinn);
 
       $u1 = date_timestamp_get($date);
 
-      if ($u1 < $u2)
+      if ($u1 <= $u2)
       {
         $sheet->state = "Alanud";
       }
@@ -392,7 +392,7 @@ function uldpadevused_init() {
 
       $u1 = date_timestamp_get($date);
 
-      if ($u1 < $u2)
+      if ($u1 <= $u2)
       {
         $sheet->state = "Lõppenud";
       }

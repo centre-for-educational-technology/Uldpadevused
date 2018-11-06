@@ -6,6 +6,12 @@ $regex_date = '(^(((0[1-9]|1[0-9]|2[0-8])[-](0[1-9]|1[012]))|((29|30|31)[-](0[13
 //validates time in hh:mm format.
 $regex_time = '^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$';
 
+$today = date_create("today", timezone_open('Europe/Tallinn'))->format('d-m-Y');
+
+$user = elgg_get_logged_in_user_entity();
+$school = $user->school;
+$grade = $user->grade;
+
 $l = count(worksheets);
 for ($i = 0; $i < $l; $i += 1)
 {
@@ -25,24 +31,7 @@ echo elgg_view_field([
   'placeholder' => 'pp-kk-aaaa',
   'pattern' => $regex_date,
   '#label' => ee_echo('polls:forms:starttime'),
-]);
-
-echo elgg_view_field([
-  '#type' => 'text',
-  'name' => 'start_time',
-  'required' => true,
-  'placeholder' => 'hh:mm',
-  'pattern' => $regex_time,
-  '#label' => ee_echo('polls:forms:starttime'),
-]);
-
-echo elgg_view_field([
-  '#type' => 'text',
-  'name' => 'time_limit',
-  'required' => true,
-  '#label' => ee_echo('polls:forms:timelimit'),
-  'placeholder' => 'hh:mm',
-  'pattern' => $regex_time,
+  'value' => $today
 ]);
 
 echo elgg_view_field([
@@ -50,6 +39,7 @@ echo elgg_view_field([
   'name' => 'school',
   'required' => true,
   '#label' => ee_echo('polls:forms:school'),
+  'value' => $school
 ]);
 
 echo elgg_view_field([
@@ -57,6 +47,7 @@ echo elgg_view_field([
   'name' => 'grade',
   'required' => true,
   '#label' => ee_echo('polls:forms:grade'),
+  'value' => $grade
 ]);
 
 $submit = elgg_view_field(array(

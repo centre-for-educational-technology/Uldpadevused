@@ -13,13 +13,13 @@ $_SESSION[$wcode.'p'.$page] = $value;
 $timeup = is_time_up($wcode);
 if ($timeup)
 {
-  form_lugmot_save($wcode);
+  form_metacognition4_save($wcode);
   system_message(ee_echo('polls:success:timeup'));
   forward_home();
 }
 else if ($page == $maxp)
 {
-  form_lugmot_save($wcode);
+  form_metacognition4_save($wcode);
   system_message(ee_echo('polls:success:received'));
   forward_home();
 }

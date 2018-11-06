@@ -9,7 +9,7 @@ $maxp = get_input('maxp');
 $timeup = is_time_up($wcode);
 if ($timeup)
 {
-  form_lumela_save($wcode);
+  form_metacognition_save($wcode);
   system_message(ee_echo('polls:success:timeup'));
   forward_home();
 }
@@ -24,7 +24,7 @@ for ($i = 1; $i < 7; $i += 1)
 //check if its last page
 if ($page == $maxp)
 {
-  form_lumela_save($wcode);
+  form_metacognition_save($wcode);
   system_message(ee_echo('polls:success:received'));
   forward_home();
 }

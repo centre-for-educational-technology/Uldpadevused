@@ -18,13 +18,13 @@ for ($i = 1; $i <= $n; $i++)
 $timeup = is_time_up($wcode);
 if ($timeup)
 {
-  form_upased_save($wcode);
+  form_studytutorial_save($wcode);
   system_message(ee_echo('polls:success:timeup'));
   forward_home();
 }
 else if ($page == $maxp)
 {
-  form_upased_save($wcode);
+  form_studytutorial_save($wcode);
   system_message(ee_echo('polls:success:received'));
   forward_home();
 }
