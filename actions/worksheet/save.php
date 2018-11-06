@@ -22,13 +22,13 @@ $date2 = date_create("today", $tallinn);
 
 $u1 = date_timestamp_get($date1);
 $u2 = date_timestamp_get($date2);
-
 if ($u1 < $u2)
 {
   //date is in the past so don't create worksheet
   register_error(ee_echo('polls:error:pasttime'));
   forward(REFERER);
 }
+$state = $u1 == $u2 ? "Alanud" : "Algamas";
 
 //calculate end time to make checking for ended questionnaires easier
 $date3 = clone $date1;
@@ -55,7 +55,7 @@ $worksheet->wtend = $end_time;
 $worksheet->grade = $grade;
 $worksheet->school = $school;
 
-$worksheet->state = "Algamas"; //"Algamas", "Alanud", "Lõppenud"
+$worksheet->state = $state; //"Algamas", "Alanud", "Lõppenud"
 $worksheet->subtype = 'worksheet';
 $worksheet->access_id = ACCESS_PUBLIC;
 $worksheet->owner_guid = elgg_get_logged_in_user_guid();
