@@ -5,10 +5,6 @@ $wcode = get_input('wcode');
 $page = get_input('page');
 $maxp = get_input('maxp');
 
-//save data to session
-$value = get_input('q');
-$_SESSION[$wcode.'p'.$page] = $value;
-
 //check if time is up
 $timeup = is_time_up($wcode);
 if ($timeup)
@@ -17,7 +13,12 @@ if ($timeup)
   system_message(ee_echo('polls:success:timeup'));
   forward_home();
 }
-else if ($page == $maxp)
+
+//save data to session
+$value = get_input('q');
+$_SESSION[$wcode.'p'.$page] = $value;
+
+if ($page == $maxp)
 {
   form_metacognition4_save($wcode);
   system_message(ee_echo('polls:success:received'));

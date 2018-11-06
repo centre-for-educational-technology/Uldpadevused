@@ -46,55 +46,9 @@ const worksheets = [
   ]
 ];
 
-function create_lugmot_form($wcode, $page, $maxp, $title, $label)
-{
-  //make hidden fields
-  form_view_hidden_fields($wcode, $page, $maxp);
-
-  echo elgg_view_title($title);
-  echo elgg_view_field([
-    '#label' => $label,
-    'name' => 'q',
-    'value' => $_SESSION[$wcode.'p'.$page],
-    'options' => [
-      'Õige' => 'õige',
-      'Vale' => 'vale'
-    ],
-    '#type' => 'radio',
-    'align' => 'horizontal',
-    'required' => true
-  ]);
-
-  //make appropriate buttons in the end
-  form_view_buttons($wcode, $page, $maxp);
-}
-
 function ee_echo($key)
 {
   return elgg_echo($key, [], 'ee');
-}
-
-function create_lugmot_form2($wcode, $page, $maxp, $title, $label)
-{
-  //make hidden fields
-  form_view_hidden_fields($wcode, $page, $maxp);
-
-  echo elgg_view_title($title);
-  echo elgg_view_field([
-    '#label' => $label,
-    'name' => 'q',
-    'value' => $_SESSION[$wcode.'p'.$page],
-    'options' => [
-      'Jah' => 'jah',
-      'Ei' => 'ei'
-    ],
-    '#type' => 'radio',
-    'align' => 'horizontal',
-    'required' => true
-  ]);
-
-  //make appropriate buttons in the end
-  form_view_buttons($wcode, $page, $maxp);
 }
 
 //fetches a worksheet object that matches the wcode

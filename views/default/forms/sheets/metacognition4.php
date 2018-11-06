@@ -1,5 +1,6 @@
 <?php
 session_start();
+elgg_require_js('uldpadevused/metacognition4');
 
 //extract data to put in hidden fields
 $wcode = elgg_extract('wcode', $vars);
@@ -131,4 +132,20 @@ $all = [
   ]
 ];
 
-create_lugmot_form($wcode, $page, $maxp, $all[$page]['title'], $all[$page]['label']);
+//make hidden fields
+form_view_hidden_fields($wcode, $page, $maxp);
+
+echo elgg_view_title($all[$page]['title']);
+echo elgg_view_field([
+  '#label' => $all[$page]['label'],
+  'name' => 'q',
+  'value' => $_SESSION[$wcode.'p'.$page],
+  'options' => [
+    'Õige' => 'oige',
+    'Vale' => 'vale'
+  ],
+  '#type' => 'radio',
+  'align' => 'horizontal',
+  'required' => true
+]);
+echo '<button type="submit" style="width:0;height:0;margin:0;padding:0"></button>';
