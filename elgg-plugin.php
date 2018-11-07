@@ -46,9 +46,6 @@
       ],
       'sheets/motivation' => [
         'access' => 'public'
-      ],
-      'send_metacognition' => [
-        'access' => 'public'
       ]
     ],
   ];
