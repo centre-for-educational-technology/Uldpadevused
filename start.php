@@ -16,8 +16,8 @@ const worksheets = [
       "\n"
   ],
   [
-    'name' => 'Lugmot-laused 4klass',
-    'file' => 'sheets/metacognition4',
+    'name' => 'Lugemisülesanded',
+    'file' => 'sheets/reading',
     'pages' => 30,
     'csvstart' => '"Nimi","Sugu","Vanus",'.
     '"1.1","1.2","1.3","1.4","1.5","1.6",'.
@@ -156,7 +156,7 @@ function form_metacognition_save($wcode) {
   add_csv_to_sheet($wcode, $csvline);
 }
 
-function form_metacognition4_save($wcode) {
+function form_reading_save($wcode) {
   //retrieve data from session and write it to a new line.
   $csvline = '"'.$_SESSION[$wcode.'name'].'","'.
   $_SESSION[$wcode.'gender'].'","'.

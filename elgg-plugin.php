@@ -38,7 +38,7 @@
       'sheets/metacognition' => [
         'access' => 'public'
       ],
-      'sheets/metacognition4' => [
+      'sheets/reading' => [
         'access' => 'public'
       ],
       'sheets/studytutorial' => [

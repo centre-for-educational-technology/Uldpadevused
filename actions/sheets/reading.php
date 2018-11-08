@@ -9,7 +9,7 @@ $maxp = get_input('maxp');
 $timeup = is_time_up($wcode);
 if ($timeup)
 {
-  form_metacognition4_save($wcode);
+  form_reading_save($wcode);
   system_message(ee_echo('polls:success:timeup'));
   forward_home();
 }
@@ -20,7 +20,7 @@ $_SESSION[$wcode.'p'.$page] = $value;
 
 if ($page == $maxp)
 {
-  form_metacognition4_save($wcode);
+  form_reading_save($wcode);
   system_message(ee_echo('polls:success:received'));
   forward_home();
 }
