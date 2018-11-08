@@ -17,7 +17,7 @@ $user->grade = $grade;
 $format = 'd-m-Y';
 $tallinn = timezone_open('Europe/Tallinn');
 
-$date1 = date_create_from_format($format, $start_date, $tallinn);
+$date1 = date_create_from_format($format.' h:i:s', $start_date.' 00:00:00', $tallinn);
 $date2 = date_create("today", $tallinn);
 
 $u1 = date_timestamp_get($date1);
