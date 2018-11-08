@@ -31,3 +31,25 @@ else if ($page == $maxp)
 
 //go to the next question
 forward_next_url($wcode, $page);
+
+function form_studytutorial_save($wcode) {
+  //retrieve data from session and write it to a new line.
+  $csvline = '"'.$_SESSION[$wcode.'name'].'","'.
+  $_SESSION[$wcode.'gender'].'","'.
+  $_SESSION[$wcode.'age'].'",';
+  for ($i = 1; $i <= 4; $i += 1)
+  {
+    $value = $_SESSION[$wcode.'p1q'.$i];
+    $csvline .= '"'.$value.'",';
+  }
+  for ($i = 1; $i <= 6; $i += 1)
+  {
+    $value = $_SESSION[$wcode.'p2q'.$i];
+    $csvline .= '"'.$value.'"';
+    if ($i < 6) $csvline .= ',';
+  }
+  $csvline .= "\n";
+
+  //add made csv line to sheet csv
+  add_csv_to_sheet($wcode, $csvline);
+}
