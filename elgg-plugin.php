@@ -46,6 +46,18 @@
       ],
       'sheets/motivation' => [
         'access' => 'public'
+      ],
+      'sheets/text_plane' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/sheets/text.php'
+      ],
+      'sheets/text_paper' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/sheets/text.php'
+      ],
+      'sheets/text_teeth' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/sheets/text_teeth.php'
       ]
     ],
   ];

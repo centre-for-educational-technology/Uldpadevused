@@ -43,6 +43,30 @@ const worksheets = [
     'csvstart' => '"Nimi","Sugu","Vanus",'.
     '"1","2","3","4","5","6","7","8","9"'.
     "\n"
+  ],
+  [
+    'name' => 'Tekst "Õhusõidukid" 4. kl',
+    'file' => 'sheets/text_plane',
+    'pages' => 9,
+    'csvstart' => '"Nimi,"Sugu","Vanus",'.
+    '"1","2","3","4","5","6","7","8","9"'.
+    "\n"
+  ],
+  [
+    'name' => 'Tekst "Paberilugu" 3. kl',
+    'file' => 'sheets/text_paper',
+    'pages' => 9,
+    'csvstart' => '"Nimi,"Sugu","Vanus",'.
+    '"1","2","3","4","5","6","7","8","9"'.
+    "\n"
+  ],
+  [
+    'name' => 'Tekst "Hambalugu" 2. kl',
+    'file' => 'sheets/text_teeth',
+    'pages' => 9,
+    'csvstart' => '"Nimi,"Sugu","Vanus",'.
+    '"1","2","3","4","5.1","5.2","5.3","5.4","5.5","6","7","8","9"'.
+    "\n"
   ]
 ];
 
