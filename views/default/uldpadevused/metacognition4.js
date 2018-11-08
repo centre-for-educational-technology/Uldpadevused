@@ -5,7 +5,7 @@ define(function(require) {
   var ajax = new Ajax();
 
   $('input[name=q]').on("change", function(event) {
-    /*ajax.action('send_metacognition4', {
+    /*ajax.action('send_reading', {
       data: {
         wcode: $('input[name=wcode]').val(),
         page: $('input[name=page]').val(),

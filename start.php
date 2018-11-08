@@ -16,8 +16,8 @@ const worksheets = [
       "\n"
   ],
   [
-    'name' => 'Lugmot-laused 4klass',
-    'file' => 'sheets/metacognition4',
+    'name' => 'Lugemisülesanded',
+    'file' => 'sheets/reading',
     'pages' => 30,
     'csvstart' => '"Nimi","Sugu","Vanus",'.
     '"1.1","1.2","1.3","1.4","1.5","1.6",'.
@@ -42,6 +42,30 @@ const worksheets = [
     'pages' => 3,
     'csvstart' => '"Nimi","Sugu","Vanus",'.
     '"1","2","3","4","5","6","7","8","9"'.
+    "\n"
+  ],
+  [
+    'name' => 'Tekst "Õhusõidukid" 4. kl',
+    'file' => 'sheets/text_plane',
+    'pages' => 9,
+    'csvstart' => '"Nimi,"Sugu","Vanus",'.
+    '"1","2","3","4","5","6","7","8","9"'.
+    "\n"
+  ],
+  [
+    'name' => 'Tekst "Paberilugu" 3. kl',
+    'file' => 'sheets/text_paper',
+    'pages' => 9,
+    'csvstart' => '"Nimi,"Sugu","Vanus",'.
+    '"1","2","3","4","5","6","7","8","9"'.
+    "\n"
+  ],
+  [
+    'name' => 'Tekst "Hambalugu" 2. kl',
+    'file' => 'sheets/text_teeth',
+    'pages' => 9,
+    'csvstart' => '"Nimi,"Sugu","Vanus",'.
+    '"1","2","3","4","5.1","5.2","5.3","5.4","5.5","6","7","8","9"'.
     "\n"
   ]
 ];
@@ -104,9 +128,6 @@ function form_view_hidden_fields($wcode, $page, $maxp)
 //generate buttons for form page
 function form_view_buttons($wcode, $page, $maxp)
 {
-  $value = $page < $maxp ? ee_echo('polls:buttons:next') : ee_echo('polls:buttons:submit');
-  echo '<button value="'.'" type="submit" class="elgg-button elgg-button-submit" style="display:inline-block; float:left">'.$value."</button>";
-  
   if ($page > 1)
   {
     $href1 = elgg_generate_url('view:object:worksheet', [
@@ -115,6 +136,9 @@ function form_view_buttons($wcode, $page, $maxp)
     ]);
     echo '<a href="'.$href1.'" class="elgg-button elgg-button-action">'.ee_echo('polls:buttons:previous').'</a>';
   }
+
+  $value = $page < $maxp ? ee_echo('polls:buttons:next') : ee_echo('polls:buttons:submit');
+  echo '<button value="'.'" type="submit" class="elgg-button elgg-button-submit" style="display:inline-block; float:left">'.$value."</button>";
 }
 
 function is_time_up($wcode) {
@@ -127,99 +151,6 @@ function is_time_up($wcode) {
   $unix = date_timestamp_get($now);
 
   return $unix - $start >= $limit;
-}
-
-function form_metacognition_save($wcode) {
-  //retrieve data from session and write it to a new line.
-  $csvline = '"'.$_SESSION[$wcode.'name'].'","'.
-  $_SESSION[$wcode.'gender'].'","'.
-  $_SESSION[$wcode.'age'].'",';
-  for ($i = 1; $i <= 7; $i += 1)
-  {
-    $part = $wcode.'p'.$i.'q';
-    for ($k = 1; $k <= 6; $k += 1)
-    {
-      $value = $_SESSION[$part.$k];
-      /*if (!$value)
-      {
-        register_error($i.'.'.$k.' on vastamata!');
-        forward(REFERER);
-      }*/
-      $csvline .= '"'.$value.'"';
-      if ($k < 6) $csvline .= ',';
-    }
-    if ($i < 7) $csvline .= ',';
-  }
-  $csvline .= "\n";
-  
-  //add made csv line to sheet csv
-  add_csv_to_sheet($wcode, $csvline);
-}
-
-function form_metacognition4_save($wcode) {
-  //retrieve data from session and write it to a new line.
-  $csvline = '"'.$_SESSION[$wcode.'name'].'","'.
-  $_SESSION[$wcode.'gender'].'","'.
-  $_SESSION[$wcode.'age'].'",';
-  for ($i = 1; $i <= 36; $i += 1)
-  {
-    $value = $_SESSION[$wcode.'p'.$i];
-    $csvline .= '"'.$value.'"';
-    if ($i < 36) $csvline .= ',';
-  }
-  $csvline .= "\n";
-
-  //add made csv line to sheet csv
-  add_csv_to_sheet($wcode, $csvline);
-}
-
-function form_studytutorial_save($wcode) {
-  //retrieve data from session and write it to a new line.
-  $csvline = '"'.$_SESSION[$wcode.'name'].'","'.
-  $_SESSION[$wcode.'gender'].'","'.
-  $_SESSION[$wcode.'age'].'",';
-  for ($i = 1; $i <= 4; $i += 1)
-  {
-    $value = $_SESSION[$wcode.'p1q'.$i];
-    $csvline .= '"'.$value.'",';
-  }
-  for ($i = 1; $i <= 6; $i += 1)
-  {
-    $value = $_SESSION[$wcode.'p2q'.$i];
-    $csvline .= '"'.$value.'"';
-    if ($i < 6) $csvline .= ',';
-  }
-  $csvline .= "\n";
-
-  //add made csv line to sheet csv
-  add_csv_to_sheet($wcode, $csvline);
-}
-
-function form_motivation_save($wcode) {
-  //retrieve data from session and write it to a new line.
-  $csvline = '"'.$_SESSION[$wcode.'name'].'","'.
-  $_SESSION[$wcode.'gender'].'","'.
-  $_SESSION[$wcode.'age'].'",';
-  for ($i = 1; $i <= 3; $i += 1)
-  {
-    $part = $wcode.'p'.$i.'q';
-    for ($k = 1; $k <= 3; $k += 1)
-    {
-      $value = $_SESSION[$part.$k];
-      /*if (!$value)
-      {
-        register_error($i.'.'.$k.' on vastamata!');
-        forward(REFERER);
-      }*/
-      $csvline .= '"'.$value.'"';
-      if ($k < 3) $csvline .= ',';
-    }
-    if ($i < 3) $csvline .= ',';
-  }
-  $csvline .= "\n";
-  
-  //add made csv line to sheet csv
-  add_csv_to_sheet($wcode, $csvline);
 }
 
 function add_csv_to_sheet($wcode, $csvline)

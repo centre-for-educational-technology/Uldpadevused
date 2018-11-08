@@ -1,6 +1,6 @@
 <?php
 session_start();
-elgg_require_js('uldpadevused/metacognition4');
+elgg_require_js('uldpadevused/reading');
 
 //extract data to put in hidden fields
 $wcode = elgg_extract('wcode', $vars);
@@ -131,9 +131,6 @@ $all = [
     'label' => 'Kuna vaid vähesed õpilased, nagu sina, jõuavad ühe minutiga selle lauseni, võid olla kindel, et oled hea lugeja.'
   ]
 ];
-
-//make hidden fields
-form_view_hidden_fields($wcode, $page, $maxp);
 
 echo elgg_view_title($all[$page]['title']);
 echo elgg_view_field([
