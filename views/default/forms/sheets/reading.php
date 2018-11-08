@@ -132,9 +132,6 @@ $all = [
   ]
 ];
 
-//make hidden fields
-form_view_hidden_fields($wcode, $page, $maxp);
-
 echo elgg_view_title($all[$page]['title']);
 echo elgg_view_field([
   '#label' => $all[$page]['label'],
