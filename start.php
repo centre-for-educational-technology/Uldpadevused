@@ -282,6 +282,8 @@ function uldpadevused_init() {
       }
     }
  });
+
+ elgg_register_simplecache_view('graphics/bus_stop.png');
 }
 
 return function() {
