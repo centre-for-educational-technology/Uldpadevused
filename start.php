@@ -128,9 +128,6 @@ function form_view_hidden_fields($wcode, $page, $maxp)
 //generate buttons for form page
 function form_view_buttons($wcode, $page, $maxp)
 {
-  $value = $page < $maxp ? ee_echo('polls:buttons:next') : ee_echo('polls:buttons:submit');
-  echo '<button value="'.'" type="submit" class="elgg-button elgg-button-submit" style="display:inline-block; float:left">'.$value."</button>";
-  
   if ($page > 1)
   {
     $href1 = elgg_generate_url('view:object:worksheet', [
@@ -139,6 +136,9 @@ function form_view_buttons($wcode, $page, $maxp)
     ]);
     echo '<a href="'.$href1.'" class="elgg-button elgg-button-action">'.ee_echo('polls:buttons:previous').'</a>';
   }
+
+  $value = $page < $maxp ? ee_echo('polls:buttons:next') : ee_echo('polls:buttons:submit');
+  echo '<button value="'.'" type="submit" class="elgg-button elgg-button-submit" style="display:inline-block; float:left">'.$value."</button>";
 }
 
 function is_time_up($wcode) {
