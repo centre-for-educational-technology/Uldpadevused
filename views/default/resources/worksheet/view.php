@@ -17,10 +17,9 @@ if (!$time)
 }
 
 //find correct page of form
-$stype = $sheet->title;
-$key = array_search($stype, array_column(worksheets, 'name'));
+$stype = $sheet->stype;
 $page = elgg_extract('page', $vars);
-$maxp = worksheets[$key]['pages'];
+$maxp = count(worksheets[$stype]['pages']);
 if (!$page || $page < 1)
 {
   $page = 1;
@@ -29,10 +28,12 @@ else if ($page > $maxp)
 {
   $page = $maxp;
 }
-$form = worksheets[$key]['file'];
+$form = worksheets[$stype]['file'];
 
 //display form
-$content = elgg_view_title($stype);
+$title = $sheet->title;
+
+$content = elgg_view_title($title);
 $content .= elgg_view_form($form, array(), array('wcode' => $wcode, 'page' => $page, 'maxp' => $maxp));
 
 $body = elgg_view_layout('no_sidebar', array(

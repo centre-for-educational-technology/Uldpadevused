@@ -36,28 +36,32 @@
         'access' => 'public'
       ],
       'sheets/metacognition' => [
-        'access' => 'public'
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/sheets/formsubmit.php'
       ],
       'sheets/reading' => [
-        'access' => 'public'
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/sheets/formsubmit.php'
       ],
       'sheets/studytutorial' => [
-        'access' => 'public'
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/sheets/formsubmit.php'
       ],
       'sheets/motivation' => [
-        'access' => 'public'
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/sheets/formsubmit.php'
       ],
       'sheets/text_plane' => [
         'access' => 'public',
-        'filename' => __DIR__ . '/actions/sheets/text.php'
+        'filename' => __DIR__ . '/actions/sheets/formsubmit.php'
       ],
       'sheets/text_paper' => [
         'access' => 'public',
-        'filename' => __DIR__ . '/actions/sheets/text.php'
+        'filename' => __DIR__ . '/actions/sheets/formsubmit.php'
       ],
       'sheets/text_teeth' => [
         'access' => 'public',
-        'filename' => __DIR__ . '/actions/sheets/text_teeth.php'
+        'filename' => __DIR__ . '/actions/sheets/formsubmit.php'
       ]
     ],
   ];
