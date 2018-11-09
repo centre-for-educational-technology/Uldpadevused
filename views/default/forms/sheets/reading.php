@@ -135,8 +135,8 @@ $all = [
 echo elgg_view_title($all[$page]['title']);
 echo elgg_view_field([
   '#label' => $all[$page]['label'],
-  'name' => 'q',
-  'value' => $_SESSION[$wcode.'p'.$page],
+  'name' => 'q1',
+  'value' => $_SESSION[$wcode.'p'.$page.'q1'],
   'options' => [
     'Õige' => 'oige',
     'Vale' => 'vale'

@@ -32,7 +32,26 @@ $all = [
   ],
 ];
 
-form_view_3emoticons($all[$page]['labels'], $wcode, $page);
+$labels = $all[$page]['labels'];
+for ($i = 0; $i < 3; $i = $ipp)
+  {
+    $ipp = $i + 1;
+    echo elgg_view_field([
+      '#label' => $labels[$i],
+      'name' => 'q'.$ipp,
+      'value' => $_SESSION[$wcode.'p'.$page.'q'.$ipp],
+      'options' => [
+        'Ei ole üldse nõus' => 1,
+        '2' => 2,
+        '3' => 3,
+        '4' => 4,
+        'Olen täiesti nõus' => 5
+      ],
+      '#type' => 'radio',
+      'align' => 'horizontal',
+      'required' => true
+    ]);
+  }
 
 //make appropriate buttons in the end
 form_view_buttons($wcode, $page, $maxp);

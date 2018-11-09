@@ -13,7 +13,7 @@ $school = $user->school;
 $grade = $user->grade;
 
 $l = count(worksheets);
-for ($i = 0; $i < $l; $i += 1)
+for ($i = 1; $i <= $l; $i += 1)
 {
   $optval[$i] = worksheets[$i]['name'];
 }

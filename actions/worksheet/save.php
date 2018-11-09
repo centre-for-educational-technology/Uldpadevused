@@ -1,9 +1,17 @@
 <?php
-
 gatekeeper();
 
 //get data from form
-$sheet_type = worksheets[get_input('sheet_type')]['name'];
+$stype = get_input('sheet_type');
+$title = worksheets[$stype]['name'];
+
+//if client sends illegal number we detect it >:(
+if (!$title)
+{
+  register_error("sellist küsitlust pole");
+  forward(REFERER);
+}
+
 $start_date = get_input('start_date');
 $school = get_input('school');
 $grade = get_input('grade');
@@ -36,7 +44,7 @@ $date3->modify('+1 Day');
 $end_time = $date3->format($format);
 
 //small time limit if its the reading task
-if ($sheet_type == worksheets[1]['name'])
+if ($stype == 2)
 {
   $limit = 60;
 }
@@ -48,7 +56,8 @@ else
 //set up new object
 $worksheet = new ElggObject();
 
-$worksheet->title = $sheet_type;
+$worksheet->title = $title;
+$worksheet->stype = $stype;
 $worksheet->wdate = $start_date;
 $worksheet->limit = $limit;
 $worksheet->wtend = $end_time;
@@ -84,9 +93,25 @@ do {
 } while (count($sheets) > 0);
 $worksheet->wcode = $wcode;
 
-//set table names for csv text
-$key = array_search($sheet_type, array_column(worksheets, 'name'));
-$csv = worksheets[$key]['csvstart'];
+//make first csv line with column names
+$csv = '"Nimi","Sugu","Vanus"';
+
+//get page count
+$pcount = count(worksheets[$stype]['pages']);
+
+for ($i = 1; $i <= $pcount; $i += 1)
+{
+  //get question count
+  $qcount = worksheets[$stype]['pages'][$i];
+
+  for ($k = 1; $k <= $qcount; $k += 1)
+  {
+    $csv .= ',"'.$i.'.'.$k.'"';
+  }
+}
+$csv .= "\n";
+
+//write csv
 $worksheet->csv = $csv;
 
 $blog_guid = $worksheet->save();

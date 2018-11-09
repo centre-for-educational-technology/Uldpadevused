@@ -115,7 +115,7 @@ else
 {
   echo elgg_view_field([
     '#label' => '',
-    'name' => 'q',
+    'name' => 'q1',
     'value' => $_SESSION[$wcode.'p'.$page],
     'options' => $all[$page]['labels'],
     '#type' => 'radio',
