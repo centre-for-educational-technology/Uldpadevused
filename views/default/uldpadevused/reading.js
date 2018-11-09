@@ -4,7 +4,7 @@ define(function(require) {
   var elgg = require("elgg");
   var ajax = new Ajax();
 
-  $('input[name=q]').on("change", function(event) {
+  $('input[name=q1]').on("change", function(event) {
     /*ajax.action('send_reading', {
       data: {
         wcode: $('input[name=wcode]').val(),

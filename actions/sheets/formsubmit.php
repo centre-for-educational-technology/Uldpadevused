@@ -9,9 +9,6 @@ $maxp = get_input('maxp');
 $worksheet = get_sheet_from_wcode($wcode);
 $stype = $worksheet->stype;
 
-//get question count for current page
-$qcount = worksheets[$stype]['pages'][$page];
-
 //check if time is up
 if (is_time_up($wcode))
 {
@@ -19,6 +16,9 @@ if (is_time_up($wcode))
   system_message(ee_echo('polls:success:timeup'));
   forward_home();
 }
+
+//get question count for current page
+$qcount = worksheets[$stype]['pages'][$page];
 
 //save page data to session
 for ($i = 1; $i <= $qcount; $i += 1)
