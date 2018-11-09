@@ -15,10 +15,6 @@ $body .= "<th>#</th>";
 $body .= "<th>".ee_echo('polls:all:code')."</th>";
 $body .= "<th>".ee_echo('polls:all:date')."</th>";
 
-//for testing purposes
-$body .= "<th>".ee_echo('polls:all:time')."</th>";
-$body .= "<th>".ee_echo('polls:all:duration')."</th>";
-
 $body .= "<th>".ee_echo('polls:all:replycount')."</th>";
 $body .= "<th>".ee_echo('polls:all:pollname')."</th>";
 $body .= "<th>".ee_echo('polls:all:status')."</th>";
@@ -34,10 +30,6 @@ for ($i = 0; $i < $n; $i += 1)
   $body .= "<th>".strval($i + 1)."</th>";
   $body .= "<th>".$sheet->wcode."</th>";
   $body .= "<th>".$sheet->wdate."</th>";
-
-  //for testing purposes
-  $body .= "<th>".$sheet->wtime."</th>";
-  $body .= "<th>".$sheet->limit."</th>";
 
   $body .= "<th>".$sheet->replies."</th>";
   $body .= "<th>".$sheet->title."</th>";
