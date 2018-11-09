@@ -20,7 +20,7 @@ if ($page == 1)
   
   //draw radios
   form_view_radio($text1, $wcode, $page, 1);
-  echo '<img src="'.elgg_get_site_url().'mod/Uldpadevused/images/graph.png">';
+  echo '<img src="'.elgg_get_site_url().'mod/Uldpadevused/images/bus_stop.png">';
   
   form_view_radio($text2, $wcode, $page, 2);
   
