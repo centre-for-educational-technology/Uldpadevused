@@ -34,6 +34,7 @@ return [
   'polls:forms:grade' => 'Klass',
   'polls:forms:begin' => 'Alusta vastamist',
   'polls:forms:create' => 'Genereeri kood',
+  'polls:forms:worksheets' => 'Vali, milliseid küsitlusi soovid läbi viia.',
   'polls:buttons:previous' => 'Eelmine küsimus',
   'polls:buttons:next' => 'Järgmine küsimus',
   'polls:buttons:submit' => 'Saada ära'

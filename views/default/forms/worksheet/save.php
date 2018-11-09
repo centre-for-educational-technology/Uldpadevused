@@ -18,10 +18,10 @@ for ($i = 1; $i <= $l; $i += 1)
   $optval[$i] = worksheets[$i]['name'];
 }
 echo elgg_view_field([
-  '#type' => 'select',
-  'name' => 'sheet_type',
-  'required' => true,
-  'options_values' => $optval
+  '#type' => 'checkboxes',
+  'name' => 'sheets[]',
+  'options_values' => $optval,
+  '#label' => ee_echo('polls:forms:worksheets')
 ]);
 
 echo elgg_view_field([

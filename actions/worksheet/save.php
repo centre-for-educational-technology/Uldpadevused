@@ -2,7 +2,21 @@
 gatekeeper();
 
 //get data from form
-$stype = get_input('sheet_type');
+$sheets = get_input('sheets[]');
+
+if (!$sheets)
+{
+  register_error("Vali vähemalt üks küsitlus");
+  forward(REFERER);
+}
+
+$n = count($sheets);
+for ($i = 0; $i < $n; $i += 1)
+{
+  $str .= strval($sheets[$n]).",";
+}
+system_message($str);
+
 $title = worksheets[$stype]['name'];
 
 //if client sends illegal number we detect it >:(
