@@ -116,66 +116,6 @@ function form_view_buttons($wcode, $page, $maxp)
   echo '<button value="'.'" type="submit" class="elgg-button elgg-button-submit" style="display:inline-block; float:left">'.$value."</button>";
 }
 
-function form_view_radios($labels, $wcode, $id)
-{
-  for ($i = 0; $i < count($labels); $i += 1)
-  {
-    $ipp = $i + 1;
-    echo elgg_view_field([
-      '#label' => $labels[$i],
-      'name' => 'q'.$ipp,
-      'value' => $_SESSION[$wcode.'p'.$id.'q'.$ipp],
-      'options' => [
-        'Jah' => 'jah',
-        'Ei' => 'ei'
-      ],
-      '#type' => 'radio',
-      'align' => 'horizontal',
-      'required' => true
-    ]);
-  }
-}
-
-function form_view_radio($label, $wcode, $page, $question)
-{
-  echo elgg_view_field([
-    '#label' => $label,
-    'name' => 'q'.$question,
-    'value' => $_SESSION[$wcode.'p'.$page.'q'.$question],
-    'options' => [
-      'Jah' => 'jah',
-      'Ei' => 'ei',
-      'Ei tea' => 'ei tea'
-    ],
-    '#type' => 'radio',
-    'align' => 'horizontal',
-    'required' => true
-  ]);
-}
-
-function form_view_3emoticons($labels, $wcode, $page)
-{
-  for ($i = 0; $i < 3; $i = $ipp)
-  {
-    $ipp = $i + 1;
-    echo elgg_view_field([
-      '#label' => $labels[$i],
-      'name' => 'q'.$ipp,
-      'value' => $_SESSION[$wcode.'p'.$page.'q'.$ipp],
-      'options' => [
-        'Ei ole üldse nõus' => 1,
-        '2' => 2,
-        '3' => 3,
-        '4' => 4,
-        'Olen täiesti nõus' => 5
-      ],
-      '#type' => 'radio',
-      'align' => 'horizontal',
-      'required' => true
-    ]);
-  }
-}
-
 function uldpadevused_init() {
   //visiteeri http://localhost:8888/cron/minute et esile kutsuda
 

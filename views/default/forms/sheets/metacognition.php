@@ -88,8 +88,23 @@ $all = [
   ]
 ];
 
-echo elgg_view_title($all[$page]['title']);
-form_view_radios($all[$page]['labels'], $wcode, $page);
+$labels = $all[$page]['labels'];
+for ($i = 0; $i < count($labels); $i += 1)
+  {
+    $ipp = $i + 1;
+    echo elgg_view_field([
+      '#label' => $labels[$i],
+      'name' => 'q'.$ipp,
+      'value' => $_SESSION[$wcode.'p'.$id.'q'.$ipp],
+      'options' => [
+        'Jah' => 'jah',
+        'Ei' => 'ei'
+      ],
+      '#type' => 'radio',
+      'align' => 'horizontal',
+      'required' => true
+    ]);
+  }
 
 //make appropriate buttons in the end
 form_view_buttons($wcode, $page, $maxp);

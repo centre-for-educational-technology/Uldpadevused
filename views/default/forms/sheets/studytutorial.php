@@ -51,3 +51,20 @@ else
 }
 //make appropriate buttons in the end
 form_view_buttons($wcode, $page, $maxp);
+
+function form_view_radio($label, $wcode, $page, $question)
+{
+  echo elgg_view_field([
+    '#label' => $label,
+    'name' => 'q'.$question,
+    'value' => $_SESSION[$wcode.'p'.$page.'q'.$question],
+    'options' => [
+      'Jah' => 'jah',
+      'Ei' => 'ei',
+      'Ei tea' => 'ei tea'
+    ],
+    '#type' => 'radio',
+    'align' => 'horizontal',
+    'required' => true
+  ]);
+}
