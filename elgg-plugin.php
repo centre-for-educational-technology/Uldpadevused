@@ -26,7 +26,7 @@
         'resource' => 'worksheet/download'
       ],
       'view:object:worksheet' => [
-        'path' => 'polls/{wcode}/{page?}',
+        'path' => 'polls/{wcode}/{poll?}/{page?}',
         'resource' => 'worksheet/view'
       ],
     ],

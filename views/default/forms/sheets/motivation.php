@@ -5,8 +5,9 @@ session_start();
 $wcode = elgg_extract('wcode', $vars);
 $page = elgg_extract('page', $vars);
 $maxp = elgg_extract('maxp', $vars);
+$poll = elgg_extract('poll', $vars);
 //make hidden fields
-form_view_hidden_fields($wcode, $page, $maxp);
+form_view_hidden_fields($wcode, $page, $maxp, $poll);
 
 $all = [
   1 => [
@@ -39,7 +40,7 @@ for ($i = 0; $i < 3; $i = $ipp)
     echo elgg_view_field([
       '#label' => $labels[$i],
       'name' => 'q'.$ipp,
-      'value' => $_SESSION[$wcode.'p'.$page.'q'.$ipp],
+      'value' => $_SESSION[$wcode.'p'.$poll.'p'.$page.'q'.$ipp],
       'options' => [
         'Ei ole üldse nõus' => 1,
         '2' => 2,
@@ -54,4 +55,4 @@ for ($i = 0; $i < 3; $i = $ipp)
   }
 
 //make appropriate buttons in the end
-form_view_buttons($wcode, $page, $maxp);
+form_view_buttons($wcode, $page, $maxp, $poll);

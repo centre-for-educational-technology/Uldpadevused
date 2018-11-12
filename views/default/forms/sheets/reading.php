@@ -6,8 +6,9 @@ elgg_require_js('uldpadevused/reading');
 $wcode = elgg_extract('wcode', $vars);
 $page = elgg_extract('page', $vars);
 $maxp = elgg_extract('maxp', $vars);
+$poll = elgg_extract('poll', $vars);
 //make hidden fields
-form_view_hidden_fields($wcode, $page, $maxp);
+form_view_hidden_fields($wcode, $page, $maxp, $poll);
 
 $all = [
   1 => [
@@ -136,7 +137,7 @@ echo elgg_view_title($all[$page]['title']);
 echo elgg_view_field([
   '#label' => $all[$page]['label'],
   'name' => 'q1',
-  'value' => $_SESSION[$wcode.'p'.$page.'q1'],
+  'value' => $_SESSION[$wcode.'p'.$poll.'p'.$page.'q1'],
   'options' => [
     'Õige' => 'oige',
     'Vale' => 'vale'

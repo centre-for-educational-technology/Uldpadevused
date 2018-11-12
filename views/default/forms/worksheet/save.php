@@ -19,7 +19,7 @@ for ($i = 1; $i <= $l; $i += 1)
 }
 echo elgg_view_field([
   '#type' => 'checkboxes',
-  'name' => 'sheets[]',
+  'name' => 'sheets',
   'options_values' => $optval,
   '#label' => ee_echo('polls:forms:worksheets')
 ]);
