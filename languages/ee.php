@@ -19,9 +19,10 @@ return [
   'polls:error:notstarted' => 'See küsitlus pole veel alanud!',
   'polls:error:pasttime' => 'Aeg on minevikus.',
   'polls:error:fail' => 'Küsitlust ei saanud teha.',
+  'polls:error:wrongid' => 'Sellist küsitlust pole.',
   'polls:success:saved' => 'Küsitlus salvestati.',
   'polls:success:received' => 'Sinu vastused on edukalt salvestatud!',
-  'polls:success:timeup' => 'Aeg sai läbi! Sinu vastused on salvestatud.',
+  'polls:success:timeup' => 'Aeg sai läbi!',
   'polls:forms:code' => 'Liitumiskood',
   'polls:forms:name' => 'Ees- ja perekonnanimi',
   'polls:forms:gender' => 'Sugu',
@@ -34,7 +35,11 @@ return [
   'polls:forms:grade' => 'Klass',
   'polls:forms:begin' => 'Alusta vastamist',
   'polls:forms:create' => 'Genereeri kood',
+  'polls:forms:worksheets' => 'Vali, milliseid küsitlusi soovid läbi viia.',
   'polls:buttons:previous' => 'Eelmine küsimus',
   'polls:buttons:next' => 'Järgmine küsimus',
-  'polls:buttons:submit' => 'Saada ära'
+  'polls:buttons:submit' => 'Saada ära',
+  'polls:all:author' => 'Autor',
+  'polls:success:newform' => 'See on uus küsitlus.',
+  'polls:button:nextpoll' => 'Mine järgmisse küsimustikku.'
 ];

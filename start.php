@@ -2,14 +2,6 @@
 
 const worksheets = [
   1 => [
-    'name' => 'Lugemise metakognitsioon lastele',
-    'file' => 'sheets/metacognition',
-    'pages' => [ 
-      1 => 6, 2 => 6, 3 => 6,
-      4 => 6, 5 => 6, 6 => 6, 7 => 6 
-    ],
-  ],
-  2 => [
     'name' => 'Lugemisülesanded',
     'file' => 'sheets/reading',
     'pages' => [ 
@@ -20,6 +12,18 @@ const worksheets = [
       21 => 1, 22 => 1, 23 => 1, 24 => 1, 25 => 1,
       26 => 1, 27 => 1, 28 => 1, 29 => 1, 30 => 1
     ],
+    'timelimit' => 60,
+    'alias' => '60sec'
+  ],
+  2 => [
+    'name' => 'Lugemise metakognitsioon lastele',
+    'file' => 'sheets/metacognition',
+    'pages' => [ 
+      1 => 6, 2 => 6, 3 => 6,
+      4 => 6, 5 => 6, 6 => 6, 7 => 6 
+    ],
+    'timelimit' => 86400,
+    'alias' => 'meta'
   ],
   3 => [
     'name' => 'Kuidas õppida enne sekkumist',
@@ -27,6 +31,8 @@ const worksheets = [
     'pages' => [ 
       1 => 4, 2 => 6 
     ],
+    'timelimit' => 86400,
+    'alias' => 'kuidas'
   ],
   4 => [
     'name' => 'Lugemismotivatsioon',
@@ -34,6 +40,8 @@ const worksheets = [
     'pages' => [ 
       1 => 3, 2 => 3, 3 => 3 
     ],
+    'timelimit' => 86400,
+    'alias' => 'motiiv'
   ],
   5 => [
     'name' => 'Tekst "Õhusõidukid" 4. kl',
@@ -42,6 +50,8 @@ const worksheets = [
       1 => 1, 2 => 1, 3 => 1, 4 => 1,
       5 => 1, 6 => 1, 7 => 1, 8 => 1, 9 => 1 
     ],
+    'timelimit' => 86400,
+    'alias' => 'lennuk'
   ],
   6 => [
     'name' => 'Tekst "Paberilugu" 3. kl',
@@ -50,6 +60,8 @@ const worksheets = [
       1 => 1, 2 => 1, 3 => 1, 4 => 1, 
       5 => 1, 6 => 1, 7 => 1, 8 => 1, 9 => 1 
     ],
+    'timelimit' => 86400,
+    'alias' => 'paber'
   ],
   7 => [
     'name' => 'Tekst "Hambalugu" 2. kl',
@@ -58,6 +70,8 @@ const worksheets = [
       1 => 1, 2 => 1, 3 => 1, 4 => 1,
       5 => 5, 6 => 1, 7 => 1, 8 => 1, 9 => 1
     ],
+    'timelimit' => 86400,
+    'alias' => 'hambad'
   ],
 ];
 
@@ -80,8 +94,22 @@ function get_sheet_from_wcode($wcode)
   }
 }
 
+function get_poll_id($wcode, $wid)
+{
+  $sheet = get_sheet_from_wcode($wcode);
+  $polls = $sheet->polls;
+  return (int)substr($polls, ($wid - 1) * 3, 2);
+}
+
+function get_poll_count($wcode)
+{
+  $sheet = get_sheet_from_wcode($wcode);
+  $polls = $sheet->polls;
+  return strlen($polls) / 3;
+}
+
 //generate hidden fields for form page
-function form_view_hidden_fields($wcode, $page, $maxp)
+function form_view_hidden_fields($wcode, $page, $maxp, $poll)
 {
   echo elgg_view_field([
     '#type' => 'hidden',
@@ -98,21 +126,31 @@ function form_view_hidden_fields($wcode, $page, $maxp)
     'name' => 'maxp',
     'value' => $maxp
   ]);
+  echo elgg_view_field([
+    '#type' => 'hidden',
+    'name' => 'poll',
+    'value' => $poll
+  ]);
 }
 
 //generate buttons for form page
-function form_view_buttons($wcode, $page, $maxp)
+function form_view_buttons($wcode, $page, $maxp, $poll)
 {
   if ($page > 1)
   {
     $href1 = elgg_generate_url('view:object:worksheet', [
       'wcode' => $wcode,
-      'page' => $page - 1
+      'page' => $page - 1,
+      'poll' => $poll
     ]);
     echo '<a href="'.$href1.'" class="elgg-button elgg-button-action">'.ee_echo('polls:buttons:previous').'</a>';
   }
 
-  $value = $page < $maxp ? ee_echo('polls:buttons:next') : ee_echo('polls:buttons:submit');
+  $value = $page < $maxp 
+    ? ee_echo('polls:buttons:next') 
+    : ($poll < get_poll_count($wcode)
+      ? ee_echo('polls:button:nextpoll')
+      : ee_echo('polls:buttons:submit'));
   echo '<button value="'.'" type="submit" class="elgg-button elgg-button-submit" style="display:inline-block; float:left">'.$value."</button>";
 }
 

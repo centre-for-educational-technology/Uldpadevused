@@ -14,8 +14,8 @@ $body = '<table style="width:100%;"><tr>';
 $body .= "<th>#</th>";
 $body .= "<th>".ee_echo('polls:all:code')."</th>";
 $body .= "<th>".ee_echo('polls:all:date')."</th>";
-
 $body .= "<th>".ee_echo('polls:all:replycount')."</th>";
+$body .= "<th>".ee_echo('polls:all:author')."</th>";
 $body .= "<th>".ee_echo('polls:all:pollname')."</th>";
 $body .= "<th>".ee_echo('polls:all:status')."</th>";
 $body .= "<th>".ee_echo('polls:all:download')."</th>";
@@ -30,8 +30,8 @@ for ($i = 0; $i < $n; $i += 1)
   $body .= "<th>".strval($i + 1)."</th>";
   $body .= "<th>".$sheet->wcode."</th>";
   $body .= "<th>".$sheet->wdate."</th>";
-
   $body .= "<th>".$sheet->replies."</th>";
+  $body .= "<th>".$sheet->author."</th>";
   $body .= "<th>".$sheet->title."</th>";
   $body .= "<th>".$sheet->state."</th>";
 

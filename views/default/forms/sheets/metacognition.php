@@ -5,8 +5,9 @@ session_start();
 $wcode = elgg_extract('wcode', $vars);
 $page = elgg_extract('page', $vars);
 $maxp = elgg_extract('maxp', $vars);
+$poll = elgg_extract('poll', $vars);
 //make hidden fields
-form_view_hidden_fields($wcode, $page, $maxp);
+form_view_hidden_fields($wcode, $page, $maxp, $poll);
 
 $all = [
   1 => [
@@ -67,7 +68,7 @@ $all = [
   6 => [
     'title' => 'Mida on kasulik teha, kui ma ei saa mingist lausest aru?',
     'labels' => [
-      'Loen läbi teksti viimase lause',
+      'Loen läbi teksti viimase lause.',
       'Loen kokku, kui palju lauseid pean veel lugema.',
       'Vaatan sõnastikust selles lauses olevate keerukate sõnade tähendusi.',
       'Hüppan sellest lausest üle.',
@@ -80,7 +81,7 @@ $all = [
     'labels' => [
       'Loen keerulise koha kiiresti läbi',
       'Loen väikese osa tekstist uuesti läbi.',
-      'Otsin üles kõik pikad sõnad',
+      'Otsin üles kõik pikad sõnad.',
       'Loen kokku, mitmest lausest ma aru ei saa.',
       'Loen kokku, kui palju lehekülgi pean veel lugema.',
       'Jutustan oma sõnadega, mida ma lugesin.'
@@ -88,23 +89,25 @@ $all = [
   ]
 ];
 
+echo elgg_view_title($all[$page]['title']);
+
 $labels = $all[$page]['labels'];
 for ($i = 0; $i < count($labels); $i += 1)
-  {
-    $ipp = $i + 1;
-    echo elgg_view_field([
-      '#label' => $labels[$i],
-      'name' => 'q'.$ipp,
-      'value' => $_SESSION[$wcode.'p'.$id.'q'.$ipp],
-      'options' => [
-        'Jah' => 'jah',
-        'Ei' => 'ei'
-      ],
-      '#type' => 'radio',
-      'align' => 'horizontal',
-      'required' => true
-    ]);
-  }
+{
+  $ipp = $i + 1;
+  echo elgg_view_field([
+    '#label' => $labels[$i],
+    'name' => 'q'.$ipp,
+    'value' => $_SESSION[$wcode.'p'.$poll.'p'.$page.'q'.$ipp],
+    'options' => [
+      'Jah' => 'jah',
+      'Ei' => 'ei'
+    ],
+    '#type' => 'radio',
+    'align' => 'horizontal',
+    'required' => true
+  ]);
+}
 
 //make appropriate buttons in the end
-form_view_buttons($wcode, $page, $maxp);
+form_view_buttons($wcode, $page, $maxp, $poll);
