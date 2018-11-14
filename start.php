@@ -143,7 +143,7 @@ function form_view_buttons($wcode, $page, $maxp, $poll)
       'page' => $page - 1,
       'poll' => $poll
     ]);
-    echo '<a href="'.$href1.'" class="elgg-button elgg-button-action">'.ee_echo('polls:buttons:previous').'</a>';
+    echo '<a href="'.$href1.'" class="elgg-button elgg-button-action" style="display:inline-block; float:left">'.ee_echo('polls:buttons:previous').'</a>';
   }
 
   $value = $page < $maxp 
@@ -151,7 +151,7 @@ function form_view_buttons($wcode, $page, $maxp, $poll)
     : ($poll < get_poll_count($wcode)
       ? ee_echo('polls:button:nextpoll')
       : ee_echo('polls:buttons:submit'));
-  echo '<button value="'.'" type="submit" class="elgg-button elgg-button-submit" style="display:inline-block; float:left">'.$value."</button>";
+  echo '<button value="'.'" type="submit" class="elgg-button elgg-button-submit">'.$value."</button>";
 }
 
 function uldpadevused_init() {
