@@ -42,11 +42,11 @@ for ($i = 0; $i < 3; $i = $ipp)
       'name' => 'q'.$ipp,
       'value' => $_SESSION[$wcode.'p'.$poll.'p'.$page.'q'.$ipp],
       'options' => [
-        'Ei ole üldse nõus' => 1,
-        '2' => 2,
-        '3' => 3,
-        '4' => 4,
-        'Olen täiesti nõus' => 5
+        '<img src="'.elgg_get_site_url().'mod/Uldpadevused/images/sadder.png">' => 1,
+        '<img src="'.elgg_get_site_url().'mod/Uldpadevused/images/sad.png">' => 2,
+        '<img src="'.elgg_get_site_url().'mod/Uldpadevused/images/poker.png">' => 3,
+        '<img src="'.elgg_get_site_url().'mod/Uldpadevused/images/happy.png">' => 4,
+        '<img src="'.elgg_get_site_url().'mod/Uldpadevused/images/happier.png">' => 5
       ],
       '#type' => 'radio',
       'align' => 'horizontal',
