@@ -73,6 +73,16 @@ const worksheets = [
     'timelimit' => 86400,
     'alias' => 'hambad'
   ],
+  8 => [
+    'name' => 'Keti õige lüli valimine',
+    'file' => 'sheets/chain',
+    'pages' => [
+      1 => 1, 2 => 1, 3 => 1, 4 => 1, 5 => 1,
+      6 => 1, 7 => 1, 8 => 1, 9 => 1, 10 => 1
+    ],
+    'timelimit' => 86400,
+    'alias' => 'kett'
+  ],
 ];
 
 function ee_echo($key)
