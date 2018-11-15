@@ -37,8 +37,11 @@ forward_next_page($wcode, $page, $poll);
 
 function save_form($wcode)
 {
-  //get data from session and write it to new csv line
-  $csvline = '"'.$_SESSION[$wcode.'name'].'","'.
+  $sheet = get_sheet_from_wcode($wcode);
+  $csvline .= '"'.
+  $sheet->school.'","'.
+  $sheet->grade.'","'.
+  $_SESSION[$wcode.'name'].'","'.
   $_SESSION[$wcode.'gender'].'","'.
   $_SESSION[$wcode.'age'].'"';
 

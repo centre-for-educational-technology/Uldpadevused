@@ -118,7 +118,7 @@ do {
 $worksheet->wcode = $wcode;
 
 //make first csv line with column names
-$csv = '"Nimi","Sugu","Vanus"';
+$csv = '"Kool","Klass","Nimi","Sugu","Vanus"';
 for ($s = 0; $s < $n; $s += 1)
 {
   $stype = $sheetids[$s];
