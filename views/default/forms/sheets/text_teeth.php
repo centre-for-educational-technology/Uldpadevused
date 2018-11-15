@@ -47,7 +47,7 @@ $all = [
     ],
   ],
   5 => [
-    'title' => 'Järjesta teksti põhjal laused. Pane lause ette õige number',
+    'title' => 'Järjesta teksti põhjal laused. Pane lause taha õige number',
     'labels' => [
       1 => 'Isa lubas Priidu arsti juurde viia.',
       2 => 'Priidu üks esihammas oli öösel ära tulnud.',
@@ -98,16 +98,19 @@ if ($page == 5)
 {
   for ($i = 1; $i <= 5; $i += 1)
   {
+    echo '<p style="float:left;">'.$all[$page]['labels'][$i].'</p>';
     echo elgg_view_field([
-      '#label' => $all[$page]['labels'][$i],
+      '#label' => '',
       'name' => 'q'.$i,
       'value' => $_SESSION[$wcode.'p'.$poll.'p'.$page.'q'.$i],
       'options' => [
-        '1.' => '1', '2.' => '2', '3.' => '3',
-        '4.' => '4', '5.' => '5'
+        '1' => '1.',
+        '2' => '2.',
+        '3' => '3.',
+        '4' => '4.',
+        '5' => '5.'
       ],
-      '#type' => 'radio',
-      'align' => 'horizontal',
+      '#type' => 'dropdown',
       'required' => true
     ]);  
   }
