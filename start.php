@@ -83,6 +83,17 @@ const worksheets = [
     'timelimit' => 86400,
     'alias' => 'kett'
   ],
+  9 => [
+    'name' => 'Pildi õige tüki valimine',
+    'file' => 'sheets/raven',
+    'pages' => [
+      1 => 8, 2 => 8, 3 => 8, 4 => 8, 5 => 8,
+      6 => 8, 7 => 8, 8 => 8, 9 => 8,
+      10 => 8, 11 => 8, 12 => 8
+    ],
+    'timelimit' => 86400,
+    'alias' => 'raven'
+  ],
 ];
 
 function ee_echo($key)
