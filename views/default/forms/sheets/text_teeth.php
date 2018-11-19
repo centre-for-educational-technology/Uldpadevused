@@ -120,7 +120,7 @@ else
   echo elgg_view_field([
     '#label' => '',
     'name' => 'q1',
-    'value' => $_SESSION[$wcode.'p'.$poll.'p'.$page],
+    'value' => $_SESSION[$wcode.'p'.$poll.'p'.$page.'q1'],
     'options' => $all[$page]['labels'],
     '#type' => 'radio',
     'align' => $all[$page]['align'] ? $all[$page]['align'] : 'vertical',
