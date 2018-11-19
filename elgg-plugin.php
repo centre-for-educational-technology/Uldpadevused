@@ -71,5 +71,9 @@
         'access' => 'public',
         'filename' => __DIR__ . '/actions/sheets/formsubmit.php'
       ],
+      'sheets/maths' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/sheets/formsubmit.php'
+      ]
     ],
   ];

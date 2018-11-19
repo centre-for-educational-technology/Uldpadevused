@@ -94,6 +94,15 @@ const worksheets = [
     'timelimit' => 86400,
     'alias' => 'raven'
   ],
+  10 => [
+    'name' => 'Matemaatika ülesanded 4. klass',
+    'file' => 'sheets/maths',
+    'pages' => [
+      1 => 4
+    ],
+    'timelimit' => 86400,
+    'alias' => 'maths'
+  ],
 ];
 
 function ee_echo($key)

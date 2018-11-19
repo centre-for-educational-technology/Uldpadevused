@@ -24,7 +24,7 @@ for ($i = 0; $i < $n; $i += 1)
   $digit = strval($si);
 
   //pad with a 0 to allow for ids 1-99 to work
-  if (count($digit) == 1) $digit = '0'.$digit;
+  if (strlen($digit) == 1) $digit = '0'.$digit;
 
   $polls .= $digit;
   $polls .= ",";
