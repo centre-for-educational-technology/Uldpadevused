@@ -98,7 +98,7 @@ const worksheets = [
     'name' => 'Matemaatika ülesanded 4. klass',
     'file' => 'sheets/maths',
     'pages' => [
-      1 => 4
+      1 => 1, 2 => 1, 3 => 1, 4 => 1
     ],
     'timelimit' => 86400,
     'alias' => 'maths'
