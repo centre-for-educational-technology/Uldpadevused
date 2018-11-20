@@ -28,6 +28,8 @@ return [
   'polls:forms:gender' => 'Sugu',
   'polls:forms:gender:male' => 'Mees',
   'polls:forms:gender:female' => 'Naine',
+  'polls:forms:yes' => 'Jah',
+  'polls:forms:no' => 'No',
   'polls:forms:age' => 'Vanus',
   'polls:forms:starttime' => 'Algusaeg',
   'polls:forms:timelimit' => 'Ajalimiit',
@@ -41,5 +43,6 @@ return [
   'polls:buttons:submit' => 'Saada ära',
   'polls:all:author' => 'Autor',
   'polls:success:newform' => 'See on uus küsitlus.',
-  'polls:button:nextpoll' => 'Mine järgmisse küsimustikku.'
+  'polls:button:nextpoll' => 'Mine järgmisse küsimustikku.',
+  'polls:download:filename' => 'kysitlus'
 ];

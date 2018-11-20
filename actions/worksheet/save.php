@@ -6,7 +6,7 @@ $sheetids = get_input('sheets');
 
 if (!$sheetids)
 {
-  register_error("Vali vähemalt üks küsitlus");
+  register_error(ee_echo('polls:error:noneselected'));
   forward(REFERER);
 }
 
@@ -35,7 +35,7 @@ $title = worksheets[$sheetids[0]]['name'];
 
 if (!$title)
 {
-  register_error("sellist küsitlust pole");
+  register_error(ee_echo('polls:error:wrongid'));
   forward(REFERER);
 }
 

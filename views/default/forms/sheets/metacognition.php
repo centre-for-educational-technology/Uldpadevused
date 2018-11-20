@@ -91,6 +91,9 @@ $all = [
 
 echo elgg_view_title($all[$page]['title']);
 
+$yes = ee_echo('polls:forms:yes');
+$no = ee_echo('polls:forms:no');
+
 $labels = $all[$page]['labels'];
 for ($i = 0; $i < count($labels); $i += 1)
 {
@@ -100,8 +103,8 @@ for ($i = 0; $i < count($labels); $i += 1)
     'name' => 'q'.$ipp,
     'value' => $_SESSION[$wcode.'p'.$poll.'p'.$page.'q'.$ipp],
     'options' => [
-      'Jah' => 'jah',
-      'Ei' => 'ei'
+      $yes => $yes,
+      $no => $no
     ],
     '#type' => 'radio',
     'align' => 'horizontal',

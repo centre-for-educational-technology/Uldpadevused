@@ -14,7 +14,7 @@ $csv = $sheet->csv;
 
 //send csv string to browser as file
 $result = $csv;
-$filename = 'kysitlus'.$wcode.'.csv';
+$filename = ee_echo('polls:download:filename').$wcode.'.csv';
 
 header("Content-Type: text/plain");
 header('Content-Disposition: attachment; filename="'.$filename.'"');
