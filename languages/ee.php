@@ -18,6 +18,7 @@ return [
   'polls:error:wrongstart' => 'Alusta küsitlust õigelt lehelt.',
   'polls:error:notstarted' => 'See küsitlus pole veel alanud!',
   'polls:error:pasttime' => 'Aeg on minevikus.',
+  'polls:error:noneselected' => 'Vali vähemalt üks küsitlus!',
   'polls:error:fail' => 'Küsitlust ei saanud teha.',
   'polls:error:wrongid' => 'Sellist küsitlust pole.',
   'polls:success:saved' => 'Küsitlus salvestati.',
