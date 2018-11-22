@@ -1,5 +1,13 @@
 <?php
 session_start();
+elgg_require_js('uldpadevused/maths');
+
+echo '<script>'.
+file_get_contents(elgg_get_site_url().'mod/Uldpadevused/views/default/drawingboard/dist/drawingboard.min.js').
+'</script>';
+echo '<link rel="stylesheet" href="'.
+elgg_get_site_url().'mod/Uldpadevused/views/default/drawingboard/dist/drawingboard.min.css'.
+'">';
 
 //extract data to put in hidden fields
 $wcode = elgg_extract('wcode', $vars);
@@ -29,5 +37,20 @@ echo elgg_view_field([
     'required' => true,
     'pattern' => $regex
 ]);
+
+echo '<div class="board" id="picture"></div>';
+
+echo '<style>
+.board {
+    margin: 0 auto;
+    width: 400px;
+    height: 400px;
+}
+</style>';
+
+echo '<script data-example="1">
+//create the drawingboard by passing it the #id of the wanted container
+var defaultBoard = new DrawingBoard.Board('."'picture'".');
+</script>';
 
 form_view_buttons($wcode, $page, $maxp, $poll);

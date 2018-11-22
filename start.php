@@ -184,7 +184,8 @@ function form_view_buttons($wcode, $page, $maxp, $poll)
   echo '<button value="'.'" type="submit" class="elgg-button elgg-button-submit">'.$value."</button>";
 }
 
-function uldpadevused_init() {
+function uldpadevused_init()
+{
   //visiteeri http://localhost:8888/cron/minute et esile kutsuda
 
   elgg_register_plugin_hook_handler('cron', 'minute', function() {
@@ -237,9 +238,7 @@ function uldpadevused_init() {
         $sheet->state = "Lõppenud";
       }
     }
- });
-
- elgg_register_simplecache_view('graphics/bus_stop.png');
+  });
 }
 
 return function() {
