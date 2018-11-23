@@ -2,13 +2,6 @@
 session_start();
 elgg_require_js('uldpadevused/maths');
 
-echo '<script>'.
-file_get_contents(elgg_get_site_url().'mod/Uldpadevused/views/default/drawingboard/dist/drawingboard.min.js').
-'</script>';
-echo '<link rel="stylesheet" href="'.
-elgg_get_site_url().'mod/Uldpadevused/views/default/drawingboard/dist/drawingboard.min.css'.
-'">';
-
 //extract data to put in hidden fields
 $wcode = elgg_extract('wcode', $vars);
 $page = elgg_extract('page', $vars);
@@ -37,20 +30,36 @@ echo elgg_view_field([
     'required' => true,
     'pattern' => $regex
 ]);
+echo elgg_view_field([
+    '#type' => 'hidden',
+    'name' => 'q2',
+    'value' => $_SESSION[$wcode.'p'.$poll.'p'.$page.'q2']
+]);
 
-echo '<div class="board" id="picture"></div>';
+echo '<div id="zbeubeu" style="width:600px;height:400px"></div>';
 
-echo '<style>
-.board {
-    margin: 0 auto;
-    width: 400px;
-    height: 400px;
+maths_view_buttons($wcode, $page, $maxp, $poll);
+
+system_message("sssss".$_SESSION[$wcode.'p'.$poll.'p'.$page.'q2']);
+
+function maths_view_buttons($wcode, $page, $maxp, $poll)
+{
+  if ($page > 1)
+  {
+    $href1 = elgg_generate_url('view:object:worksheet', [
+      'wcode' => $wcode,
+      'page' => $page - 1,
+      'poll' => $poll
+    ]);
+    echo '<a href="'.$href1.'" class="elgg-button elgg-button-action" style="display:inline-block; float:left">'.ee_echo('polls:buttons:previous').'</a>';
+  }
+
+  $value = $page < $maxp 
+    ? ee_echo('polls:buttons:next') 
+    : ($poll < get_poll_count($wcode)
+      ? ee_echo('polls:button:nextpoll')
+      : ee_echo('polls:buttons:submit'));
+  echo '<a href="" id="fakesubmit" class="elgg-button elgg-button-action" style="display:inline-block; float:left">'.$value.'</a>';
+
+  echo '<button type="submit" style="width:0;height:0;margin:0;padding:0"></button>';
 }
-</style>';
-
-echo '<script data-example="1">
-//create the drawingboard by passing it the #id of the wanted container
-var defaultBoard = new DrawingBoard.Board('."'picture'".');
-</script>';
-
-form_view_buttons($wcode, $page, $maxp, $poll);

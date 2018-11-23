@@ -98,7 +98,7 @@ const worksheets = [
     'name' => 'Matemaatika ülesanded 4. klass',
     'file' => 'sheets/maths',
     'pages' => [
-      1 => 1, 2 => 1, 3 => 1, 4 => 1
+      1 => 2, 2 => 2, 3 => 2, 4 => 2
     ],
     'timelimit' => 86400,
     'alias' => 'maths'
@@ -186,8 +186,6 @@ function form_view_buttons($wcode, $page, $maxp, $poll)
 
 function uldpadevused_init()
 {
-  //visiteeri http://localhost:8888/cron/minute et esile kutsuda
-
   elgg_register_plugin_hook_handler('cron', 'minute', function() {
     $notstarted = elgg_get_entities(array(
       'type' => 'object',
@@ -239,6 +237,15 @@ function uldpadevused_init()
       }
     }
   });
+  
+  elgg_define_js('uldpadevused/simple-undo', [
+    'exports' => 'SimpleUndo',
+  ]);
+  elgg_define_js('uldpadevused/drawingboard', [
+    'deps' => ['jquery','uldpadevused/simple-undo'],
+    'exports' => 'DrawingBoard'
+  ]);
+  elgg_extend_view('elgg.css', 'uldpadevused/drawingboard.css');
 }
 
 return function() {
