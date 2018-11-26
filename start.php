@@ -98,7 +98,7 @@ const worksheets = [
     'name' => 'Matemaatika ülesanded 4. klass',
     'file' => 'sheets/maths',
     'pages' => [
-      1 => 4
+      1 => 2, 2 => 2, 3 => 2, 4 => 2
     ],
     'timelimit' => 86400,
     'alias' => 'maths'
@@ -121,6 +121,19 @@ function get_sheet_from_wcode($wcode)
   {
     $sheet = $sheets[0];
     return $sheet;
+  }
+}
+
+function get_img_from_icode($icode)
+{
+  $drawings = elgg_get_entities(array(
+    'metadata_names' => array('icode'),
+    'metadata_values' => array($icode)
+  ));
+  if (count($drawings) > 0)
+  {
+    $img = $drawings[0];
+    return $img;
   }
 }
 
@@ -184,9 +197,8 @@ function form_view_buttons($wcode, $page, $maxp, $poll)
   echo '<button value="'.'" type="submit" class="elgg-button elgg-button-submit">'.$value."</button>";
 }
 
-function uldpadevused_init() {
-  //visiteeri http://localhost:8888/cron/minute et esile kutsuda
-
+function uldpadevused_init()
+{
   elgg_register_plugin_hook_handler('cron', 'minute', function() {
     $notstarted = elgg_get_entities(array(
       'type' => 'object',
@@ -237,9 +249,16 @@ function uldpadevused_init() {
         $sheet->state = "Lõppenud";
       }
     }
- });
-
- elgg_register_simplecache_view('graphics/bus_stop.png');
+  });
+  
+  elgg_define_js('uldpadevused/simple-undo', [
+    'exports' => 'SimpleUndo',
+  ]);
+  elgg_define_js('uldpadevused/drawingboard', [
+    'deps' => ['jquery','uldpadevused/simple-undo'],
+    'exports' => 'DrawingBoard'
+  ]);
+  elgg_extend_view('elgg.css', 'uldpadevused/drawingboard.css');
 }
 
 return function() {
