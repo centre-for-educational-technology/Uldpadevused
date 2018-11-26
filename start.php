@@ -124,6 +124,19 @@ function get_sheet_from_wcode($wcode)
   }
 }
 
+function get_img_from_icode($icode)
+{
+  $drawings = elgg_get_entities(array(
+    'metadata_names' => array('icode'),
+    'metadata_values' => array($icode)
+  ));
+  if (count($drawings) > 0)
+  {
+    $img = $drawings[0];
+    return $img;
+  }
+}
+
 function get_poll_id($wcode, $wid)
 {
   $sheet = get_sheet_from_wcode($wcode);

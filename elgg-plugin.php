@@ -7,6 +7,11 @@
         'subtype' => 'worksheet',
         'searchable' => true,
       ],
+      [
+        'type' => 'object',
+        'subtype' => 'drawing',
+        'searchable' => true,
+      ],
     ],
     'routes' => [
       'uldpadevused:begin' => [
@@ -16,6 +21,10 @@
       'collection:object:worksheet:all' => [
         'path' => 'polls',
         'resource' => 'worksheet/all'
+      ],
+      'view:object:drawing' => [
+        'path' => 'polls/drawings/{icode}',
+        'resource' => 'drawing/view'
       ],
       'add:object:worksheet' => [
         'path' => 'polls/new/{wcode?}',
@@ -76,7 +85,7 @@
         'filename' => __DIR__ . '/actions/sheets/formsubmit.php'
       ],
       'send_maths' => [
-        'access' => 'public'
-      ]
+        'access' => 'public',
+      ],
     ],
   ];

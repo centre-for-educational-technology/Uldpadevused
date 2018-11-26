@@ -36,9 +36,10 @@ echo elgg_view_field([
     'value' => $_SESSION[$wcode.'p'.$poll.'p'.$page.'q2']
 ]);
 
-echo '<div id="zbeubeu" style="width:600px;height:400px"></div>';
+$imgid = 'img'.$wcode.$page;
+echo '<div id="'.$imgid.'" style="width:600px;height:400px"></div>';
 
-maths_view_buttons($wcode, $page, $maxp, $poll);
+form_view_buttons($wcode, $page, $maxp, $poll);
 
 system_message("sssss".$_SESSION[$wcode.'p'.$poll.'p'.$page.'q2']);
 

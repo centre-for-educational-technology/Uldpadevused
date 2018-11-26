@@ -1,30 +1,33 @@
 define(function(require) {
   var DrawingBoard = require("uldpadevused/drawingboard");
-    var $ = require("jquery");
+  var $ = require("jquery");
   var Ajax = require("elgg/Ajax");
   var ajax = new Ajax();
 
-  var myBoard = new DrawingBoard.Board('zbeubeu');
+  var imgid = 'img' + $('input[name=wcode]').val() + $('input[name=page]').val();
 
-  $('a[id=fakesubmit]').on("click", function(event) {
+  var myBoard = new DrawingBoard.Board(imgid);
+
+  $('form').on("submit", function(event) {
+    event.preventDefault();
+    var self = this;
+
     var img = myBoard.getImg();
     var imgInput = (myBoard.blankCanvas == img) ? '' : img;
 
-    //use ajax to submit imgImput and get back link to put to q2
-
     ajax.action('send_maths', {
       data: {
-        img: imgInput
+        img: imgInput,
+        wcode: $('input[name=wcode]').val(),
+        poll: $('input[name=poll]').val(),
+        page: $('input[name=page]').val()
       }
     }).done(function(output, statusText, jqXHR) {
       if (jqXHR.AjaxData.status == -1) {
         return;
       };
       $('input[name=q2]').val(output.imgUrl);
-      //console.log(output.imgUrl);
+      self.submit();
     });
-
-    $('button[type=submit]').click();
-    return false;
   });
 });
