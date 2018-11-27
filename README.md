@@ -14,7 +14,7 @@ Each template is mentioned in multiple files. To add a new template, you need to
 
 All forms must start with these lines:
 
-<?php
+\<?php
 session_start();
 $wcode = elgg_extract('wcode', $vars);
 $page = elgg_extract('page', $vars);
