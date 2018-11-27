@@ -20,11 +20,11 @@ $wcode = elgg_extract('wcode', $vars);<br>
 $page = elgg_extract('page', $vars);<br>
 $maxp = elgg_extract('maxp', $vars);<br>
 $poll = elgg_extract('poll', $vars);<br>
-form_view_hidden_fields($wcode, $page, $maxp, $poll);
+form_view_hidden_fields($wcode, $page, $maxp, $poll);<br>
 
 and usually end with this line:
 
-form_view_buttons($wcode, $page, $maxp, $poll);
+form_view_buttons($wcode, $page, $maxp, $poll);<br>
 
 
 The single form file handles all pages of a worksheet, it can use the $page variable to recognise which page it should display.
@@ -37,10 +37,10 @@ Fields of each page must be named "q1", "q2", .. and they should display the cur
 
 Example:
 
-'sheets/metacognition' => \[
-  'access' => 'public',
-  'filename' => \_\_DIR\_\_ . '/actions/sheets/formsubmit.php'
-\],
+'sheets/metacognition' => \[<br>
+  'access' => 'public',<br>
+  'filename' => \_\_DIR\_\_ . '/actions/sheets/formsubmit.php'<br>
+\],<br>
 
 
 ### 3. Add a definition of the template to the array const worksheets in start.php.
@@ -48,16 +48,16 @@ Example:
 
 Example definition (note that all of the properties here must be declared for each worksheet):
 
-2 => \[
-    'name' => 'Lugemise metakognitsioon lastele',
-    'file' => 'sheets/metacognition',
-    'pages' => \[ 
-      1 => 6, 2 => 6, 3 => 6,
-      4 => 6, 5 => 6, 6 => 6, 7 => 6 
-    \],
-    'timelimit' => 86400,
-    'alias' => 'meta'
-  \],
+2 => \[<br>
+    'name' => 'Lugemise metakognitsioon lastele',<br>
+    'file' => 'sheets/metacognition',<br>
+    'pages' => \[<br>
+      1 => 6, 2 => 6, 3 => 6,<br>
+      4 => 6, 5 => 6, 6 => 6, 7 => 6<br>
+    \],<br>
+    'timelimit' => 86400,<br>
+    'alias' => 'meta'<br>
+  \],<br>
   
   The id at the beginning must be unique for each template and they count up from 1.
   
