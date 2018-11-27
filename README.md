@@ -2,14 +2,14 @@
 
 Requires cron.
 
-## Adding new worksheet templates ##
+## Adding new worksheet templates
 
 
 
 Each template is mentioned in multiple files. To add a new template, you need to do the following steps.
 
 
-### 1. Create the template's form file in views/default/forms/sheets. Look at other templates' forms for examples.
+### 1. Create the template's form file in views/default/forms/sheets. (look at other templates' forms for examples)
 
 
 All forms must start with these lines:
