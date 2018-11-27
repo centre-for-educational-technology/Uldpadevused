@@ -84,6 +84,10 @@
         'access' => 'public',
         'filename' => __DIR__ . '/actions/sheets/formsubmit.php'
       ],
+      'sheets/maths2' => [
+        'access' => 'public',
+        'filename' => __DIR__ . '/actions/sheets/formsubmit.php'
+      ],
       'send_maths' => [
         'access' => 'public',
       ],

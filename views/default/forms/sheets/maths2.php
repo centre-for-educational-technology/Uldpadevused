@@ -12,10 +12,10 @@ form_view_hidden_fields($wcode, $page, $maxp, $poll);
 
 $title = 'Lahenda ülesanne. Vastus kirjuta numbritega. Kasuta joonistuspinda arvutamiseks ja jooniste tegemiseks.';
 $all = [
-    1 => '1. Ants elab koolist 3 km kaugusel. Mart elab 4 korda kaugemal kui Ants. Kui kaugel koolist elab Mart?',
-    2 => '2. Kadril ja Lauril on kokku 24 arvutimängu. Kadril on 6 arvutimängu rohkem kui Lauril. Mitu arvutimängu on Lauril?',
-    3 => '3. Klassis oli 12 õpilast. Vahetunnis läks viis õpilast klassist välja ja kaks õpilast tuli klassi. Mitu õpilast on nüüd klassis?',
-    4 => '4. Pillel on 56 mänguklotsi. Tal on 8 korda rohkem klotse kui Ainol. Mitu klotsi on Ainol?'
+    1 => 'Kadri veeretas kolme täringut ja sai 13 silma. Ühe täringuga sai ta 4 silma. Mitu silma sai ta kahe teise täringuga?',
+    2 => 'Kadril ja lauril on kokku 24 arvutimängu. Kadril on 6 arvutimängu rohkem kui Lauril. Mitu arvutimängu on Lauril?',
+    3 => 'Klassis oli 12 õpilast. Vahetunnis läks viis õpilast klassist välja ja kaks õpilast tuli klassi. Mitu õpilast on nüüd klassis?',
+    4 => 'Kadril on kodus 31 raamatut. 8 raamatut on ingliskeelsed, 13 raamatut on venekeelsed, ülejäänud eestikeelsed. Mitu eestikeelset raamatut on Kadril?'
 ];
 
 echo elgg_view_title($title);
