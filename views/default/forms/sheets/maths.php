@@ -41,8 +41,6 @@ echo '<div id="'.$imgid.'" style="width:600px;height:400px"></div>';
 
 form_view_buttons($wcode, $page, $maxp, $poll);
 
-system_message("sssss".$_SESSION[$wcode.'p'.$poll.'p'.$page.'q2']);
-
 function maths_view_buttons($wcode, $page, $maxp, $poll)
 {
   if ($page > 1)

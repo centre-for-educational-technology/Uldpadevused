@@ -21,7 +21,6 @@ if (!$drawing)
   $drawing->subtype = 'drawing';
   $drawing->access_id = 'logged_in';
   $drawing->icode = $icode;
-  system_message("made new one");
 }
 
 $drawing->img = $img;
