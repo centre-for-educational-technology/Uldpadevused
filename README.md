@@ -14,12 +14,12 @@ Each template is mentioned in multiple files. To add a new template, you need to
 
 All forms must start with these lines:
 
-\<?php
-session_start();
-$wcode = elgg_extract('wcode', $vars);
-$page = elgg_extract('page', $vars);
-$maxp = elgg_extract('maxp', $vars);
-$poll = elgg_extract('poll', $vars);
+\<?php\n
+session_start();\n
+$wcode = elgg_extract('wcode', $vars);\n
+$page = elgg_extract('page', $vars);\n
+$maxp = elgg_extract('maxp', $vars);\n
+$poll = elgg_extract('poll', $vars);\n
 form_view_hidden_fields($wcode, $page, $maxp, $poll);
 
 and usually end with this line:
