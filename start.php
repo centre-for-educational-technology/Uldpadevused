@@ -103,6 +103,15 @@ const worksheets = [
     'timelimit' => 86400,
     'alias' => 'maths'
   ],
+  11 => [
+    'name' => 'Matemaatika ülesanded 2. klass',
+    'file' => 'sheets/maths2',
+    'pages' => [
+      1 => 2, 2 => 2, 3 => 2, 4 => 2
+    ],
+    'timelimit' => 86400,
+    'alias' => 'maths'
+  ],
 ];
 
 function ee_echo($key)
