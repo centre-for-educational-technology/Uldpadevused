@@ -26,6 +26,18 @@ for ($i = 0; $i < 8; $i += 1)
     
 }
 
+//technically this is not the correct way of doing css in elgg
+echo '<style>
+  input[type="radio"]{
+    opacity:0;
+    position:fixed;
+  }
+  input[type="radio"]:checked+img{
+    -filter:sepia(100%) saturate(4000%) grayscale(80%) hue-rotate(300deg);
+    -webkit-filter:sepia(100%) saturate(4000%) grayscale(80%) hue-rotate(300deg);
+  }
+</style>';
+
 echo elgg_view_field([
     'name' => 'q1',
     'value' => $_SESSION[$wcode.'p'.$poll.'p'.$page.'q1'],
