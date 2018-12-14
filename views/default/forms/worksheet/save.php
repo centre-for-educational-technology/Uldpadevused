@@ -15,7 +15,7 @@ $grade = $user->grade;
 $l = count(ws_order);
 for ($i = 0; $i < $l; $i += 1)
 {
-  $optval[$i] = worksheets[ws_order[$i]]['name'];
+  $optval[ws_order[$i]] = worksheets[ws_order[$i]]['name'];
 }
 echo elgg_view_field([
   '#type' => 'checkboxes',
