@@ -15,6 +15,8 @@ $url = elgg_get_site_url();
 
 echo '<img src="'.$url.'mod/Uldpadevused/images/kett'.$page.'.png" style="width:100%">';
 
+echo "Vali sobiv:";
+
 for ($i = 0; $i < $c; $i += 1)
 {
     $options['<img src="'.$url.'mod/Uldpadevused/images/kett'.$page.$ltr[$i].'.png" style="width:calc(100% / 6);">'] = $i + 1;

@@ -14,6 +14,8 @@ $url = elgg_get_site_url();
 
 echo '<img src="'.$url.'mod/Uldpadevused/images/raven'.$page.'.png" width=500px>';
 
+echo "Vali sobiv:";
+
 for ($i = 0; $i < 8; $i += 1)
 {
     $name = '<img src="'.$url.
