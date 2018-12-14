@@ -28,7 +28,8 @@ echo elgg_view_field([
     'value' => $_SESSION[$wcode.'p'.$poll.'p'.$page.'q1'],
     '#type' => 'text',
     'required' => true,
-    'pattern' => $regex
+    'pattern' => $regex,
+    'maxlength' => '4'
 ]);
 echo elgg_view_field([
     '#type' => 'hidden',
