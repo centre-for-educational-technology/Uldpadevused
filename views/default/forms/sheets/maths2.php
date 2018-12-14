@@ -29,12 +29,13 @@ echo elgg_view_field([
     '#type' => 'text',
     'required' => true,
     'pattern' => $regex,
-    'maxlength' => '4'
+    'maxlength' => '4',
+    'autocomplete' => 'off'
 ]);
 echo elgg_view_field([
     '#type' => 'hidden',
     'name' => 'q2',
-    'value' => $_SESSION[$wcode.'p'.$poll.'p'.$page.'q2']
+    'value' => $_SESSION[$wcode.'p'.$poll.'p'.$page.'q2'],
 ]);
 
 $imgid = 'img'.$wcode.$page;

@@ -29,7 +29,8 @@ echo elgg_view_field([
     '#type' => 'text',
     'required' => true,
     'pattern' => $regex,
-    'maxlength' => '4'
+    'maxlength' => '4',
+    'autocomplete' => 'off'
 ]);
 echo elgg_view_field([
     '#type' => 'hidden',
