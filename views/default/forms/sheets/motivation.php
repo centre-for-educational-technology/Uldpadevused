@@ -1,5 +1,6 @@
 <?php
 session_start();
+elgg_require_js('uldpadevused/motivation');
 
 //extract data to put in hidden fields
 $wcode = elgg_extract('wcode', $vars);
@@ -62,7 +63,8 @@ for ($i = 0; $i < 3; $i = $ipp)
       ],
       '#type' => 'radio',
       'align' => 'horizontal',
-      'required' => true
+      'required' => true,
+      'oninvalid' => "this.setCustomValidity('Vali üks neist valikutest!');"
     ]);
   }
 
