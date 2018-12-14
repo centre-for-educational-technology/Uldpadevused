@@ -1,5 +1,13 @@
 <?php
 
+//the order in which worksheet options are presented to
+//teacher creating a new worksheet bundle
+const ws_order = [
+  4, 8, 9, 1,
+  2, 3, 10, 11,
+  5, 6, 7
+];
+
 const worksheets = [
   1 => [
     'name' => 'Lugemisülesanded',

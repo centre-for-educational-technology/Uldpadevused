@@ -12,10 +12,10 @@ $user = elgg_get_logged_in_user_entity();
 $school = $user->school;
 $grade = $user->grade;
 
-$l = count(worksheets);
-for ($i = 1; $i <= $l; $i += 1)
+$l = count(ws_order);
+for ($i = 0; $i < $l; $i += 1)
 {
-  $optval[$i] = worksheets[$i]['name'];
+  $optval[$i] = worksheets[ws_order[$i]]['name'];
 }
 echo elgg_view_field([
   '#type' => 'checkboxes',
