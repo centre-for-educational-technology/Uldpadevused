@@ -1,5 +1,13 @@
 <?php
 
+//the order in which worksheet options are presented to
+//teacher creating a new worksheet bundle
+const ws_order = [
+  4, 8, 9, 1,
+  2, 3, 10, 11,
+  5, 6, 7
+];
+
 const worksheets = [
   1 => [
     'name' => 'Lugemisülesanded',
@@ -98,7 +106,7 @@ const worksheets = [
     'name' => 'Matemaatika ülesanded 4. klass',
     'file' => 'sheets/maths',
     'pages' => [
-      1 => 2, 2 => 2, 3 => 2, 4 => 2
+      1 => 3, 2 => 3, 3 => 3, 4 => 3
     ],
     'timelimit' => 86400,
     'alias' => 'maths'
@@ -107,7 +115,7 @@ const worksheets = [
     'name' => 'Matemaatika ülesanded 2. klass',
     'file' => 'sheets/maths2',
     'pages' => [
-      1 => 2, 2 => 2, 3 => 2, 4 => 2
+      1 => 3, 2 => 3, 3 => 3, 4 => 3
     ],
     'timelimit' => 86400,
     'alias' => 'maths2kl'

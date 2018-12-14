@@ -10,7 +10,7 @@ $poll = elgg_extract('poll', $vars);
 //make hidden fields
 form_view_hidden_fields($wcode, $page, $maxp, $poll);
 
-$title = 'Lahenda ülesanne. Vastus kirjuta numbritega. Kasuta joonistuspinda arvutamiseks ja jooniste tegemiseks.';
+$title = 'Lahenda ülesanne. Vastus kirjuta arvuga. Kasuta joonistuspinda arvutamiseks ja jooniste tegemiseks.';
 $all = [
     1 => '1. Ants elab koolist 3 km kaugusel. Mart elab 4 korda kaugemal kui Ants. Kui kaugel koolist elab Mart?',
     2 => '2. Kadril ja Lauril on kokku 24 arvutimängu. Kadril on 6 arvutimängu rohkem kui Lauril. Mitu arvutimängu on Lauril?',
@@ -28,7 +28,9 @@ echo elgg_view_field([
     'value' => $_SESSION[$wcode.'p'.$poll.'p'.$page.'q1'],
     '#type' => 'text',
     'required' => true,
-    'pattern' => $regex
+    'pattern' => $regex,
+    'maxlength' => '4',
+    'autocomplete' => 'off'
 ]);
 echo elgg_view_field([
     '#type' => 'hidden',

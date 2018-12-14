@@ -26,7 +26,7 @@ $all = [
   ],
   3 => [
     'labels' => [
-      'Lugemine on minu jaoks raske.',
+      'Lugemine on minu jaoks kerge.',
       'Mulle meeldib kodus lugeda.',
       'Hea lugemisoskus aitab mul elus paremini toime tulla.'
     ]
