@@ -32,6 +32,9 @@ echo elgg_view_field([
     'maxlength' => '4',
     'autocomplete' => 'off'
 ]);
+
+echo '<input type="checkbox" id="dontknow">Ma ei tea vastust</input>';
+
 echo elgg_view_field([
     '#type' => 'hidden',
     'name' => 'q2',
