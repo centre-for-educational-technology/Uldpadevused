@@ -13,7 +13,7 @@ form_view_hidden_fields($wcode, $page, $maxp, $poll);
 $ltr = "abcdefgh";
 $url = elgg_get_site_url();
 
-echo '<img src="'.$url.'mod/Uldpadevused/images/raven'.$page.'.png" width=500px>';
+echo '<img src="'.$url.'mod/Uldpadevused/images/raven'.$page.'.png" width=500px><br>';
 
 echo "Vali sobiv:";
 

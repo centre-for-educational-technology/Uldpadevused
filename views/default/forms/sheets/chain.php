@@ -14,7 +14,7 @@ $c = $page > 2 ? 6 : 4;
 $ltr = "abcdef";
 $url = elgg_get_site_url();
 
-echo '<img src="'.$url.'mod/Uldpadevused/images/kett'.$page.'.png" style="width:100%">';
+echo '<img src="'.$url.'mod/Uldpadevused/images/kett'.$page.'.png" style="width:100%"><br>';
 
 echo "Vali sobiv:";
 
