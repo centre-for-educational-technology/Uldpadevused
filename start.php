@@ -277,6 +277,7 @@ function uldpadevused_init()
   ]);
   elgg_extend_view('elgg.css', 'uldpadevused/drawingboard.css');
 
+  elgg_register_css('hidebar', elgg_get_simplecache_url('css/hidebar.css'));
   elgg_register_css('motivation', elgg_get_simplecache_url('css/motivation.css'));
   elgg_register_css('raven', elgg_get_simplecache_url('css/raven.css'));
   elgg_register_css('chain', elgg_get_simplecache_url('css/chain.css'));

@@ -14,13 +14,17 @@
       ],
     ],
     'routes' => [
+      'collection:object:worksheet:all' => [
+        'path' => 'polls',
+        'resource' => 'worksheet/all'
+      ],
       'uldpadevused:begin' => [
         'path' => 'polls/start',
         'resource' => 'begin'
       ],
-      'collection:object:worksheet:all' => [
-        'path' => 'polls',
-        'resource' => 'worksheet/all'
+      'uldpadevused:teacher' => [
+        'path' => 'polls/teacher',
+        'resource' => 'teacher'
       ],
       'view:object:drawing' => [
         'path' => 'polls/drawings/{icode}',

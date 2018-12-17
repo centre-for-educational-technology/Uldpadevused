@@ -3,6 +3,9 @@
 return [
   'polls:main:title' => 'Küsimustikud - Üldpädevused',
   'polls:main:start' => 'Alusta küsimustiku täitmist',
+  'polls:main:teacher' => 'Õpetajale',
+  'polls:teacher:title' => 'Küsimustike haldamine',
+  'polls:teacher:goback' => 'Tagasi avalehele',
   'polls:add:title' => 'Loo uus küsimustik',
   'polls:add:code' => 'Sinu kood',
   'polls:all:title' => 'Kõik küsitlused',
@@ -21,6 +24,7 @@ return [
   'polls:error:noneselected' => 'Vali vähemalt üks küsitlus!',
   'polls:error:fail' => 'Küsitlust ei saanud teha.',
   'polls:error:wrongid' => 'Sellist küsitlust pole.',
+  'polls:error:notloggedin' => 'Et saidi sisu näha, pead olema sisse loginud.',
   'polls:success:saved' => 'Küsitlus salvestati.',
   'polls:success:received' => 'Sinu vastused on edukalt salvestatud!',
   'polls:success:timeup' => 'Aeg sai läbi!',

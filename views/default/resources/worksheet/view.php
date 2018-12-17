@@ -1,4 +1,6 @@
 <?php
+elgg_load_css('hidebar');
+
 $wcode = elgg_extract('wcode', $vars);
 $poll = elgg_extract('poll', $vars);
 $page = elgg_extract('page', $vars);
@@ -51,8 +53,7 @@ $form = worksheets[$stype]['file'];
 //display form
 $title = worksheets[$stype]['name'];
 
-$content = elgg_view_title($title);
-$content .= elgg_view_form($form, array(), array('wcode' => $wcode, 'page' => $page, 'maxp' => $maxp, 'poll' => $poll));
+$content = elgg_view_form($form, array(), array('wcode' => $wcode, 'page' => $page, 'maxp' => $maxp, 'poll' => $poll));
 
 $body = elgg_view_layout('no_sidebar', array(
   'content' => $content
