@@ -1,6 +1,7 @@
 <?php
 session_start();
 elgg_require_js('uldpadevused/motivation');
+elgg_load_css('motivation');
 
 //extract data to put in hidden fields
 $wcode = elgg_extract('wcode', $vars);
@@ -33,18 +34,6 @@ $all = [
     ]
   ],
 ];
-
-//technically this is not the correct way of doing css in elgg
-echo '<style>
-  input[type="radio"]{
-    opacity:0;
-    position:fixed;
-  }
-  input[type="radio"]:not(:checked)+img{
-    -filter:grayscale(80%) hue-rotate(340deg);
-    -webkit-filter:grayscale(80%) hue-rotate(340deg);
-  }
-</style>';
 
 $labels = $all[$page]['labels'];
 for ($i = 0; $i < 3; $i = $ipp)

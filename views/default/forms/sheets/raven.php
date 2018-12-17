@@ -1,5 +1,6 @@
 <?php
 session_start();
+elgg_load_css('raven');
 
 //extract data to put in hidden fields
 $wcode = elgg_extract('wcode', $vars);
@@ -27,18 +28,6 @@ for ($i = 0; $i < 8; $i += 1)
     $options[$name] = $i + 1;
     
 }
-
-//technically this is not the correct way of doing css in elgg
-echo '<style>
-  input[type="radio"]{
-    opacity:0;
-    position:fixed;
-  }
-  input[type="radio"]:checked+img{
-    -filter:sepia(100%) saturate(4000%) grayscale(80%) hue-rotate(300deg);
-    -webkit-filter:sepia(100%) saturate(4000%) grayscale(80%) hue-rotate(300deg);
-  }
-</style>';
 
 echo elgg_view_field([
     'name' => 'q1',
