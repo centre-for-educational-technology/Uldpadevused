@@ -10,7 +10,14 @@ $sheets = elgg_get_entities(array(
   'limit' => 0
 ));
 
-$body = '<table style="width:100%;"><tr>';
+$body = "";
+
+if (elgg_is_admin_logged_in())
+{
+  $body .= elgg_view_form('worksheet/delete');
+}
+
+$body .= '<table style="width:100%;"><tr>';
 $body .= "<th>#</th>";
 $body .= "<th>".ee_echo('polls:all:code')."</th>";
 $body .= "<th>".ee_echo('polls:all:date')."</th>";

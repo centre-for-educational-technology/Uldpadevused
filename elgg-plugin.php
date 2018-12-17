@@ -45,6 +45,9 @@
     ],
     'actions' => [
       'worksheet/save' => [],
+      'worksheet/delete' => [
+        'access' => 'admin'
+      ],
       'begin' => [
         'access' => 'public'
       ],
