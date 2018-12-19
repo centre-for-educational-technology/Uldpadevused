@@ -126,14 +126,19 @@ for ($s = 0; $s < $n; $s += 1)
   //get page count
   $pcount = count(worksheets[$stype]['pages']);
 
-  for ($i = 1; $i <= $pcount; $i += 1)
+  //if its timelimited worksheet, we can ignore the first page
+  //and the other pages numbers are one higher than they should be, so
+  //we start scanning from second page and subtract one in csv entries
+  $l = (worksheets[$stype]['timelimit']) ? 1 : 0;
+
+  for ($i = 1 + $l; $i <= $pcount; $i += 1)
   {
     //get question count
     $qcount = worksheets[$stype]['pages'][$i];
   
     for ($k = 1; $k <= $qcount; $k += 1)
     {
-      $csv .= ',"'.worksheets[$stype]['alias'].': '.$i.'.'.$k.'"';
+      $csv .= ',"'.worksheets[$stype]['alias'].': '.($i - $l).'.'.$k.'"';
     }
   }
 }

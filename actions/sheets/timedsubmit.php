@@ -9,6 +9,23 @@ $poll = get_input('poll');
 $stype = get_poll_id($wcode, $poll);
 $maxp = count(worksheets[$stype]['pages']);
 
+//if start time hasn't been set for this poll then set it
+$time = $_SESSION[$wcode.'start'.$poll];
+if (!$time)
+{
+  $tallinn = timezone_open('Europe/Tallinn');
+  $now = date_create("now", $tallinn);
+  $unix = date_timestamp_get($now);
+  $_SESSION[$wcode.'start'.$poll] = $unix;
+}
+
+//check if time is up
+if (is_time_up($wcode, $poll))
+{
+  system_message(ee_echo('polls:success:timeup'));
+  forward_next_poll($wcode, $poll);
+}
+
 //get question count for current page
 $qcount = worksheets[$stype]['pages'][$page];
 
@@ -49,9 +66,9 @@ function save_form($wcode)
 
     $part1 = $wcode.'p'.$s.'p';
   
-    for ($i = 1; $i <= $pcount; $i += 1)
+    for ($i = 2; $i <= $pcount; $i += 1)
     {
-      //get question count
+      //get question count, +1 cause we are skipping first page
       $qcount = worksheets[$stype]['pages'][$i];
 
       $part2 = $part1.$i.'q';
@@ -115,4 +132,17 @@ function forward_home()
 {
   $url = elgg_generate_url('index');
   forward($url);
+}
+
+function is_time_up($wcode, $poll)
+{
+  $id = get_poll_id($wcode, $poll);
+  $limit = worksheets[$id]['timelimit'];
+  //check if the time is up
+  $start = $_SESSION[$wcode.'start'.$poll];
+  $tallinn = timezone_open('Europe/Tallinn');
+  $now = date_create("now", $tallinn);
+  $unix = date_timestamp_get($now);
+
+  return $unix - $start >= $limit;
 }

@@ -57,7 +57,7 @@
       ],
       'sheets/reading' => [
         'access' => 'public',
-        'filename' => __DIR__ . '/actions/sheets/formsubmit.php'
+        'filename' => __DIR__ . '/actions/sheets/timedsubmit.php'
       ],
       'sheets/studytutorial' => [
         'access' => 'public',
