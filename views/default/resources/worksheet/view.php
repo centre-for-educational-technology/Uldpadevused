@@ -13,16 +13,6 @@ if (!$sheet)
   forward(REFERER);
 }
 
-//if start time hasn't been set for this poll then set it
-$time = $_SESSION[$wcode.'start'.$poll];
-if (!$time)
-{
-  $tallinn = timezone_open('Europe/Tallinn');
-  $now = date_create("now", $tallinn);
-  $unix = date_timestamp_get($now);
-  $_SESSION[$wcode.'start'.$poll] = $unix;
-}
-
 //make sure we dont try to access a poll that doesnt exist
 $pollcount = get_poll_count($wcode);
 if (!$poll || $poll < 0)
