@@ -18,15 +18,33 @@
     <?php echo_img('statue.jpg'); ?>
   </div>
   <div id="link">
-    <?php echo_url('uldpadevused:begin', 'polls:main:start'); ?>
+    <?php echo_start_url('uldpadevused:begin'); ?>
+      <div id="click">
+        <?php echo_caption('polls:main:start'); ?>
+      </div>
+    <?php echo_end_url(); ?>
   </div>
 </div>
 
 <?php
 function echo_url($elgg_url, $elgg_caption)
 {
+  echo_start_url($elgg_url);
+  echo_caption($elgg_caption);
+  echo_end_url();
+}
+function echo_start_url($elgg_url)
+{
   $href = elgg_generate_url($elgg_url);
-  echo '<a href="'.$href.'">'.ee_echo($elgg_caption).'</a>';
+  echo '<a href="'.$href.'">';
+}
+function echo_caption($elgg_caption)
+{
+  echo ee_echo($elgg_caption);
+}
+function echo_end_url()
+{
+  echo '</a>';
 }
 function echo_img($filename)
 {
