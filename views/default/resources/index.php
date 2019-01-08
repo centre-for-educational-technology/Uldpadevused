@@ -1,6 +1,7 @@
 <head>
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <?php echo_css('index.css'); ?>
+  <?php echo_Css('general.css'); ?>
 </head>
 
 <div id="header">
@@ -54,28 +55,3 @@ function echo_css($filename)
 {
   echo '<link rel="stylesheet" href="'.elgg_get_simplecache_url('css/'.$filename).'">';
 }
-
-
-
-return;
-//old code below here just for reference
-
-elgg_load_css('hidebar');
-elgg_load_css('general');
-elgg_load_Css('index');
-
-$title = ee_echo('polls:main:title');
-$content = elgg_view_title($title);
-
-$href1 = elgg_generate_url('uldpadevused:begin');
-$href2 = elgg_generate_url('uldpadevused:teacher');
-
-//start answering to a poll
-$content .= '<a href="'.$href1.'" class="elgg-button elgg-button-action">'.ee_echo('polls:main:start').'</a>';
-$content .= '<a href="'.$href2.'">'.ee_echo('polls:main:teacher').'</a>';
-
-$body = elgg_view_layout('no_sidebar', array(
-   'content' => $content
-));
-
-echo elgg_view_page($title, $body);
