@@ -1,5 +1,7 @@
 <?php
 elgg_load_css('hidebar');
+elgg_load_css('general');
+elgg_load_css('begin');
 
 $title = ee_echo('polls:main:title');;
 $content = elgg_view_title($title);

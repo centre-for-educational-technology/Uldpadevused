@@ -272,6 +272,8 @@ function uldpadevused_init()
   elgg_register_css('motivation', elgg_get_simplecache_url('css/motivation.css'));
   elgg_register_css('raven', elgg_get_simplecache_url('css/raven.css'));
   elgg_register_css('chain', elgg_get_simplecache_url('css/chain.css'));
+  elgg_register_css('general', elgg_get_simplecache_url('css/general.css'));
+  elgg_register_css('begin', elgg_get_simplecache_url('css/begin.css'));
 }
 
 return function() {

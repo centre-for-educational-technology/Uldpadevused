@@ -1,6 +1,7 @@
 #header {
   width: 100%;
-  height: 5em;
+  height: 8vmax;
+  max-height: 12vw;
 }
 
 #header div {
@@ -11,7 +12,7 @@
 }
 
 #title {
-  width: calc(100% - 100px);
+  width: calc(100% - 10vmax);
   height: 100%;
 }
 
@@ -21,10 +22,11 @@
   left: 2em;
   top: 50%;
   transform: translateY(-50%);
+  font-size: 2.5vmax;
 }
 
 #teacher {
-  width: 100px;
+  width: 10vmax;
   height: 100%;
 }
 
@@ -34,6 +36,8 @@
   top: 50%;
   transform: translateY(-50%);
   text-decoration: none;
+  font-size: 1.8vmax;
+  color: black;
 }
 
 
@@ -65,8 +69,10 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 35em;
-  height: 4em;
+  width: 64vmax;
+  max-width: 96vw;
+  height: 8vmax;
+  max-height: 12vw;
 }
 
 #link a {
@@ -88,7 +94,7 @@
   display: inline-block;
   position: absolute;
   white-space:nowrap;
-  font-size: 2em;
+  font-size: 4vmax;
   color: white;
   left: 50%;
   top: 50%;
