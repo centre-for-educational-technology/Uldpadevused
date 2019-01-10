@@ -2,6 +2,14 @@
 session_start();
 elgg_require_js('uldpadevused/maths');
 
+//necessary for ajax later in maths.js
+$sessionid = session_id();
+echo elgg_view_field([
+    '#type' => 'hidden',
+    'name' => 'sessionid',
+    'value' => $sessionid
+  ]);
+
 //extract data to put in hidden fields
 $wcode = elgg_extract('wcode', $vars);
 $page = elgg_extract('page', $vars);

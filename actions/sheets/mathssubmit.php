@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 $wcode = get_input('wcode');
 $page = get_input('page');
@@ -25,6 +24,7 @@ forward_next_page($wcode, $page, $poll);
 
 function save_form($wcode)
 {
+  session_start();
   $sheet = get_sheet_from_wcode($wcode);
   $csvline .= '"'.
   $sheet->school.'","'.
@@ -57,6 +57,7 @@ function save_form($wcode)
       }
     }
   }
+  session_write_close();
   $csvline .= "\n";
   
   //write csv line to worksheet

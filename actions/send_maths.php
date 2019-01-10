@@ -1,6 +1,5 @@
 <?php
 elgg_ajax_gatekeeper();
-session_start();
 
 //get data
 $img = get_input('img');
@@ -32,8 +31,11 @@ $q2 = elgg_generate_url('view:object:drawing', [
   'icode' => $icode
 ]);
 
+//session deal
+$session_id = get_input('sesid');
+session_id($session_id);
+session_start();
+
 //save to session
 $_SESSION[$wcode.'p'.$poll.'p'.$page.'q1'] = $q1;
 $_SESSION[$wcode.'p'.$poll.'p'.$page.'q2'] = $q2;
-
-return;
