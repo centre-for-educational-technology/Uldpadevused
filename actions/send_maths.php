@@ -4,6 +4,7 @@ session_start();
 
 //get data
 $img = get_input('img');
+$q1 = get_input('q1');
 $wcode = get_input('wcode');
 $poll = get_input('poll');
 $page = get_input('page');
@@ -27,13 +28,12 @@ $drawing->img = $img;
 
 $drawing->save();
 
-$url = elgg_generate_url('view:object:drawing', [
+$q2 = elgg_generate_url('view:object:drawing', [
   'icode' => $icode
 ]);
 
-//return url
-echo json_encode([
-  'imgUrl' => $url
-]);
+//save to session
+$_SESSION[$wcode.'p'.$poll.'p'.$page.'q1'] = $q1;
+$_SESSION[$wcode.'p'.$poll.'p'.$page.'q2'] = $q2;
 
-return true;
+return;

@@ -9,17 +9,15 @@ define(function(require) {
   var myBoard = new DrawingBoard.Board(imgid);
 
   $('form').on("submit", function(event) {
-    event.preventDefault();
-    var self = this;
-
     var img = myBoard.getImg();
     var imgInput = (myBoard.blankCanvas == img) ? '' : img;
 
-    if (!$('input[name=q1').val()) $('input[name=q1]').val('0');
+    var q1 = $('input[name=q1]').val();
 
     ajax.action('send_maths', {
       data: {
         img: imgInput,
+        q1: q1 ? q1 : 0,
         wcode: $('input[name=wcode]').val(),
         poll: $('input[name=poll]').val(),
         page: $('input[name=page]').val()
@@ -28,8 +26,6 @@ define(function(require) {
       if (jqXHR.AjaxData.status == -1) {
         return;
       };
-      $('input[name=q2]').val(output.imgUrl);
-      self.submit();
     });
   });
 

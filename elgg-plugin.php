@@ -89,11 +89,11 @@
       ],
       'sheets/maths' => [
         'access' => 'public',
-        'filename' => __DIR__ . '/actions/sheets/formsubmit.php'
+        'filename' => __DIR__ . '/actions/sheets/mathssubmit.php'
       ],
       'sheets/maths2' => [
         'access' => 'public',
-        'filename' => __DIR__ . '/actions/sheets/formsubmit.php'
+        'filename' => __DIR__ . '/actions/sheets/mathssubmit.php'
       ],
       'send_maths' => [
         'access' => 'public',
