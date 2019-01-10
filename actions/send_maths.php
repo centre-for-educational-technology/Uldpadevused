@@ -19,7 +19,7 @@ if (!$drawing)
 {
   $drawing = new ElggObject();
   $drawing->subtype = 'drawing';
-  $drawing->access_id = 'logged_in';
+  $drawing->access_id = ACCESS_LOGGED_IN;
   $drawing->icode = $icode;
 }
 

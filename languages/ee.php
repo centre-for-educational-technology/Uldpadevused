@@ -34,7 +34,7 @@ return [
   'polls:forms:gender:male' => 'Mees',
   'polls:forms:gender:female' => 'Naine',
   'polls:forms:yes' => 'Jah',
-  'polls:forms:no' => 'No',
+  'polls:forms:no' => 'Ei',
   'polls:forms:age' => 'Vanus',
   'polls:forms:starttime' => 'Algusaeg',
   'polls:forms:timelimit' => 'Ajalimiit',

@@ -1,7 +1,8 @@
 <?php
-$icode = elgg_extract('icode', $vars);
 
-system_message($icode);
+gatekeeper();
+
+$icode = elgg_extract('icode', $vars);
 
 //find the right worksheet object
 $drawing = get_img_from_icode($icode);
