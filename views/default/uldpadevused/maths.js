@@ -15,7 +15,7 @@ define(function(require) {
     var img = myBoard.getImg();
     var imgInput = (myBoard.blankCanvas == img) ? '' : img;
 
-    if (!$('input[name=q1').val()) $('input[name=q1]').val('0');
+    if (!$('input[name=q1]').val()) $('input[name=q1]').val('0');
 
     ajax.action('send_maths', {
       data: {
