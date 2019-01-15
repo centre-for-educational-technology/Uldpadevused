@@ -226,7 +226,11 @@ function echo_end_url()
 }
 function echo_img($filename)
 {
-  echo '<img src="'.elgg_get_site_url().'/mod/Uldpadevused/images/'.$filename.'">';
+  echo view_img($filename);
+}
+function view_img($filename)
+{
+  return '<img src="'.elgg_get_site_url().'/mod/Uldpadevused/images/'.$filename.'">';
 }
 function echo_css($filename)
 {

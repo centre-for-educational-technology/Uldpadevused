@@ -17,7 +17,8 @@ elgg_load_css('hidebar');
 elgg_load_css('general');
 elgg_load_css('begin');
 $title = ee_echo('polls:main:title');
-$content = elgg_view_form("begin");
+$content = '<div id="image">'.view_img('statue.jpg').'</div>';
+$content .= elgg_view_form("begin");
 echo elgg_view_page($title, $content);
 
 /*elgg_load_css('hidebar');
