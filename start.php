@@ -205,6 +205,34 @@ function form_view_buttons($wcode, $page, $maxp, $poll)
   echo '<button value="'.'" type="submit" class="elgg-button elgg-button-submit">'.$value."</button>";
 }
 
+function echo_url($elgg_url, $elgg_caption)
+{
+  echo_start_url($elgg_url);
+  echo_caption($elgg_caption);
+  echo_end_url();
+}
+function echo_start_url($elgg_url)
+{
+  $href = elgg_generate_url($elgg_url);
+  echo '<a href="'.$href.'">';
+}
+function echo_caption($elgg_caption)
+{
+  echo ee_echo($elgg_caption);
+}
+function echo_end_url()
+{
+  echo '</a>';
+}
+function echo_img($filename)
+{
+  echo '<img src="'.elgg_get_site_url().'/mod/Uldpadevused/images/'.$filename.'">';
+}
+function echo_css($filename)
+{
+  echo '<link rel="stylesheet" href="'.elgg_get_simplecache_url('css/'.$filename).'">';
+}
+
 function uldpadevused_init()
 {
   elgg_register_plugin_hook_handler('cron', 'minute', function() {

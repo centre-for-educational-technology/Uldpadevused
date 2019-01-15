@@ -1,0 +1,51 @@
+select {
+    width: 100%;
+}
+
+.elgg-page-body {
+    position: absolute;
+    width: 70%;
+    min-width: 30em;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.elgg-field {
+    height: 6vmax;
+    margin-bottom: 1vmax;
+}
+
+.elgg-field-label {
+    height: 2.5vmax;
+    font-size: 1.4vmax;
+    line-height: 2.2vmax;
+}
+
+.elgg-field-input {
+    height: 2.5vmax;
+}
+
+.elgg-field-input select, .elgg-field-input input {
+    height: 2.5vmax;
+    font-size: 1.2vmax;
+    line-height: 2.1vmax;
+    padding: 0;
+    padding-left: 1vmax;
+}
+
+.elgg-foot {
+    height: 3.5vmax;
+}
+
+.elgg-foot .elgg-field-input {
+    height: 3.5vmax;
+}
+
+.elgg-button {
+    height: 3vmax;
+    font-size: 1.4vmax;
+    line-height: 2.2vmax;
+    width: 100%;
+    text-align: center;
+}
