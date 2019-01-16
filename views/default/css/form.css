@@ -21,8 +21,8 @@
 
 .elgg-button, a {
     height: 3vmax;
-    font-size: 1.4vmax;
-    line-height: 2.1vmax;
+    font-size: 2vmax;
+    line-height: 2.5vmax;
     width: calc(50% - 0.25rem);
     text-align: center;
 }
