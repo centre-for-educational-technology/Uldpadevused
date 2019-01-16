@@ -1,0 +1,28 @@
+.elgg-page-default {
+    min-height: 54vmax;
+}
+
+.elgg-page-messages {
+    height: 0;
+}
+
+.elgg-page-body {
+    height: 100%;
+}
+
+.elgg-page-default .elgg-page-section .elgg-inner {
+    position: relative;
+    height: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
+    max-width: 100%;
+}
+
+.elgg-button, a {
+    height: 3vmax;
+    font-size: 1.4vmax;
+    line-height: 2.1vmax;
+    width: calc(50% - 0.25rem);
+    text-align: center;
+}

@@ -1,5 +1,10 @@
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+</head>
+
 <?php
 elgg_load_css('hidebar');
+elgg_load_css('form');
 
 $wcode = elgg_extract('wcode', $vars);
 $poll = elgg_extract('poll', $vars);
@@ -44,8 +49,4 @@ $form = worksheets[$stype]['file'];
 $title = worksheets[$stype]['name'];
 
 $content = elgg_view_form($form, array(), array('wcode' => $wcode, 'page' => $page, 'maxp' => $maxp, 'poll' => $poll));
-
-$body = elgg_view_layout('no_sidebar', array(
-  'content' => $content
-));
-echo elgg_view_page($title, $body);
+echo elgg_view_page($title, $content);
