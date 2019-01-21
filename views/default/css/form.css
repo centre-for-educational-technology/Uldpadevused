@@ -8,6 +8,7 @@
 
 .elgg-page-body {
     height: 100%;
+    font-size: 2vmax;
 }
 
 .elgg-page-default .elgg-page-section .elgg-inner {
