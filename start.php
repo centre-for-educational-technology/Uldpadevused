@@ -307,6 +307,7 @@ function uldpadevused_init()
   elgg_register_css('general', elgg_get_simplecache_url('css/general.css'));
   elgg_register_css('form', elgg_get_simplecache_url('css/form.css'));
   elgg_register_css('begin', elgg_get_simplecache_url('css/begin.css'));
+  elgg_register_css('reading', elgg_get_simplecache_url('css/reading.css'));
 }
 
 return function() {
