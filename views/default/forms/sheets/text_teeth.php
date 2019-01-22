@@ -1,5 +1,6 @@
 <?php
 session_start();
+elgg_load_css('teeth');
 
 //extract data to put in hidden fields
 $wcode = elgg_extract('wcode', $vars);
@@ -98,9 +99,10 @@ if ($page == 5)
 {
   for ($i = 1; $i <= 5; $i += 1)
   {
-    echo '<p style="float:left;">'.$all[$page]['labels'][$i].'</p>';
+    $label = '<p style="float:left;">'.$all[$page]['labels'][$i].'</p>';
+    //echo $label;
     echo elgg_view_field([
-      '#label' => '',
+      '#label' => $label,
       'name' => 'q'.$i,
       'value' => $_SESSION[$wcode.'p'.$poll.'p'.$page.'q'.$i],
       'options' => [

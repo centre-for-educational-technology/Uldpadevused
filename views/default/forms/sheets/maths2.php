@@ -1,6 +1,7 @@
 <?php
 session_start();
 elgg_require_js('uldpadevused/maths');
+elgg_load_css('maths2');
 
 //extract data to put in hidden fields
 $wcode = elgg_extract('wcode', $vars);
@@ -42,6 +43,6 @@ echo elgg_view_field([
 ]);
 
 $imgid = 'img'.$wcode.$page;
-echo '<div id="'.$imgid.'" style="width:600px;height:400px"></div>';
+echo '<div class="drawer" id="'.$imgid.'" style="width:600px;height:400px"></div>';
 
 form_view_buttons($wcode, $page, $maxp, $poll);

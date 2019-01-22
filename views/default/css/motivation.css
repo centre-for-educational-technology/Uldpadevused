@@ -8,17 +8,23 @@ input[type="radio"]:not(:checked)+img{
   -webkit-filter:grayscale(80%) hue-rotate(340deg);
 }
 
-.elgg-field-label {
+.elgg-field .elgg-field-label {
   min-height: 3vmax;
   font-size: 2.5vmax;
   line-height: 2.5vmax;
   max-width: calc(100% - 2em);
   white-space: normal;
+  padding-left: 0;
+}
+
+.elgg-field .elgg-field-input {
+  padding-left: 0;
+  font-size: initial;
 }
 
 .elgg-input-radios li label img {
-  width: calc(20vw - 1rem - 2em);
-  height: calc(20vw - 1rem - 2em);
+  width: calc(20vw - 1rem - 1em);
+  height: calc(20vw - 1rem - 1em);
 
   max-width: calc(33vh - 0.6em - 1rem - 6.65vmax);
   max-height: calc(33vh - 0.6em - 1rem - 6.65vmax);
@@ -26,10 +32,21 @@ input[type="radio"]:not(:checked)+img{
 
 form {
   white-space: nowrap;
-  margin: 1em;
   display: inline-block;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.elgg-field .elgg-field-input {
+  height: auto;
+}
+
+form fieldset a {
+  margin: 0;
+}
+
+.elgg-inner form fieldset a, .elgg-inner form fieldset button {
+  width: 48%;
 }

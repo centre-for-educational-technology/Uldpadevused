@@ -24,6 +24,32 @@
     height: 3vmax;
     font-size: 2vmax;
     line-height: 2.5vmax;
-    width: calc(50% - 0.25rem);
+    width: 47%;
     text-align: center;
+    margin-left: 2%;
+}
+
+fieldset .elgg-button + .elgg-button, fieldset a {
+    margin: 0;
+    margin-left: 2%;
+}
+
+.elgg-field-label, .elgg-field-input {
+    padding-left: 2%;
+    padding-bottom: 0.5vmax;
+    font-size: 3vmax;
+    line-height: 3.5vmax;
+}
+
+h2 {
+    padding-left: 2%;
+    padding-bottom: 4%;
+    font-size: 3.25vmax;
+    line-height: 3.75vmax;
+}
+
+input[type=radio] {
+    border: 0px;
+    width: 2.25vmax;
+    height: 2.25vmax;
 }

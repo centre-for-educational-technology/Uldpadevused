@@ -308,6 +308,10 @@ function uldpadevused_init()
   elgg_register_css('form', elgg_get_simplecache_url('css/form.css'));
   elgg_register_css('begin', elgg_get_simplecache_url('css/begin.css'));
   elgg_register_css('reading', elgg_get_simplecache_url('css/reading.css'));
+  elgg_register_css('studytutorial', elgg_get_simplecache_url('css/studytutorial.css'));
+  elgg_register_css('maths', elgg_get_simplecache_url('css/maths.css'));
+  elgg_register_css('maths2', elgg_get_simplecache_url('css/maths2.css'));
+  elgg_register_css('teeth', elgg_get_simplecache_url('css/teeth.css'));
 }
 
 return function() {
