@@ -50,3 +50,11 @@
   top: 50%;
   transform: translate(-50%, -50%);
 }
+
+div.elgg-page.elgg-page-default {
+  height: 100%;
+}
+
+.elgg-page-default .elgg-page-body div.elgg-inner {
+  padding: 0;
+}

@@ -4,25 +4,37 @@
   <?php echo_Css('general.css'); ?>
 </head>
 
-<div id="header">
+<?php
+session_start();
+elgg_load_css('hidebar');
+elgg_load_css('general');
+elgg_load_css('index');
+
+$title = '';
+
+$content =
+'<div id="header">
   <div id="title">
     <h1>Üldpädevused</h1>
   </div><!--
     this is here to get rid of the whitespace between the two divs
   --><div id="teacher">
-    <?php echo_url('uldpadevused:teacher', 'polls:main:teacher'); ?>
+    <a href="'.elgg_generate_url('uldpadevused:teacher').'">'.
+    ee_echo('polls:main:teacher').'</a>
   </div>
 </div>
 
 <div id="content">
-  <div id="image">
-    <?php echo_img('statue.jpg'); ?>
+  <div id="image">'.
+    view_img("statue.jpg").'
   </div>
   <div id="link">
-    <?php echo_start_url('uldpadevused:begin'); ?>
-      <div id="click">
-        <?php echo_caption('polls:main:start'); ?>
+    <a href="'.elgg_generate_url('uldpadevused:begin').'">
+      <div id="click">'.
+        ee_echo('polls:main:start').'
       </div>
-    <?php echo_end_url(); ?>
+    </a>
   </div>
-</div>
+</div>';
+
+echo elgg_view_page($title, $content);
