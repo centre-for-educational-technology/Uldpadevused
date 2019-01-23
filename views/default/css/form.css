@@ -7,7 +7,7 @@
 }
 
 .elgg-page-body {
-    height: 100%;
+    height: calc(100% - 12vmax);
     font-size: 2vmax;
 }
 
@@ -52,4 +52,19 @@ input[type=radio] {
     border: 0px;
     width: 2.25vmax;
     height: 2.25vmax;
+}
+
+#image {
+    display: block;
+    width: 100%;
+    height: 10vmax;
+    padding-left: 2vmax;
+    padding-right: 2vmax;
+    margin-top: 2vmax;
+}
+
+#image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
