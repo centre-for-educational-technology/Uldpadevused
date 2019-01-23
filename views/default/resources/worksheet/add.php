@@ -1,3 +1,7 @@
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+</head>
+
 <?php
 
 gatekeeper();
