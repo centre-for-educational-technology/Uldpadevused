@@ -291,6 +291,7 @@ function uldpadevused_init()
     }
   });
   
+  //register drawingboard js and css
   elgg_define_js('uldpadevused/simple-undo', [
     'exports' => 'SimpleUndo',
   ]);
@@ -300,18 +301,28 @@ function uldpadevused_init()
   ]);
   elgg_extend_view('elgg.css', 'uldpadevused/drawingboard.css');
 
-  elgg_register_css('hidebar', elgg_get_simplecache_url('css/hidebar.css'));
-  elgg_register_css('motivation', elgg_get_simplecache_url('css/motivation.css'));
-  elgg_register_css('raven', elgg_get_simplecache_url('css/raven.css'));
-  elgg_register_css('chain', elgg_get_simplecache_url('css/chain.css'));
-  elgg_register_css('general', elgg_get_simplecache_url('css/general.css'));
-  elgg_register_css('form', elgg_get_simplecache_url('css/form.css'));
-  elgg_register_css('begin', elgg_get_simplecache_url('css/begin.css'));
-  elgg_register_css('reading', elgg_get_simplecache_url('css/reading.css'));
-  elgg_register_css('studytutorial', elgg_get_simplecache_url('css/studytutorial.css'));
-  elgg_register_css('maths', elgg_get_simplecache_url('css/maths.css'));
-  elgg_register_css('maths2', elgg_get_simplecache_url('css/maths2.css'));
-  elgg_register_css('teeth', elgg_get_simplecache_url('css/teeth.css'));
+  //register all css
+  $csslist = [
+    'hidebar',
+    'motivation',
+    'raven',
+    'chain',
+    'general',
+    'form',
+    'begin',
+    'reading',
+    'studytutorial',
+    'maths',
+    'maths2',
+    'teeth',
+    'blockquestions'
+  ];
+  for ($i = 0; $i < count($csslist); $i++)
+  {
+    elgg_register_css($csslist[$i], 
+      elgg_get_simplecache_url('css/'.$csslist[$i].'.css')
+    );
+  }
 }
 
 return function() {
