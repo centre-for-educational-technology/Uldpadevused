@@ -26,8 +26,8 @@ input[type="radio"]:not(:checked)+img{
   width: calc(20vw - 1rem - 1em);
   height: calc(20vw - 1rem - 1em);
 
-  max-width: calc(33vh - 0.6em - 1rem - 9.65vmax);
-  max-height: calc(33vh - 0.6em - 1rem - 9.65vmax);
+  max-width: calc(33vh - 0.6em - 1rem - 12.65vmax);
+  max-height: calc(33vh - 0.6em - 1rem - 12.65vmax);
 }
 
 form {
@@ -49,4 +49,8 @@ form fieldset a {
 
 .elgg-inner form fieldset a, .elgg-inner form fieldset button {
   width: 48%;
+}
+
+.elgg-page-default {
+  height: calc(100% - 10vmax);
 }
