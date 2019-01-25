@@ -1,6 +1,7 @@
 <?php
 session_start();
 elgg_load_css('blockquestions');
+elgg_require_js('uldpadevused/blockquestions');
 
 //extract data to put in hidden fields
 $wcode = elgg_extract('wcode', $vars);

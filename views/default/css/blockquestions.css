@@ -12,10 +12,6 @@ h2 {
   padding-left: 0;
 }
 
-fieldset .elgg-button + .elgg-button, fieldset a {
-
-}
-
 .elgg-input-radios li label {
   display: inline-block;
   width: 100%;
@@ -23,6 +19,10 @@ fieldset .elgg-button + .elgg-button, fieldset a {
   padding: 1.25vmax 3vmax 1.25vmax 3vmax;
   margin-top: 1vmax;
   margin-bottom: 1vmax;
+}
+
+.elgg-input-radios li label.selected {
+  background-color: lightgray;
 }
 
 .elgg-input-radios li label input {
