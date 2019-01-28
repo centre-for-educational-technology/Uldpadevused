@@ -2,7 +2,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 
-<div id="image"><?php echo_img('statue.jpg') ?></div>
+<div id="image"><?php echo_img('pencil.jpg') ?></div>
 
 <?php
 elgg_load_css('hidebar');
