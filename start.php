@@ -53,8 +53,8 @@ const worksheets = [
     'name' => 'Tekst "Õhusõidukid" 4. kl',
     'file' => 'sheets/text_plane',
     'pages' => [ 
-      1 => 1, 2 => 1, 3 => 1, 4 => 1,
-      5 => 1, 6 => 1, 7 => 1, 8 => 1, 9 => 1 
+      1 => 2, 2 => 2, 3 => 2, 4 => 2,
+      5 => 1 
     ],
     'alias' => 'lennuk'
   ],
@@ -62,8 +62,8 @@ const worksheets = [
     'name' => 'Tekst "Paberilugu" 3. kl',
     'file' => 'sheets/text_paper',
     'pages' => [ 
-      1 => 1, 2 => 1, 3 => 1, 4 => 1, 
-      5 => 1, 6 => 1, 7 => 1, 8 => 1, 9 => 1 
+      1 => 2, 2 => 2, 3 => 2, 4 => 2, 
+      9 => 1
     ],
     'alias' => 'paber'
   ],
@@ -71,8 +71,8 @@ const worksheets = [
     'name' => 'Tekst "Hambalugu" 2. kl',
     'file' => 'sheets/text_teeth',
     'pages' => [ 
-      1 => 1, 2 => 1, 3 => 1, 4 => 1,
-      5 => 5, 6 => 1, 7 => 1, 8 => 1, 9 => 1
+      1 => 2, 2 => 2, 3 => 5,
+      4 => 2, 5 => 1, 6 => 1
     ],
     'alias' => 'hambad'
   ],
@@ -315,7 +315,8 @@ function uldpadevused_init()
     'maths',
     'maths2',
     'teeth',
-    'blockquestions'
+    'blockquestions',
+    'eightquestions'
   ];
   for ($i = 0; $i < count($csslist); $i++)
   {

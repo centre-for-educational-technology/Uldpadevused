@@ -1,0 +1,13 @@
+.elgg-input-radios {
+    width: 100%;
+}
+
+.elgg-field-input {
+    margin-top: 2vmax;
+}
+
+.elgg-input-radios.elgg-horizontal li {
+    display: inline-block;
+    padding-right: 0;
+    width: calc(100% / 9);
+}
