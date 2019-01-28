@@ -2,11 +2,6 @@
   padding-left: 0;
 }
 
-form {
-  width: 90%;
-  margin-left: 5%;
-}
-
 h2 {
   margin-top: 2vmax;
   padding-left: 0;
@@ -23,8 +18,4 @@ h2 {
 
 .elgg-input-radios li label.selected {
   background-color: lightgray;
-}
-
-.elgg-input-radios li label input {
-  
 }

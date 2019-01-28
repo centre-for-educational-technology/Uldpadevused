@@ -1,5 +1,4 @@
 .elgg-input-radios.elgg-horizontal li{
-    padding-left:2%;
     width: calc(94% / 2);
     display:inline-block;
     font-size: 3vmax;
@@ -8,7 +7,6 @@
   }
 
   .elgg-field-label, h2 {
-      padding-left:2%;
       font-size:4vmax;
       line-height: 5vmax;
       height:6vmax;

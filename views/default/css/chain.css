@@ -1,5 +1,6 @@
 .elgg-input-radios.elgg-horizontal li{
-  padding-right:0
+  padding-right: 0;
+  white-space: nowrap;
 }
 
 input[type="radio"]{
@@ -19,17 +20,12 @@ input[type="radio"]:checked+img{
 }
 
 .big-img {
-  width: 96%;
-  margin-left: 2%;
+  width: 100%;
 }
 
 .small-img {
-  width: calc(86% / 6);
-  margin-left: 2%;
-}
-
-p {
-  margin-left: 2%;
+  width: calc(90% / 6);
+  margin-right: 2%;
 }
 
 .elgg-field .elgg-field-input {
