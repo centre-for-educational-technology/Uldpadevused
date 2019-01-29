@@ -1,18 +1,40 @@
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <?php echo_css('index.css'); ?>
+  <?php echo_Css('general.css'); ?>
+</head>
+
 <?php
+session_start();
 elgg_load_css('hidebar');
+elgg_load_css('general');
+elgg_load_css('index');
 
-$title = ee_echo('polls:main:title');
-$content = elgg_view_title($title);
+$title = '';
 
-$href1 = elgg_generate_url('uldpadevused:begin');
-$href2 = elgg_generate_url('uldpadevused:teacher');
+$content =
+'<div id="header">
+  <div id="title">
+    <h1>Üldpädevused</h1>
+  </div><!--
+    this is here to get rid of the whitespace between the two divs
+  --><div id="teacher">
+    <a href="'.elgg_generate_url('uldpadevused:teacher').'">'.
+    ee_echo('polls:main:teacher').'</a>
+  </div>
+</div>
 
-//start answering to a poll
-$content .= '<a href="'.$href1.'" class="elgg-button elgg-button-action">'.ee_echo('polls:main:start').'</a>';
-$content .= '<a href="'.$href2.'" class="elgg-button elgg-button-action">'.ee_echo('polls:main:teacher').'</a>';
+<div id="content">
+  <div id="image">'.
+    view_img("statue.jpg").'
+  </div>
+  <div id="link">
+    <a href="'.elgg_generate_url('uldpadevused:begin').'">
+      <div id="click">'.
+        ee_echo('polls:main:start').'
+      </div>
+    </a>
+  </div>
+</div>';
 
-$body = elgg_view_layout('no_sidebar', array(
-   'content' => $content
-));
-
-echo elgg_view_page($title, $body);
+echo elgg_view_page($title, $content);

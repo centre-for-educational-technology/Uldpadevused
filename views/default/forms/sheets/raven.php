@@ -13,15 +13,15 @@ form_view_hidden_fields($wcode, $page, $maxp, $poll);
 $ltr = "abcdefgh";
 $url = elgg_get_site_url();
 
-echo '<img src="'.$url.'mod/Uldpadevused/images/raven'.$page.'.png" width=500px><br>';
+echo '<img class="big-img" src="'.$url.'mod/Uldpadevused/images/raven'.$page.'.png"><br>';
 
-echo "Vali sobiv:";
+echo "<p>Vali sobiv:</p>";
 
 for ($i = 0; $i < 8; $i += 1)
 {
-    $name = '<img src="'.$url.
+    $name = '<img class="small-img" src="'.$url.
     'mod/Uldpadevused/images/raven'.
-    $page.$ltr[$i].'.png" width=150px>';
+    $page.$ltr[$i].'.png">';
 
     if ($i == 3) $name .= '<br>';
     

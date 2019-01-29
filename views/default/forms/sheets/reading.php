@@ -1,6 +1,7 @@
 <?php
 session_start();
 elgg_require_js('uldpadevused/reading');
+elgg_load_css('reading');
 
 //extract data to put in hidden fields
 $wcode = elgg_extract('wcode', $vars);

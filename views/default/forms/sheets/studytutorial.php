@@ -1,5 +1,6 @@
 <?php
 session_start();
+elgg_load_css('studytutorial');
 
 //extract data to put in hidden fields
 $wcode = elgg_extract('wcode', $vars);

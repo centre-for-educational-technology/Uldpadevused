@@ -1,0 +1,21 @@
+.elgg-field-input {
+  padding-left: 0;
+}
+
+h2 {
+  margin-top: 2vmax;
+  padding-left: 0;
+}
+
+.elgg-input-radios li label {
+  display: inline-block;
+  width: 100%;
+  border: 1px solid gray;
+  padding: 1.25vmax 3vmax 1.25vmax 3vmax;
+  margin-top: 1vmax;
+  margin-bottom: 1vmax;
+}
+
+.elgg-input-radios li label.selected {
+  background-color: lightgray;
+}

@@ -53,8 +53,8 @@ const worksheets = [
     'name' => 'Tekst "Õhusõidukid" 4. kl',
     'file' => 'sheets/text_plane',
     'pages' => [ 
-      1 => 1, 2 => 1, 3 => 1, 4 => 1,
-      5 => 1, 6 => 1, 7 => 1, 8 => 1, 9 => 1 
+      1 => 2, 2 => 2, 3 => 2, 4 => 2,
+      5 => 1 
     ],
     'alias' => 'lennuk'
   ],
@@ -62,8 +62,8 @@ const worksheets = [
     'name' => 'Tekst "Paberilugu" 3. kl',
     'file' => 'sheets/text_paper',
     'pages' => [ 
-      1 => 1, 2 => 1, 3 => 1, 4 => 1, 
-      5 => 1, 6 => 1, 7 => 1, 8 => 1, 9 => 1 
+      1 => 2, 2 => 2, 3 => 2, 4 => 2, 
+      9 => 1
     ],
     'alias' => 'paber'
   ],
@@ -71,8 +71,8 @@ const worksheets = [
     'name' => 'Tekst "Hambalugu" 2. kl',
     'file' => 'sheets/text_teeth',
     'pages' => [ 
-      1 => 1, 2 => 1, 3 => 1, 4 => 1,
-      5 => 5, 6 => 1, 7 => 1, 8 => 1, 9 => 1
+      1 => 2, 2 => 2, 3 => 5,
+      4 => 2, 5 => 1, 6 => 1
     ],
     'alias' => 'hambad'
   ],
@@ -205,6 +205,38 @@ function form_view_buttons($wcode, $page, $maxp, $poll)
   echo '<button value="'.'" type="submit" class="elgg-button elgg-button-submit">'.$value."</button>";
 }
 
+function echo_url($elgg_url, $elgg_caption)
+{
+  echo_start_url($elgg_url);
+  echo_caption($elgg_caption);
+  echo_end_url();
+}
+function echo_start_url($elgg_url)
+{
+  $href = elgg_generate_url($elgg_url);
+  echo '<a href="'.$href.'">';
+}
+function echo_caption($elgg_caption)
+{
+  echo ee_echo($elgg_caption);
+}
+function echo_end_url()
+{
+  echo '</a>';
+}
+function echo_img($filename)
+{
+  echo view_img($filename);
+}
+function view_img($filename)
+{
+  return '<img src="'.elgg_get_site_url().'/mod/Uldpadevused/images/'.$filename.'">';
+}
+function echo_css($filename)
+{
+  echo '<link rel="stylesheet" href="'.elgg_get_simplecache_url('css/'.$filename).'">';
+}
+
 function uldpadevused_init()
 {
   elgg_register_plugin_hook_handler('cron', 'minute', function() {
@@ -259,6 +291,7 @@ function uldpadevused_init()
     }
   });
   
+  //register drawingboard js and css
   elgg_define_js('uldpadevused/simple-undo', [
     'exports' => 'SimpleUndo',
   ]);
@@ -268,10 +301,29 @@ function uldpadevused_init()
   ]);
   elgg_extend_view('elgg.css', 'uldpadevused/drawingboard.css');
 
-  elgg_register_css('hidebar', elgg_get_simplecache_url('css/hidebar.css'));
-  elgg_register_css('motivation', elgg_get_simplecache_url('css/motivation.css'));
-  elgg_register_css('raven', elgg_get_simplecache_url('css/raven.css'));
-  elgg_register_css('chain', elgg_get_simplecache_url('css/chain.css'));
+  //register all css
+  $csslist = [
+    'hidebar',
+    'motivation',
+    'raven',
+    'chain',
+    'general',
+    'form',
+    'begin',
+    'reading',
+    'studytutorial',
+    'maths',
+    'maths2',
+    'teeth',
+    'blockquestions',
+    'eightquestions'
+  ];
+  for ($i = 0; $i < count($csslist); $i++)
+  {
+    elgg_register_css($csslist[$i], 
+      elgg_get_simplecache_url('css/'.$csslist[$i].'.css')
+    );
+  }
 }
 
 return function() {

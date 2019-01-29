@@ -1,9 +1,37 @@
 input[type="radio"]{
-  opacity:0;
-  position:fixed;
+  opacity: 0;
+  position: fixed;
 }
 
 input[type="radio"]:checked+img{
-  filter:sepia(100%) saturate(4000%) grayscale(80%) hue-rotate(300deg);
-  -webkit-filter:sepia(100%) saturate(4000%) grayscale(80%) hue-rotate(300deg);
+  filter: brightness(75%) sepia(100%) saturate(800%) hue-rotate(180deg);
+}
+
+.elgg-input-radios.elgg-horizontal {
+  font-size: 0;
+  white-space: nowrap;
+}
+
+.elgg-input-radios.elgg-horizontal li{
+  padding-right: 0;
+}
+
+.big-img {
+  object-fit: contain;
+  width: 100%;
+  /*max-height: 30vh;*//*this would fix landscape mode but breaks portrait a bit*/
+}
+
+.small-img {
+  width: calc(94% / 4);
+  margin-right: 2%;
+  margin-bottom: 2%;
+}
+
+.small-img:nth-child(4) {
+  margin-right: 0%;
+}
+
+.elgg-field .elgg-field-input {
+  height: auto;
 }
