@@ -137,8 +137,8 @@ $all = [
 if ($page == 1)
 {
   echo elgg_view_title("Järgnev küsitlus on aja peale.");
-  echo "Sul on aega 60 sekundit, et vastata 30-le küsimusele. Vasta nii mitmele, kui jõuad.<br>";
-  echo 'Aeg läheb käima, kui vajutad nuppu "Alusta".<br>';
+  echo "<p>Sul on aega 60 sekundit, et vastata 30-le küsimusele. Vasta nii mitmele, kui jõuad.<p>";
+  echo '<p>Aeg läheb käima, kui vajutad nuppu "Alusta".<p>';
   echo '<button value="" type="submit" class="elgg-button elgg-button-submit">Alusta</button>';
 }
 else
