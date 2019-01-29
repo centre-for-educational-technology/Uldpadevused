@@ -4,8 +4,7 @@ input[type="radio"]{
 }
 
 input[type="radio"]:checked+img{
-  filter:sepia(100%) saturate(4000%) grayscale(80%) hue-rotate(300deg);
-  -webkit-filter:sepia(100%) saturate(4000%) grayscale(80%) hue-rotate(300deg);
+  filter: brightness(75%) sepia(100%) saturate(800%) hue-rotate(180deg);
 }
 
 .elgg-input-radios.elgg-horizontal {

@@ -9,14 +9,8 @@ input[type="radio"]{
   margin:0;
 }
 
-input[type="radio"]:not(:checked)+img{
-  filter:sepia(100%) saturate(4000%) grayscale(100%);
-  -webkit-filter:sepia(100%) saturate(4000%) grayscale(100%);
-}
-
 input[type="radio"]:checked+img{
-  filter:sepia(100%) saturate(4000%) grayscale(80%) hue-rotate(300deg);
-  -webkit-filter:sepia(100%) saturate(4000%) grayscale(80%) hue-rotate(300deg);
+  filter: brightness(75%) sepia(100%) saturate(800%) hue-rotate(180deg);
 }
 
 .big-img {
