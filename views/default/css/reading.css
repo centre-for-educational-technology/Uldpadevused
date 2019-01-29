@@ -17,8 +17,8 @@
 .elgg-field-label, h2 {
     font-size:4vmax;
     line-height: 5vmax;
-    height:6vmax;
-    font-weight:normal;
+    margin-bottom: 1vmax;
+    font-weight: normal;
 }
 
 .elgg-input-radios li label {
