@@ -1,6 +1,9 @@
 body {
   margin: 0;
-  font-family: Lato;
+}
+
+body, button, input, select, textarea {
+  font-family: Lato !important;
 }
 
 #header {

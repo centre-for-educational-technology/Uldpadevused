@@ -1,14 +1,42 @@
-.elgg-input-radios.elgg-horizontal li{
+/*.elgg-input-radios.elgg-horizontal li{
     width: calc(94% / 2);
     display:inline-block;
     font-size: 3vmax;
     line-height: 4vmax;
     height: 5vmax;
-  }
+  }*/
 
-  .elgg-field-label, h2 {
-      font-size:4vmax;
-      line-height: 5vmax;
-      height:6vmax;
-      font-weight:normal;
-  }
+.elgg-input-radios.elgg-horizontal li {
+    padding: 0;
+}
+
+.elgg-input-radios {
+    white-space: nowrap;
+}
+
+.elgg-field-label, h2 {
+    font-size:4vmax;
+    line-height: 5vmax;
+    height:6vmax;
+    font-weight:normal;
+}
+
+.elgg-input-radios li label {
+    display: inline-block;
+    width: 49%;
+    padding: 1.75vmax 3vmax 1.75vmax 3vmax;
+    margin-right: 2%;
+    /*background: lightgreen;*/
+    border: 3px solid lightgreen;
+    background: rgb(218, 252, 218);
+}
+
+.elgg-input-radios li:nth-child(2) label {
+    /*background: lightcoral;*/
+    border: 3px solid lightcoral;
+    background: rgb(255, 204, 204);
+}
+  
+.elgg-input-radios li label.selected {
+    background-color: lightgray;
+}
