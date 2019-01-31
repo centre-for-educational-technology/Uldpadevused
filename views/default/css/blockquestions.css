@@ -7,13 +7,18 @@ h2 {
   padding-left: 0;
 }
 
+.elgg-field-label {
+  font-size: 2.8vmax;
+}
+
 .elgg-input-radios li label {
   display: inline-block;
   width: 100%;
   border: 1px solid gray;
-  padding: 1.25vmax 3vmax 1.25vmax 3vmax;
+  padding: 1.20vmax 3vmax 1.20vmax 3vmax;
   margin-top: 1vmax;
   margin-bottom: 1vmax;
+  font-size: 2.6vmax;
 }
 
 .elgg-input-radios li label.selected {
