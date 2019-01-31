@@ -18,7 +18,8 @@ input[type="radio"]:checked+img{
 
 .big-img {
   object-fit: contain;
-  width: 100%;
+  width: 90%;
+  margin-left: 5%;
   /*max-height: 30vh;*//*this would fix landscape mode but breaks portrait a bit*/
 }
 
